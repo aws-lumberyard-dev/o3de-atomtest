@@ -1,0 +1,834 @@
+{
+    "values": [
+        {
+            "$type": "ActorGroup",
+            "name": "valenaactor",
+            "id": "{BA942BE0-F5D3-58A2-8E70-4DB78DCE9D06}",
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "TangentsRule"
+                    },
+                    {
+                        "$type": "SkinRule"
+                    },
+                    {
+                        "$type": "MaterialRule"
+                    },
+                    {
+                        "$type": "MetaDataRule",
+                        "metaData": "AdjustActor -actorID $(ACTORID) -name \"ValenaActor\"\r\nActorSetCollisionMeshes -actorID $(ACTORID) -lod 0 -nodeList \"\"\r\nAdjustActor -actorID $(ACTORID) -nodesExcludedFromBounds \"\" -nodeAction \"select\"\r\nAdjustActor -actorID $(ACTORID) -nodeAction \"replace\" -attachmentNodes \"\"\r\nAdjustActor -actorID $(ACTORID) -motionExtractionNodeName \"Reference\"\r\n"
+                    },
+                    {
+                        "$type": "ActorPhysicsSetupRule",
+                        "data": {
+                            "config": {
+                                "ragdollConfig": {
+                                    "nodes": [
+                                        {
+                                            "name": "Hips",
+                                            "Compute Mass": false,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "Spine",
+                                            "Compute Mass": false,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "Spine1",
+                                            "Compute Mass": false,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "Spine2",
+                                            "Compute Mass": false,
+                                            "Mass": 1.5,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "Spine3",
+                                            "Compute Mass": false,
+                                            "Mass": 2.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "Spine4",
+                                            "Compute Mass": false,
+                                            "Mass": 2.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "Neck",
+                                            "Compute Mass": false,
+                                            "Mass": 2.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "Neck1",
+                                            "Compute Mass": false,
+                                            "Mass": 3.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "Head",
+                                            "Compute Mass": false,
+                                            "Mass": 4.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "LeftShoulder",
+                                            "Compute Mass": false,
+                                            "Mass": 2.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "LeftArm",
+                                            "Compute Mass": false,
+                                            "Mass": 2.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "LeftForeArm",
+                                            "Compute Mass": false,
+                                            "Mass": 2.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "LeftHand",
+                                            "Compute Mass": false,
+                                            "Mass": 4.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "RightShoulder",
+                                            "Compute Mass": false,
+                                            "Mass": 2.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "RightArm",
+                                            "Compute Mass": false,
+                                            "Mass": 2.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "RightForeArm",
+                                            "Compute Mass": false,
+                                            "Mass": 2.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "RightHand",
+                                            "Compute Mass": false,
+                                            "Mass": 4.0,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "LeftUpLeg",
+                                            "Compute Mass": false,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "LeftLeg",
+                                            "Compute Mass": false,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "LeftFoot",
+                                            "Compute Mass": false,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "RightUpLeg",
+                                            "Compute Mass": false,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "RightLeg",
+                                            "Compute Mass": false,
+                                            "Compute inertia": false
+                                        },
+                                        {
+                                            "name": "RightFoot",
+                                            "Compute Mass": false,
+                                            "Compute inertia": false
+                                        }
+                                    ],
+                                    "colliders": {
+                                        "nodes": [
+                                            {
+                                                "name": "Hips",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.15000000596046449,
+                                                            "Radius": 0.05000000074505806
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "Spine",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.0,
+                                                                0.009999999776482582,
+                                                                -0.10999999940395355
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.37000009417533877,
+                                                            "Radius": 0.07500000298023224
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "Spine1",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.0,
+                                                                0.0,
+                                                                -0.029999999329447748
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.31000009179115298,
+                                                            "Radius": 0.05000000074505806
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "Spine2",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.0,
+                                                                0.0,
+                                                                0.019999999552965165
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.30000001192092898,
+                                                            "Radius": 0.05000000074505806
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "Spine3",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.0,
+                                                                0.0,
+                                                                0.05000000074505806
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.3100000023841858,
+                                                            "Radius": 0.03999999910593033
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "Spine4",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.0,
+                                                                0.0,
+                                                                0.03999999910593033
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.20999999344348908,
+                                                            "Radius": 0.03999999910593033
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "Neck",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.09099999815225601,
+                                                            "Radius": 0.04500000178813934
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "Neck1",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.0,
+                                                                0.0,
+                                                                0.03999999910593033
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.07999999821186066,
+                                                            "Radius": 0.02500000037252903
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "Head",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.0,
+                                                                0.0,
+                                                                0.12999999523162843
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.25,
+                                                            "Radius": 0.09000000357627869
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "LeftShoulder",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                -0.07000000029802323,
+                                                                0.029999999329447748,
+                                                                0.0
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.15000000596046449,
+                                                            "Radius": 0.03500000014901161
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "LeftArm",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                -0.14000000059604646,
+                                                                0.009999999776482582,
+                                                                0.0
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.25999999046325686,
+                                                            "Radius": 0.04500000178813934
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "LeftForeArm",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                -0.12999999523162843,
+                                                                0.009999999776482582,
+                                                                0.0
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.25,
+                                                            "Radius": 0.03999999910593033
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "LeftHand",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                -0.05999999865889549,
+                                                                0.0,
+                                                                0.0
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.10000000149011612,
+                                                            "Radius": 0.04500000178813934
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "RightShoulder",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.07000000029802323,
+                                                                -0.029999999329447748,
+                                                                0.0
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.15000000596046449,
+                                                            "Radius": 0.03500000014901161
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "RightArm",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.14000000059604646,
+                                                                -0.009999999776482582,
+                                                                0.0
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.25999999046325686,
+                                                            "Radius": 0.04500000178813934
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "RightForeArm",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.12999999523162843,
+                                                                -0.009999999776482582,
+                                                                0.0
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.25,
+                                                            "Radius": 0.03999999910593033
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "RightHand",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.05000000074505806,
+                                                                0.0,
+                                                                0.0
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.10000000149011612,
+                                                            "Radius": 0.04500000178813934
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "LeftUpLeg",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                -0.20999999344348908,
+                                                                0.0,
+                                                                -0.009999999776482582
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.38999998569488528,
+                                                            "Radius": 0.09000000357627869
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "LeftLeg",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                -0.25,
+                                                                0.0,
+                                                                0.0
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.47999998927116396,
+                                                            "Radius": 0.07500000298023224
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "LeftFoot",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                -0.029999999329447748,
+                                                                0.0,
+                                                                -0.09000000357627869
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.18000000715255738,
+                                                            "Radius": 0.03500000014901161
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "RightUpLeg",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.20999999344348908,
+                                                                0.0,
+                                                                0.0
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.38999998569488528,
+                                                            "Radius": 0.08500000089406967
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "RightLeg",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.25,
+                                                                0.0,
+                                                                0.0
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.4699999988079071,
+                                                            "Radius": 0.07000000029802323
+                                                        }
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "name": "RightFoot",
+                                                "shapes": [
+                                                    [
+                                                        {
+                                                            "Visible": true,
+                                                            "Position": [
+                                                                0.029999999329447748,
+                                                                0.0,
+                                                                0.10000000149011612
+                                                            ]
+                                                        },
+                                                        {
+                                                            "$type": "CapsuleShapeConfiguration",
+                                                            "Height": 0.1899999976158142,
+                                                            "Radius": 0.02500000037252903
+                                                        }
+                                                    ]
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "$type": "CoordinateSystemRule"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "ValenaActor",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    {},
+                    "RootNode",
+                    "RootNode.Reference",
+                    "RootNode.zipper_low",
+                    "RootNode.armpatch_low",
+                    "RootNode.armpocketbutton_low",
+                    "RootNode.armzipperpocket_low",
+                    "RootNode.armpocketzipperstop_low",
+                    "RootNode.armpocketzipperslider_low",
+                    "RootNode.armpocketzipper_low",
+                    "RootNode.armpocket_low",
+                    "RootNode.jumpsuit_low",
+                    "RootNode.leftpocketflap_low",
+                    "RootNode.leftpocketbutton_low",
+                    "RootNode.leftpocket_low",
+                    "RootNode.rightpocket_low",
+                    "RootNode.armpocketflap_low",
+                    "RootNode.frontzipperstop_low",
+                    "RootNode.frontzipperslider_low",
+                    "RootNode.neck_low",
+                    "RootNode.glove_low",
+                    "RootNode.hook1_low",
+                    "RootNode.eyeletring1_low",
+                    "RootNode.eyelet1_low",
+                    "RootNode.hook2_low",
+                    "RootNode.eyeletring2_low",
+                    "RootNode.eyelet2_low",
+                    "RootNode.eyeletring3_low",
+                    "RootNode.eyelet3_low",
+                    "RootNode.hook3_low",
+                    "RootNode.shoeeyelets_low",
+                    "RootNode.shoelace_low",
+                    "RootNode.leatherback_low",
+                    "RootNode.leatherfront_low",
+                    "RootNode.sole_low",
+                    "RootNode.valenapatch_low",
+                    "RootNode.vest_low",
+                    "RootNode.midhelmet_low",
+                    "RootNode.bolts_low",
+                    "RootNode.bigantenna_low",
+                    "RootNode.flashlightholder_low",
+                    "RootNode.helmetflashlightbase_low",
+                    "RootNode.mainbody_low",
+                    "RootNode.externalflashlighttlens_low",
+                    "RootNode.eararrows_low",
+                    "RootNode.visor_low",
+                    "RootNode.smallantenna_low",
+                    "RootNode.helmetglow_low",
+                    "RootNode.flashlight_low",
+                    "RootNode.ear_low",
+                    "RootNode.earbase_low",
+                    "RootNode.hosecoupler_low",
+                    "RootNode.tightenerA_low",
+                    "RootNode.necktrim_low",
+                    "RootNode.chin_low",
+                    "RootNode.visortrim_low",
+                    "RootNode.bigantennabase_low",
+                    "RootNode.phillipsbolts_low",
+                    "RootNode.masktrim_low",
+                    "RootNode.leftear_low",
+                    "RootNode.smallantennabase_low",
+                    "RootNode.backplate_low",
+                    "RootNode.leftglove_low",
+                    "RootNode.leftsole_low",
+                    "RootNode.leftleatherback_low",
+                    "RootNode.leftshoelace_low",
+                    "RootNode.leftleatherfront_low",
+                    "RootNode.filterholder_low",
+                    "RootNode.recorder_low",
+                    "RootNode.canistermount2_low",
+                    "RootNode.canister2_low",
+                    "RootNode.canistermount1_low",
+                    "RootNode.canister1_low",
+                    "RootNode.buckle_low",
+                    "RootNode.filterdisplay_low",
+                    "RootNode.circularfilter_low",
+                    "RootNode.filter_low",
+                    "RootNode.filterlight_low",
+                    "RootNode.beltbomb1_low",
+                    "RootNode.beltbomb2_low",
+                    "RootNode.beltbomb3_low",
+                    "RootNode.belt12_low",
+                    "RootNode.belt7_low",
+                    "RootNode.belt8_low",
+                    "RootNode.belt10_low",
+                    "RootNode.belt5_low",
+                    "RootNode.belt6_low",
+                    "RootNode.belt4_low",
+                    "RootNode.belt11_low",
+                    "RootNode.belt13_low",
+                    "RootNode.belt9_low",
+                    "RootNode.belt18_low",
+                    "RootNode.belt16_low",
+                    "RootNode.belt17_low",
+                    "RootNode.belt14_low",
+                    "RootNode.belt15_low",
+                    "RootNode.belt2_low",
+                    "RootNode.belt19_low",
+                    "RootNode.belt1_low",
+                    "RootNode.belt3_low",
+                    "RootNode.tubeconnector_low",
+                    "RootNode.iontube_low",
+                    "RootNode.energygenerator0_low",
+                    "RootNode.energygenerator2_low",
+                    "RootNode.energygenerator3_low",
+                    "RootNode.energygenerator1_low",
+                    "RootNode.Reference.Hips",
+                    "RootNode.Reference.Hips.Spine",
+                    "RootNode.Reference.Hips.LeftUpLeg",
+                    "RootNode.Reference.Hips.RightUpLeg",
+                    "RootNode.Reference.Hips.Spine.Spine1",
+                    "RootNode.Reference.Hips.LeftUpLeg.LeftLeg",
+                    "RootNode.Reference.Hips.RightUpLeg.RightLeg",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2",
+                    "RootNode.Reference.Hips.LeftUpLeg.LeftLeg.LeftFoot",
+                    "RootNode.Reference.Hips.RightUpLeg.RightLeg.RightFoot",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3",
+                    "RootNode.Reference.Hips.LeftUpLeg.LeftLeg.LeftFoot.LeftToeBase",
+                    "RootNode.Reference.Hips.RightUpLeg.RightLeg.RightFoot.RightToeBase",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.Neck",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.Neck.Neck1",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.l_delt_grp",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftShoulderTwistBindGRP",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightAimStart",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.r_delt_grp",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightShoulderTwistBindGRP",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.Neck.Neck1.Head",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftArmRoll",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.l_delt_grp.l_delt_start",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftShoulderTwistBindGRP.LeftShoulderTwistBind",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightArmRoll",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightArmPV",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightAimStart.RightAimEnd",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.r_delt_grp.r_delt_start",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightShoulderTwistBindGRP.RightShoulderTwistBind",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftForeArmRoll",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.l_delt_grp.l_delt_start.l_delt_end",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftShoulderTwistBindGRP.LeftShoulderTwistBind.l_delt_aimAt",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightForeArmRoll",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightAimStart.RightAimEnd.RightHandIKAlign",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.r_delt_grp.r_delt_start.r_delt_end",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightShoulderTwistBindGRP.RightShoulderTwistBind.r_delt_aimAt",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandThumb1",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandIndex1",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandMiddle1",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandRing1",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandPinky1",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandThumb1",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandIndex1",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandMiddle1",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandRing1",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandPinky1",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandProp",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandThumb1.LeftHandThumb2",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandIndex1.LeftHandIndex2",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandMiddle1.LeftHandMiddle2",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandRing1.LeftHandRing2",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandPinky1.LeftHandPinky2",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandThumb1.RightHandThumb2",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandIndex1.RightHandIndex2",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandMiddle1.RightHandMiddle2",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandRing1.RightHandRing2",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandPinky1.RightHandPinky2",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandThumb1.LeftHandThumb2.LeftHandThumb3",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandIndex1.LeftHandIndex2.LeftHandIndex3",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandMiddle1.LeftHandMiddle2.LeftHandMiddle3",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandRing1.LeftHandRing2.LeftHandRing3",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandPinky1.LeftHandPinky2.LeftHandPinky3",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandThumb1.RightHandThumb2.RightHandThumb3",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandIndex1.RightHandIndex2.RightHandIndex3",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandMiddle1.RightHandMiddle2.RightHandMiddle3",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandRing1.RightHandRing2.RightHandRing3",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandPinky1.RightHandPinky2.RightHandPinky3",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandThumb1.LeftHandThumb2.LeftHandThumb3.LeftHandThumb4",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandIndex1.LeftHandIndex2.LeftHandIndex3.LeftHandIndex4",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandMiddle1.LeftHandMiddle2.LeftHandMiddle3.LeftHandMiddle4",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandRing1.LeftHandRing2.LeftHandRing3.LeftHandRing4",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.LeftShoulder.LeftArm.LeftForeArm.LeftHand.LeftHandPinky1.LeftHandPinky2.LeftHandPinky3.LeftHandPinky4",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandThumb1.RightHandThumb2.RightHandThumb3.RightHandThumb4",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandIndex1.RightHandIndex2.RightHandIndex3.RightHandIndex4",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandMiddle1.RightHandMiddle2.RightHandMiddle3.RightHandMiddle4",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandRing1.RightHandRing2.RightHandRing3.RightHandRing4",
+                    "RootNode.Reference.Hips.Spine.Spine1.Spine2.Spine3.Spine4.RightShoulder.RightArm.RightForeArm.RightHand.RightHandPinky1.RightHandPinky2.RightHandPinky3.RightHandPinky4"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "SkinRule"
+                    },
+                    {
+                        "$type": "MaterialRule"
+                    }
+                ]
+            },
+            "id": "{B69C3A7E-B101-4BA1-89EA-90AE94C8C6F6}"
+        }
+    ]
+}

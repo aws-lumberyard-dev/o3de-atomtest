@@ -1,0 +1,57 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "propertyLayoutVersion": 1,
+    "properties": {
+        "general": {
+        },
+        "ambientOcclusion": {
+            "factor": 1.0,
+            "textureMap": "EngineAssets/TextureMsg/DefaultNoUVs.tif"
+        },
+        "baseColor": {
+            "color": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "factor": 1.0,
+            "useTexture": true,
+            "textureMap": "valena/textures/jumpsuit_low_jumpsuitmat_diff_basecolor.tif"
+        },
+        "emissive": {
+            "color": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "intensity": 1.0,
+            "useTexture": false,
+            "textureMap": "EngineAssets/TextureMsg/DefaultNoUVs.tif"
+        },
+        "metallic": {
+            "factor": 0.0,
+            "useTexture": false,
+            "textureMap": ""
+        },
+        "roughness": {
+            "factor": 1.0,
+            "useTexture": true,
+            "textureMap": "valena/textures/jumpsuit_low_jumpsuitmat_roughness.tif"
+        },
+        "specularF0": {
+            "factor": 1.0,
+            "useTexture": false,
+            "textureMap": ""
+        },
+        "normal": {
+            "factor": 1.0,
+            "useTexture": true,
+            "textureMap": "valena/textures/jumpsuit_low_jumpsuitmat_ddna.tif"
+        },
+        "opacity": {
+            "doubleSided": false,
+            "factor": 1.0,
+            "textureMap": ""
+        }
+    }
+}

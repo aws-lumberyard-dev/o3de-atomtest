@@ -1,0 +1,383 @@
+"""
+All or portions of this file Copyright (c) Amazon.com, Inc. or its affiliates or
+its licensors.
+
+For complete copyright and license terms please see the LICENSE at the root of this
+distribution (the "License"). All use of this software is governed by the License,
+or, if provided, by the license below or the license accompanying this file. Do not
+remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+"""
+# This module tests 3 different test cases.
+
+# Test case ID #1: C35035568
+# Test Case Title : Level Load & Save
+# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/35035568
+
+# Test case ID #1: C34525095
+# Test Case Title : Area Light
+# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/34525095
+
+# Test case ID #1: C34525110
+# Test Case Title : Spot Light
+# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/34525110
+
+import os
+import sys
+
+import azlmbr.math as math
+import azlmbr.bus as bus
+import azlmbr.paths
+import azlmbr.entity as entity
+import azlmbr.legacy.general as general
+import azlmbr.editor as editor
+
+sys.path.append(os.path.join(azlmbr.paths.devroot, "AtomTest", "Gem", "PythonTests"))
+
+import Automated.atom_utils.hydra_editor_utils as hydra
+from Automated.atom_utils.automated_test_utils import TestHelper as helper
+from Automated.atom_utils.screenshot_utils import ScreenshotHelper
+
+BASIC_LEVEL_NAME = "all_components_indepth_level"  # Specified in class TestAllComponentsIndepthTests()
+DEGREE_RADIAN_FACTOR = 0.0174533
+SCREEN_WIDTH = 1280
+SCREEN_HEIGHT = 720
+
+
+class TestAllComponentsIndepthTests(object):
+    """
+    Holds shared hydra test functions for this set of tests.
+    """
+
+    def atom_component_basic_setup(self):
+        hydra.delete_all_existing_entities()
+
+        # Create default_level entity
+        self.default_level = hydra.Entity("default_level")
+        position = math.Vector3(0.0, 0.0, 0.0)
+        self.default_level.create_entity(position, ["Grid"])
+        self.default_level.get_set_test(0, "Controller|Configuration|Secondary Grid Spacing", 1.0)
+
+        # Create global_skylight entity and set the properties
+        self.global_skylight = hydra.Entity("global_skylight")
+        self.global_skylight.create_entity(
+            components=["HDRi Skybox", "Global Skylight (IBL)"], parent_id=self.default_level.id
+        )
+        asset_value = hydra.get_asset_by_path(
+            os.path.join("LightingPresets", "greenwich_park_02_4k_iblskyboxcm_iblspecular.exr.streamingimage")
+        )
+        self.global_skylight.get_set_test(0, "Controller|Configuration|Cubemap Texture", asset_value)
+        self.global_skylight.get_set_test(1, "Controller|Configuration|Diffuse Image", asset_value)
+        self.global_skylight.get_set_test(1, "Controller|Configuration|Specular Image", asset_value)
+
+        # Create ground_plane entity and set the properties
+        self.ground_plane = hydra.Entity("ground_plane")
+        scale = math.Vector3(32.0, 32.0, 1.0)
+        self.ground_plane.create_entity(components=["Material"], parent_id=self.default_level.id)
+        azlmbr.components.TransformBus(azlmbr.bus.Event, "SetLocalScale", self.ground_plane.id, scale)
+        asset_value = hydra.get_asset_by_path(os.path.join("Materials", "Presets", "PBR", "metal_chrome.azmaterial"))
+        self.ground_plane.get_set_test(0, "Default Material|Material Asset", asset_value)
+        # Work around to add the correct Atom Mesh component
+        mesh_type_id = azlmbr.globals.property.EditorMeshComponentTypeId
+        self.ground_plane.components.append(
+            editor.EditorComponentAPIBus(
+                bus.Broadcast, "AddComponentsOfType", self.ground_plane.id, [mesh_type_id]
+            ).GetValue()[0]
+        )
+        asset_value = hydra.get_asset_by_path(os.path.join("Objects", "plane.azmodel"))
+        self.ground_plane.get_set_test(1, "Controller|Configuration|Mesh asset", asset_value)
+
+        # Create directional_light entity and set the properties
+        self.directional_light = hydra.Entity("directional_light")
+        position = math.Vector3(0.0, 0.0, 10.0)
+        self.directional_light.create_entity(
+            components=["Directional Light"], entity_position=position, parent_id=self.default_level.id
+        )
+        rotation = math.Vector3(DEGREE_RADIAN_FACTOR * -90.0, 0.0, 0.0)
+        azlmbr.components.TransformBus(azlmbr.bus.Event, "SetLocalRotation", self.directional_light.id, rotation)
+
+        # Create sphere entity and set the properties
+        self.sphere = hydra.Entity("sphere")
+        position = math.Vector3(0.0, 0.0, 1.0)
+        self.sphere.create_entity(
+            components=["Material"], entity_position=position, parent_id=self.default_level.id
+        )
+        asset_value = hydra.get_asset_by_path(
+            os.path.join("Materials", "Presets", "PBR", "metal_brass_polished.azmaterial")
+        )
+        self.sphere.get_set_test(0, "Default Material|Material Asset", asset_value)
+        # Work around to add the correct Atom Mesh component
+        self.sphere.components.append(
+            editor.EditorComponentAPIBus(
+                bus.Broadcast, "AddComponentsOfType", self.sphere.id, [mesh_type_id]
+            ).GetValue()[0]
+        )
+        asset_value = hydra.get_asset_by_path(os.path.join("Objects", "sphere.azmodel"))
+        self.sphere.get_set_test(1, "Controller|Configuration|Mesh asset", asset_value)
+
+        # Create camera component and set the properties
+        camera = hydra.Entity("camera")
+        position = math.Vector3(5.5, -12.0, 9.0)
+        camera.create_entity(components=["Camera"], entity_position=position, parent_id=self.default_level.id)
+        rotation = math.Vector3(
+            DEGREE_RADIAN_FACTOR * -27.0, DEGREE_RADIAN_FACTOR * -12.0, DEGREE_RADIAN_FACTOR * 25.0
+        )
+        azlmbr.components.TransformBus(azlmbr.bus.Event, "SetLocalRotation", camera.id, rotation)
+        camera.get_set_test(0, "Controller|Configuration|Field of view", 60.0)
+
+        # Be this camera
+        hydra.be_this_camera(camera.id)
+
+    def level_load_save(self, level_name):
+        general.open_level_no_prompt(level_name)
+        helper.wait_for_condition(lambda: level_name in general.get_current_level_name(), 5.0)
+
+        # Ensure the level is saved by checking if all the entities are present
+        all_entities = ["default_level", "global_skylight", "ground_plane", "directional_light", "sphere", "camera"]
+        search_filter = azlmbr.entity.SearchFilter()
+        search_filter.names = all_entities
+        result = len(entity.SearchBus(azlmbr.bus.Broadcast, "SearchEntities", search_filter)) == len(all_entities)
+        print(f"Level is saved successfully: {result}")
+
+        # Create new entity
+        temp_entity = hydra.Entity("temp_entity")
+        temp_entity.create_entity()
+        search_filter = azlmbr.entity.SearchFilter()
+        search_filter.names = ["temp_entity"]
+        result = len(entity.SearchBus(azlmbr.bus.Broadcast, "SearchEntities", search_filter)) == 1
+        print(f"New entity created: {result}")
+
+        # Delete the new entity
+        editor.ToolsApplicationRequestBus(bus.Broadcast, "DeleteEntityById", temp_entity.id)
+        result = len(entity.SearchBus(azlmbr.bus.Broadcast, "SearchEntities", search_filter)) == 0
+        print(f"New entity deleted: {result}")
+        general.save_level()
+
+    def initial_viewport_setup(self, screen_width, screen_height):
+        """Initial viewport setup for the test."""
+        general.set_viewport_size(screen_width, screen_height)
+        general.update_viewport()
+        helper.wait_for_condition(
+            function=lambda: helper.isclose(a=general.get_viewport_size().x, b=screen_width, rel_tol=0.1)
+            and helper.isclose(a=general.get_viewport_size().y, b=screen_height, rel_tol=0.1),
+            timeout_in_seconds=4.0
+        )
+        result = helper.isclose(a=general.get_viewport_size().x, b=screen_width, rel_tol=0.1) and helper.isclose(
+            a=general.get_viewport_size().y, b=screen_height, rel_tol=0.1)
+        print(general.get_viewport_size().x)
+        print(general.get_viewport_size().y)
+        print(general.get_viewport_size().z)
+        print(f"Viewport is set to the expected size: {result}")
+        print("Basic level created")
+        general.run_console("r_DisplayInfo = 0")
+
+    def create_entity_undo_redo_component_addition(self, component_name):
+        """
+        Create a new entity with required components, then undo/redo those components.
+        Returns the entity after creation.
+        """
+        new_entity = hydra.Entity(f"{component_name}")
+        new_entity.create_entity(math.Vector3(512.0, 512.0, 34.0), [component_name])
+        print(f"{component_name}_test: Component added to the entity: {hydra.has_components(new_entity.id, [component_name])}")
+
+        # undo component addition
+        general.undo()
+        helper.wait_for_condition(lambda: not hydra.has_components(new_entity.id, [component_name]), 2.0)
+        print(f"{component_name}_test: Component removed after UNDO: {not hydra.has_components(new_entity.id, [component_name])}")
+
+        # redo component addition
+        general.redo()
+        helper.wait_for_condition(lambda: hydra.has_components(new_entity.id, [component_name]), 2.0)
+        print(f"{component_name}_test: Component added after REDO: {hydra.has_components(new_entity.id, [component_name])}")
+
+        return new_entity
+
+    def verify_enter_exit_game_mode(self):
+        general.enter_game_mode()
+        helper.wait_for_condition(lambda: general.is_in_game_mode(), 1.0)
+        general.exit_game_mode()
+        helper.wait_for_condition(lambda: not general.is_in_game_mode(), 1.0)
+
+    def verify_required_component_addition(self, component_name, entity_obj, components_to_add):
+        """Verify if addition of required components activates entity."""
+        print(f"{component_name}_test: Entity disabled initially: {not hydra.is_component_enabled(entity_obj.components[0])}")
+        for component in components_to_add:
+            entity_obj.add_component(component)
+        general.idle_wait(1.0)
+        helper.wait_for_condition(lambda: hydra.is_component_enabled(entity_obj.components[0]), 1.0)
+        print(
+            f"{component_name}_test: Entity enabled after adding required components: "
+            f"{hydra.is_component_enabled(entity_obj.components[0])}")
+
+    def verify_hide_unhide_entity(self, component_name, entity_obj):
+        """Verify Hide/Unhide entity with component."""
+        hydra.set_visibility_state(entity_obj.id, False)
+        general.idle_wait(1.0)
+        helper.wait_for_condition(lambda: hydra.is_entity_hidden(entity_obj.id), 1.0)
+        print(f"{component_name}_test: Entity is hidden: {hydra.is_entity_hidden(entity_obj.id)}")
+        hydra.set_visibility_state(entity_obj.id, True)
+        helper.wait_for_condition(lambda: not hydra.is_entity_hidden(entity_obj.id), 1.0)
+        print(f"{component_name}_test: Entity is shown: {not hydra.is_entity_hidden(entity_obj.id)}")
+
+    def verify_deletion_undo_redo(self, component_name, entity_obj):
+        """Verify delete/Undo/Redo deletion."""
+        hydra.delete_entity(entity_obj.id)
+        helper.wait_for_condition(lambda: not hydra.find_entity_by_name(entity_obj.name), 1.0)
+        print(f"{component_name}_test: Entity deleted: {not hydra.find_entity_by_name(entity_obj.name)}")
+
+        general.undo()
+        helper.wait_for_condition(lambda: hydra.find_entity_by_name(entity_obj.name) is not None, 1.0)
+        print(f"{component_name}_test: UNDO entity deletion works: {hydra.find_entity_by_name(entity_obj.name) is not None}")
+
+        general.redo()
+        general.idle_wait(0.5)
+        # self.wait_for_condition(lambda: not hydra.find_entity_by_name(entity_obj.name), 1.0)
+        print(f"{component_name}_test: REDO entity deletion works: {not hydra.find_entity_by_name(entity_obj.name)}")
+
+    def take_screenshot_game_mode(self, screenshot_name):
+        general.enter_game_mode()
+        general.idle_wait(1.0)
+        helper.wait_for_condition(lambda: general.is_in_game_mode())
+        ScreenshotHelper(general.idle_wait_frames).capture_screenshot_blocking(f"{screenshot_name}.ppm")
+        general.exit_game_mode()
+        helper.wait_for_condition(lambda: not general.is_in_game_mode())
+
+    def area_light_component_test(self):
+        """
+        Basic test for the Area Light component attached to an entity.
+        Example: Entity addition/deletion undo/redo, game mode etc. with Area Light component attached.
+        """
+        # Create entity with Area Light component added.
+        component_name = "Area Light"
+        entity_obj = self.create_entity_undo_redo_component_addition(component_name)
+
+        # Verify required checks.
+        self.verify_enter_exit_game_mode()
+        self.verify_required_component_addition(entity_obj, ["Capsule Shape"])
+        self.verify_hide_unhide_entity(entity_obj)
+        self.verify_deletion_undo_redo(component_name, entity_obj)
+
+        # NOTE: This step is repeated to ensure we have clean setup while running the test for each component
+        # Create initial atom basic setup
+        self.atom_component_basic_setup()
+
+        # Create entity with Area Light component
+        area_light = hydra.Entity("Area Light")
+        position = math.Vector3(-1.0, -2.0, 3.0)
+        area_light.create_entity(position, ["Area Light", "Capsule Shape"])
+
+        # Update color and take screenshot in game mode
+        color = math.Color()
+        color.r, color.g, color.b, color.a = 255.0, 0.0, 0.0, 0.0
+        area_light.get_set_test(0, "Controller|Configuration|Color", color)
+        self.take_screenshot_game_mode("AreaLight_1")
+
+        # Update intensity value to 0.0 and take screenshot in game mode
+        area_light.get_set_test(0, "Controller|Configuration|Attenuation Radius|Mode", 1)
+        area_light.get_set_test(0, "Controller|Configuration|Intensity", 0.0)
+        self.take_screenshot_game_mode("AreaLight_2")
+
+        # Update intensity value to 1000.0 and take screenshot in game mode
+        area_light.get_set_test(0, "Controller|Configuration|Intensity", 1000.0)
+        self.take_screenshot_game_mode("AreaLight_3")
+
+        # Delete Capsule shape component and add Disk Shape component
+        area_light.remove_component("Capsule Shape")
+        area_light.add_component("Disk Shape")
+        rotation = math.Vector3(DEGREE_RADIAN_FACTOR * 90.0, 0.0, 0.0)
+        azlmbr.components.TransformBus(azlmbr.bus.Event, "SetLocalRotation", area_light.id, rotation)
+        self.take_screenshot_game_mode("AreaLight_4")
+
+        # Enable Both Directions in Area Light component and take screenshot
+        area_light.get_set_test(0, "Controller|Configuration|Both Directions", True)
+        self.take_screenshot_game_mode("AreaLight_5")
+
+        # Disable Both Directions in Area Light component and take screenshot
+        area_light.get_set_test(0, "Controller|Configuration|Both Directions", False)
+        self.take_screenshot_game_mode("AreaLight_6")
+
+        # Delete Disk shape component, add Sphere Shape and take screenshot
+        area_light.remove_component("Disk Shape")
+        area_light.add_component("Sphere Shape")
+        self.take_screenshot_game_mode("AreaLight_7")
+
+        # Delete Area light entity
+        hydra.delete_entity(area_light.id)
+
+    def spot_light_component_test(self):
+        """
+        Basic test for the Spot Light component attached to an entity.
+        Example: Entity addition/deletion undo/redo, game mode etc. with Spot Light component attached.
+        """
+        component_name = "Spot Light"
+        entity_obj = self.create_entity_undo_redo_component_addition(component_name)
+        self.verify_enter_exit_game_mode()
+        self.verify_hide_unhide_entity(entity_obj)
+        self.verify_deletion_undo_redo(entity_obj)
+
+        # NOTE: This step is repeated to ensure we have clean setup while running the test for each component
+        # Create initial atom basic setup
+        self.atom_component_basic_setup()
+
+        # Create entity with Spot Light component
+        self.spot_light = hydra.Entity("Spot Light")
+        position = math.Vector3(0.7, -2.0, 3.8)
+        self.spot_light.create_entity(position, ["Spot Light"])
+        rotation = math.Vector3(DEGREE_RADIAN_FACTOR * 300.0, 0.0, 0.0)
+        azlmbr.components.TransformBus(azlmbr.bus.Event, "SetLocalRotation", self.spot_light.id, rotation)
+
+        # Disable components in directional_light and global_skylight and take a screenshot in game mode
+        hydra.disable_component(self.directional_light.components[0])
+        hydra.disable_component(self.global_skylight.components[0])
+        hydra.disable_component(self.global_skylight.components[1])
+        self.take_screenshot_game_mode("SpotLight_1")
+
+        # Change default material of ground plane entity and take screenshot
+        asset_value = hydra.get_asset_by_path(
+            os.path.join("Materials", "Presets", "MacBeth", "22_neutral_5-0_0-70d.azmaterial")
+        )
+        self.ground_plane.get_set_test(0, "Default Material|Material Asset", asset_value)
+        self.take_screenshot_game_mode("SpotLight_2")
+
+        # Increase intensity value of the Spot light and take screenshot in game mode
+        self.spot_light.get_set_test(0, "Controller|Configuration|Intensity", 800.0)
+        self.take_screenshot_game_mode("SpotLight_3")
+
+        # Update the Spot light color and take screenshot in game mode
+        color_value = math.Color(47.0 / 255.0, 75.0 / 255.0, 37.0 / 255.0, 255.0 / 255.0)
+        self.spot_light.get_set_test(0, "Controller|Configuration|Color", color_value)
+        self.take_screenshot_game_mode("SpotLight_4")
+
+        # Update the Cone Configuration controls of spot light and take screenshot
+        self.spot_light.get_set_test(0, "Controller|Configuration|Cone Configuration|Outer Cone Angle", 130)
+        self.spot_light.get_set_test(0, "Controller|Configuration|Cone Configuration|Inner Cone Angle", 80)
+        self.spot_light.get_set_test(0, "Controller|Configuration|Cone Configuration|Penumbra Bias", 0.9)
+        self.take_screenshot_game_mode("SpotLight_5")
+
+        # Update the Attenuation Radius controls of spot light and take screenshot
+        hydra.get_property_tree(self.spot_light.components[0])
+        self.spot_light.get_set_test(0, "Controller|Configuration|Attenuation Radius|Mode", 0)
+        self.spot_light.get_set_test(0, "Controller|Configuration|Attenuation Radius|Radius", 8.0)
+        self.take_screenshot_game_mode("SpotLight_6")
+
+        # Update the Shadow controls and take screenshot
+        self.spot_light.get_set_test(0, "Controller|Configuration|Shadow|ShadowmapSize", 256.0)
+        self.spot_light.get_set_test(0, "Controller|Configuration|Shadow|Enable Shadow", True)
+        self.take_screenshot_game_mode("SpotLight_7")
+
+
+def run():
+    # Setup tests.
+    test_class = TestAllComponentsIndepthTests()
+    test_class.level_load_save(level_name=BASIC_LEVEL_NAME)
+    test_class.initial_viewport_setup(screen_width=SCREEN_WIDTH, screen_height=SCREEN_HEIGHT)
+
+    # Run tests.
+    # C34525095: Area Light
+    test_class.area_light_component_test()
+    test_class.spot_light_component_test()
+    print("Component tests completed")
+
+
+if __name__ == "__main__":
+    run()

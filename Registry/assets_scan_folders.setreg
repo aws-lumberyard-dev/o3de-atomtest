@@ -1,0 +1,19 @@
+{
+    "Amazon":
+    {
+        "Gems":
+        {
+            "AtomTest.Assets":
+            {
+                "SourcePaths":
+                [
+                    "Gems/Atom/Tools/MaterialEditor",
+                    "Gems/UiBasics",
+                    "Gems/AtomContent/ReferenceMaterials",
+                    "Gems/AtomContent/LookDevelopmentStudioPixar",
+                    "Gems/AtomContent/Sponza"
+                ]
+            }
+        }
+    }
+}

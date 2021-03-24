@@ -1,0 +1,58 @@
+{
+    "materialType": "Materials/Types/StandardPBR.materialtype",
+    "propertyLayoutVersion": 1,
+    "properties": {
+        "general": {
+        },
+        "ambientOcclusion": {
+            "factor": 1.0,
+            "textureMap": "EngineAssets/TextureMsg/DefaultNoUVs.tif"
+        },
+        "baseColor": {
+            "color": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "factor": 1.0,
+            "useTexture": true,
+            "textureMap": "valena/textures/helmet_low_helmetmat_diff.tif"
+        },
+        "emissive": {
+            "color": [
+                0.0,
+                0.32314324,
+                0.55201149
+            ],
+            "intensity": 6.869880158145604,
+            "useTexture": true,
+            "textureMap": "valena/textures/helmet_low_helmetmat_emis.tif",
+            "enable": true
+        },
+        "metallic": {
+            "factor": 0.0,
+            "useTexture": false,
+            "textureMap": ""
+        },
+        "roughness": {
+            "factor": 1.0,
+            "useTexture": true,
+            "textureMap": "valena/textures/helmet_low_helmetmat_roughness.tif"
+        },
+        "specularF0": {
+            "factor": 1.0,
+            "useTexture": false,
+            "textureMap": ""
+        },
+        "normal": {
+            "factor": 1.0,
+            "useTexture": true,
+            "textureMap": "valena/textures/helmet_low_helmetmat_ddna.tif"
+        },
+        "opacity": {
+            "doubleSided": false,
+            "factor": 1.0,
+            "textureMap": ""
+        }
+    }
+}

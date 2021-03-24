@@ -1,0 +1,14 @@
+{
+    "project_name": "AtomTest",
+    "product_name": "AtomTest",
+    "executable_name": "AtomTest.GameLauncher",
+    "modules": [],
+    "project_id": "{90200517-F0F1-4D7D-BBE9-FE389C1E32D3}",
+    "android_settings": {
+        "package_name": "com.lumberyard.yourgame",
+        "version_number": 1,
+        "version_name": "1.0.0.0",
+        "orientation": "landscape"
+    },
+    "engine": "o3de"
+}
