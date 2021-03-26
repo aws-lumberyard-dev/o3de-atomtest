@@ -22,7 +22,7 @@ sys.path.append(os.path.join(azlmbr.paths.devroot, "AtomTest", "Gem", "PythonTes
 import Automated.atom_utils.material_editor_utils as material_editor
 from Automated.atom_utils.material_editor_utils import MaterialEditorHelper, capture_screenshot
 
-screenshotsFolder = os.path.join(azlmbr.paths.devroot, "Cache", "AtomTest", "pc", "atomtest", "Screenshots")
+screenshotsFolder = os.path.join(azlmbr.paths.devroot, "AtomTest", "Cache", "pc", "Screenshots")
 
 
 class TestMaterialEditorEnableGridShadowCatcherLight(MaterialEditorHelper):

@@ -14,7 +14,6 @@ ly_get_list_relative_pal_filename(pal_dir ${CMAKE_CURRENT_LIST_DIR}/Platform/${P
 ly_add_target(
     NAME AtomTest ${PAL_TRAIT_MONOLITHIC_DRIVEN_MODULE_TYPE}
     NAMESPACE Gem
-    OUTPUT_NAME Gem.AtomTest.bee705a725b94dcc80b73a49922c8cf0.v0.1.0
     FILES_CMAKE
         atomtest_files.cmake
         ../../atomtest_asset_files.cmake

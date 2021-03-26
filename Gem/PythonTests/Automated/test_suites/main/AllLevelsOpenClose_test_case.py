@@ -96,15 +96,15 @@ def run():
     return_code = general.create_level_no_prompt(
         new_level_name, heightmap_resolution, heightmap_meters_per_pixel, terrain_texture_resolution, use_terrain)
     if return_code == 1:
-        print(f"{new_level_name} level already exists")
+        general.log(f"{new_level_name} level already exists")
     elif return_code == 2:
-        print("Failed to create directory")
+        general.log("Failed to create directory")
     elif return_code == 3:
-        print("Directory length is too long")
+        general.log("Directory length is too long")
     elif return_code != 0:
-        print("Unknown error, failed to create level")
+        general.log("Unknown error, failed to create level")
     else:
-        print(f"{new_level_name} level created successfully")
+        general.log(f"{new_level_name} level created successfully")
     after_level_load()
 
     # Open all valid test levels.
@@ -112,21 +112,21 @@ def run():
     LEVELS.append(new_level_name)  # Update LEVELS constant for created level.
     for level in LEVELS:
         if general.is_idle_enabled() and (general.get_current_level_name() == level):
-            print(f"Level {level} already open.")
+            general.log(f"Level {level} already open.")
         else:
-            print(f"Opening level {level}")
+            general.log(f"Opening level {level}")
             general.open_level_no_prompt(level)
             helper.wait_for_condition(function=lambda: general.get_current_level_name() == level,
                                       timeout_in_seconds=2.0)
         result = (general.get_current_level_name() == level) and after_level_load()
         if result:
-            print(f"Successfully opened {level}")
+            general.log(f"Successfully opened {level}")
         else:
-            print(f"{level} failed to open")
+            general.log(f"{level} failed to open")
             failed_to_open.append(level)
 
     if failed_to_open:
-        print(f"The following levels failed to open: {failed_to_open}")
+        general.log(f"The following levels failed to open: {failed_to_open}")
 
 
 if __name__ == "__main__":

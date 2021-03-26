@@ -11,6 +11,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 import logging
 import os
+from  pathlib import PurePath
 import pytest
 
 # Bail on the test if ly_test_tools doesn't exist.
@@ -20,9 +21,13 @@ from Automated.atom_utils import hydra_test_utils as hydra
 
 logger = logging.getLogger(__name__)
 
-EDITOR_TIMEOUT = 120
+EDITOR_TIMEOUT = 200
 TEST_DIRECTORY = os.path.dirname(__file__)
-
+# Go to the project root directory
+PROJECT_DIRECTORY = PurePath(TEST_DIRECTORY)
+if len(PROJECT_DIRECTORY.parents) > 5:
+    for _ in range(5):
+        PROJECT_DIRECTORY = PROJECT_DIRECTORY.parent
 
 @pytest.mark.parametrize("project", ["AtomTest"])
 @pytest.mark.parametrize("launcher_platform", ['windows_editor'])
@@ -58,7 +63,7 @@ class TestAllLevelsOpenClose(object):
     def test_AllLevelsOpenClose(self, request, editor, level, workspace, project, launcher_platform):
 
         cfg_args = [level]
-        test_levels = hydra.get_valid_test_levels(os.path.join(workspace.paths.dev(), "AtomTest", "Levels"))
+        test_levels = hydra.get_valid_test_levels(os.path.join(str(PROJECT_DIRECTORY), "Levels"))
 
         expected_lines = []
         for level in test_levels:

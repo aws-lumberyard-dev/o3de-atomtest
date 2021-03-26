@@ -54,13 +54,11 @@ class TestAssetProcessorProcessAssets(object):
         self.ap_gui_log = os.path.join(editor.workspace.paths.build_directory(), "logs", "AP_GUI.log")
         if os.path.exists(self.ap_gui_log):
             os.remove(self.ap_gui_log)
-        # Reset Bootstrap.cfg to AtomTest project
-        workspace.settings.modify_bootstrap_setting("sys_game_folder", "AtomTest")
 
     @pytest.mark.test_case_id("C34583161")
     def test_asset_processor(self, request, editor, workspace, project, launcher_platform):
         # Clear Cache
-        shutil.rmtree(os.path.join(editor.workspace.paths.dev(), "Cache"), ignore_errors=True)
+        shutil.rmtree(editor.workspace.paths.cache(), ignore_errors=True)
         shutil.rmtree(os.path.join(editor.workspace.paths.build_directory(), "logs"), ignore_errors=True)
         if os.getcwd() != editor.workspace.paths.dev():
             os.chdir(editor.workspace.paths.dev())
@@ -163,7 +161,7 @@ class TestAssetProcessorProcessAssets(object):
                 assert not FailedAssets.failed_assets, f"Failed assets found: {FailedAssets.failed_assets}"
 
         # Clear Cache
-        shutil.rmtree(os.path.join(editor.workspace.paths.dev(), "Cache"), ignore_errors=True)
+        shutil.rmtree(editor.workspace.paths.cache(), ignore_errors=True)
         shutil.rmtree(os.path.join(editor.workspace.paths.build_directory(), "logs"), ignore_errors=True)
         if os.getcwd() != editor.workspace.paths.dev():
             os.chdir(editor.workspace.paths.dev())
@@ -187,10 +185,10 @@ class TestAssetProcessorProcessAssets(object):
     @pytest.mark.test_case_id("C34682400")
     def test_asset_processor_atomsampleviewer(self, request, editor, workspace, project, launcher_platform):
         # Set Bootstrap.cfg to AtomSampleViewer project
-        workspace.settings.modify_bootstrap_setting("sys_game_folder", "AtomSampleViewer")
+        editor.args.append('--regset="/Amazon/AzCore/Bootstrap/project_path=AtomSampleViewer"')
 
         # Clear Cache
-        shutil.rmtree(os.path.join(editor.workspace.paths.dev(), "Cache"), ignore_errors=True)
+        shutil.rmtree(editor.workspace.paths.cache(), ignore_errors=True)
         shutil.rmtree(os.path.join(editor.workspace.paths.build_directory(), "logs"), ignore_errors=True)
         if os.getcwd() != editor.workspace.paths.dev():
             os.chdir(editor.workspace.paths.dev())
