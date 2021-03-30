@@ -137,7 +137,7 @@ class TestAllComponentsIndepthTests(object):
         search_filter = azlmbr.entity.SearchFilter()
         search_filter.names = all_entities
         result = len(entity.SearchBus(azlmbr.bus.Broadcast, "SearchEntities", search_filter)) == len(all_entities)
-        print(f"Level is saved successfully: {result}")
+        general.log(f"Level is saved successfully: {result}")
 
         # Create new entity
         temp_entity = hydra.Entity("temp_entity")
@@ -145,12 +145,12 @@ class TestAllComponentsIndepthTests(object):
         search_filter = azlmbr.entity.SearchFilter()
         search_filter.names = ["temp_entity"]
         result = len(entity.SearchBus(azlmbr.bus.Broadcast, "SearchEntities", search_filter)) == 1
-        print(f"New entity created: {result}")
+        general.log(f"New entity created: {result}")
 
         # Delete the new entity
         editor.ToolsApplicationRequestBus(bus.Broadcast, "DeleteEntityById", temp_entity.id)
         result = len(entity.SearchBus(azlmbr.bus.Broadcast, "SearchEntities", search_filter)) == 0
-        print(f"New entity deleted: {result}")
+        general.log(f"New entity deleted: {result}")
         general.save_level()
 
     def initial_viewport_setup(self, screen_width, screen_height):
@@ -164,11 +164,11 @@ class TestAllComponentsIndepthTests(object):
         )
         result = helper.isclose(a=general.get_viewport_size().x, b=screen_width, rel_tol=0.1) and helper.isclose(
             a=general.get_viewport_size().y, b=screen_height, rel_tol=0.1)
-        print(general.get_viewport_size().x)
-        print(general.get_viewport_size().y)
-        print(general.get_viewport_size().z)
-        print(f"Viewport is set to the expected size: {result}")
-        print("Basic level created")
+        general.log(general.get_viewport_size().x)
+        general.log(general.get_viewport_size().y)
+        general.log(general.get_viewport_size().z)
+        general.log(f"Viewport is set to the expected size: {result}")
+        general.log("Basic level created")
         general.run_console("r_DisplayInfo = 0")
 
     def create_entity_undo_redo_component_addition(self, component_name):
@@ -178,17 +178,17 @@ class TestAllComponentsIndepthTests(object):
         """
         new_entity = hydra.Entity(f"{component_name}")
         new_entity.create_entity(math.Vector3(512.0, 512.0, 34.0), [component_name])
-        print(f"{component_name}_test: Component added to the entity: {hydra.has_components(new_entity.id, [component_name])}")
+        general.log(f"{component_name}_test: Component added to the entity: {hydra.has_components(new_entity.id, [component_name])}")
 
         # undo component addition
         general.undo()
         helper.wait_for_condition(lambda: not hydra.has_components(new_entity.id, [component_name]), 2.0)
-        print(f"{component_name}_test: Component removed after UNDO: {not hydra.has_components(new_entity.id, [component_name])}")
+        general.log(f"{component_name}_test: Component removed after UNDO: {not hydra.has_components(new_entity.id, [component_name])}")
 
         # redo component addition
         general.redo()
         helper.wait_for_condition(lambda: hydra.has_components(new_entity.id, [component_name]), 2.0)
-        print(f"{component_name}_test: Component added after REDO: {hydra.has_components(new_entity.id, [component_name])}")
+        general.log(f"{component_name}_test: Component added after REDO: {hydra.has_components(new_entity.id, [component_name])}")
 
         return new_entity
 
@@ -200,12 +200,12 @@ class TestAllComponentsIndepthTests(object):
 
     def verify_required_component_addition(self, component_name, entity_obj, components_to_add):
         """Verify if addition of required components activates entity."""
-        print(f"{component_name}_test: Entity disabled initially: {not hydra.is_component_enabled(entity_obj.components[0])}")
+        general.log(f"{component_name}_test: Entity disabled initially: {not hydra.is_component_enabled(entity_obj.components[0])}")
         for component in components_to_add:
             entity_obj.add_component(component)
         general.idle_wait(1.0)
         helper.wait_for_condition(lambda: hydra.is_component_enabled(entity_obj.components[0]), 1.0)
-        print(
+        general.log(
             f"{component_name}_test: Entity enabled after adding required components: "
             f"{hydra.is_component_enabled(entity_obj.components[0])}")
 
@@ -214,25 +214,25 @@ class TestAllComponentsIndepthTests(object):
         hydra.set_visibility_state(entity_obj.id, False)
         general.idle_wait(1.0)
         helper.wait_for_condition(lambda: hydra.is_entity_hidden(entity_obj.id), 1.0)
-        print(f"{component_name}_test: Entity is hidden: {hydra.is_entity_hidden(entity_obj.id)}")
+        general.log(f"{component_name}_test: Entity is hidden: {hydra.is_entity_hidden(entity_obj.id)}")
         hydra.set_visibility_state(entity_obj.id, True)
         helper.wait_for_condition(lambda: not hydra.is_entity_hidden(entity_obj.id), 1.0)
-        print(f"{component_name}_test: Entity is shown: {not hydra.is_entity_hidden(entity_obj.id)}")
+        general.log(f"{component_name}_test: Entity is shown: {not hydra.is_entity_hidden(entity_obj.id)}")
 
     def verify_deletion_undo_redo(self, component_name, entity_obj):
         """Verify delete/Undo/Redo deletion."""
         hydra.delete_entity(entity_obj.id)
         helper.wait_for_condition(lambda: not hydra.find_entity_by_name(entity_obj.name), 1.0)
-        print(f"{component_name}_test: Entity deleted: {not hydra.find_entity_by_name(entity_obj.name)}")
+        general.log(f"{component_name}_test: Entity deleted: {not hydra.find_entity_by_name(entity_obj.name)}")
 
         general.undo()
         helper.wait_for_condition(lambda: hydra.find_entity_by_name(entity_obj.name) is not None, 1.0)
-        print(f"{component_name}_test: UNDO entity deletion works: {hydra.find_entity_by_name(entity_obj.name) is not None}")
+        general.log(f"{component_name}_test: UNDO entity deletion works: {hydra.find_entity_by_name(entity_obj.name) is not None}")
 
         general.redo()
         general.idle_wait(0.5)
         # self.wait_for_condition(lambda: not hydra.find_entity_by_name(entity_obj.name), 1.0)
-        print(f"{component_name}_test: REDO entity deletion works: {not hydra.find_entity_by_name(entity_obj.name)}")
+        general.log(f"{component_name}_test: REDO entity deletion works: {not hydra.find_entity_by_name(entity_obj.name)}")
 
     def take_screenshot_game_mode(self, screenshot_name):
         general.enter_game_mode()
@@ -376,7 +376,7 @@ def run():
     # C34525095: Area Light
     test_class.area_light_component_test()
     test_class.spot_light_component_test()
-    print("Component tests completed")
+    general.log("Component tests completed")
 
 
 if __name__ == "__main__":

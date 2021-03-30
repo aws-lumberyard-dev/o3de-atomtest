@@ -105,17 +105,17 @@ def run():
     def create_entity_undo_redo_component_addition(component_name):
         new_entity = hydra.Entity(f"{component_name}")
         new_entity.create_entity(math.Vector3(512.0, 512.0, 34.0), [component_name])
-        print(f"{component_name}_test: Component added to the entity: {hydra.has_components(new_entity.id, [component_name])}")
+        general.log(f"{component_name}_test: Component added to the entity: {hydra.has_components(new_entity.id, [component_name])}")
 
         # undo component addition
         general.undo()
         helper.wait_for_condition(lambda: not hydra.has_components(new_entity.id, [component_name]), 2.0)
-        print(f"{component_name}_test: Component removed after UNDO: {not hydra.has_components(new_entity.id, [component_name])}")
+        general.log(f"{component_name}_test: Component removed after UNDO: {not hydra.has_components(new_entity.id, [component_name])}")
 
         # redo component addition
         general.redo()
         helper.wait_for_condition(lambda: hydra.has_components(new_entity.id, [component_name]), 2.0)
-        print(f"{component_name}_test: Component added after REDO: {hydra.has_components(new_entity.id, [component_name])}")
+        general.log(f"{component_name}_test: Component added after REDO: {hydra.has_components(new_entity.id, [component_name])}")
 
         return new_entity
 
@@ -123,42 +123,42 @@ def run():
     def verify_enter_exit_game_mode(component_name):
         general.enter_game_mode()
         helper.wait_for_condition(lambda: general.is_in_game_mode(), 1.0)
-        print(f"{component_name}_test: Entered game mode: {general.is_in_game_mode()}")
+        general.log(f"{component_name}_test: Entered game mode: {general.is_in_game_mode()}")
         general.exit_game_mode()
         helper.wait_for_condition(lambda: not general.is_in_game_mode(), 1.0)
-        print(f"{component_name}_test: Exit game mode: {not general.is_in_game_mode()}")
+        general.log(f"{component_name}_test: Exit game mode: {not general.is_in_game_mode()}")
 
     # Verify Hide/Unhide entity with component
     def verify_hide_unhide_entity(component_name, entity_obj):
         hydra.set_visibility_state(entity_obj.id, False)
         general.idle_wait_frames(1)
-        print(f"{component_name}_test: Entity is hidden: {hydra.is_entity_hidden(entity_obj.id)}")
+        general.log(f"{component_name}_test: Entity is hidden: {hydra.is_entity_hidden(entity_obj.id)}")
         hydra.set_visibility_state(entity_obj.id, True)
         general.idle_wait_frames(1)
-        print(f"{component_name}_test: Entity is shown: {not hydra.is_entity_hidden(entity_obj.id)}")
+        general.log(f"{component_name}_test: Entity is shown: {not hydra.is_entity_hidden(entity_obj.id)}")
 
     # Verify delete/Undo/Redo deletion
     def verify_deletion_undo_redo(component_name, entity_obj):
         hydra.delete_entity(entity_obj.id)
         helper.wait_for_condition(lambda: not hydra.find_entity_by_name(entity_obj.name), 1.0)
-        print(f"{component_name}_test: Entity deleted: {not hydra.find_entity_by_name(entity_obj.name)}")
+        general.log(f"{component_name}_test: Entity deleted: {not hydra.find_entity_by_name(entity_obj.name)}")
 
         general.undo()
         helper.wait_for_condition(lambda: hydra.find_entity_by_name(entity_obj.name) is not None, 1.0)
-        print(f"{component_name}_test: UNDO entity deletion works: {hydra.find_entity_by_name(entity_obj.name) is not None}")
+        general.log(f"{component_name}_test: UNDO entity deletion works: {hydra.find_entity_by_name(entity_obj.name) is not None}")
 
         general.redo()
         helper.wait_for_condition(lambda: not hydra.find_entity_by_name(entity_obj.name), 1.0)
-        print(f"{component_name}_test: REDO entity deletion works: {not hydra.find_entity_by_name(entity_obj.name)}")
+        general.log(f"{component_name}_test: REDO entity deletion works: {not hydra.find_entity_by_name(entity_obj.name)}")
 
     # Verify if addition of required components activates entity
     def verify_required_component_addition(entity_obj, components_to_add, component_name):
-        print(
+        general.log(
             f"{component_name}_test: Entity disabled initially: {not hydra.is_component_enabled(entity_obj.components[0])}")
         for component in components_to_add:
             entity_obj.add_component(component)
         helper.wait_for_condition(lambda: hydra.is_component_enabled(entity_obj.components[0]), 1.0)
-        print(
+        general.log(
             f"{component_name}_test: Entity enabled after adding "
             f"required components: {hydra.is_component_enabled(entity_obj.components[0])}"
         )
@@ -173,9 +173,12 @@ def run():
         if not hydra.has_components(entity_obj.id, ["Reflection Probe"]):
             raise ValueError(f"Given entity {entity_obj.name} has no Reflection Probe component")
         render.EditorReflectionProbeBus(azlmbr.bus.Event, "BakeReflectionProbe", entity_obj.id)
-        get_value = lambda: hydra.get_component_property_value(entity_obj.components[0], "Cubemap|Baked Cubemap Path")
+
+        def get_value():
+            hydra.get_component_property_value(entity_obj.components[0], "Cubemap|Baked Cubemap Path")
+
         helper.wait_for_condition(lambda: get_value() != "", 20.0)
-        print(f"{component_name}_test: Cubemap is generated: {get_value() != ''}")
+        general.log(f"{component_name}_test: Cubemap is generated: {get_value() != ''}")
 
     # Wait for Editor idle loop before executing Python hydra scripts.
     helper.init_idle()
@@ -191,15 +194,15 @@ def run():
     return_code = general.create_level_no_prompt(
         new_level_name, heightmap_resolution, heightmap_meters_per_pixel, terrain_texture_resolution, use_terrain)
     if return_code == 1:
-        print(f"{new_level_name} level already exists")
+        general.log(f"{new_level_name} level already exists")
     elif return_code == 2:
-        print("Failed to create directory")
+        general.log("Failed to create directory")
     elif return_code == 3:
-        print("Directory length is too long")
+        general.log("Directory length is too long")
     elif return_code != 0:
-        print("Unknown error, failed to create level")
+        general.log("Unknown error, failed to create level")
     else:
-        print(f"{new_level_name} level created successfully")
+        general.log(f"{new_level_name} level created successfully")
     after_level_load()
 
     # Delete all existing entities initially
@@ -282,16 +285,15 @@ def run():
     # Radius Weight Modifier Component
     ComponentTests("Radius Weight Modifier")
 
+    # Spot Light Component
+    ComponentTests("Spot Light")
+
     # Reflection Probe Component
     reflection_probe = "Reflection Probe"
     ComponentTests(
         reflection_probe,
         lambda entity_obj: verify_required_component_addition(entity_obj, ["Box Shape"], reflection_probe),
         lambda entity_obj: verify_cubemap_generation(reflection_probe, entity_obj),)
-
-    # Spot Light Component
-    ComponentTests("Spot Light")
-
 
 if __name__ == "__main__":
     run()

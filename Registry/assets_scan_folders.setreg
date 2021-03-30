@@ -3,14 +3,38 @@
     {
         "Gems":
         {
-            "AtomTest.Assets":
+            "MaterialEditor":
             {
                 "SourcePaths":
                 [
-                    "Gems/Atom/Tools/MaterialEditor",
-                    "Gems/UiBasics",
-                    "Gems/AtomContent/ReferenceMaterials",
-                    "Gems/AtomContent/LookDevelopmentStudioPixar",
+                    "Gems/Atom/Tools/MaterialEditor"
+                ]
+            },
+            "UiBasics":
+            {
+                "SourcePaths":
+                [
+                    "Gems/UiBasics"
+                ]
+            },
+            "ReferenceMaterials":
+            {
+                "SourcePaths":
+                [
+                    "Gems/AtomContent/ReferenceMaterials"
+                ]
+            },
+            "LookDevelopmentStudioPixar":
+            {
+                "SourcePaths":
+                [
+                    "Gems/AtomContent/LookDevelopmentStudioPixar"
+                ]
+            },
+            "Sponza":
+            {
+                "SourcePaths":
+                [
                     "Gems/AtomContent/Sponza"
                 ]
             }

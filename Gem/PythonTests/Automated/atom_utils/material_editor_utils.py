@@ -181,7 +181,7 @@ def select_model_config(configname):
     azlmbr.materialeditor.MaterialViewportRequestBus(azlmbr.bus.Broadcast, "SelectModelPresetByName", configname)
 
 
-screenshotsFolder = os.path.join(azlmbr.paths.devroot, "Cache", "AtomTest", "pc", "atomtest", "Screenshots")
+screenshotsFolder = os.path.join(azlmbr.paths.devroot, "AtomTest", "Cache" "pc", "Screenshots")
 
 
 class ScreenshotHelper:

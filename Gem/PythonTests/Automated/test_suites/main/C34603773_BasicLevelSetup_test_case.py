@@ -43,11 +43,11 @@ def run():
         )
         result = helper.isclose(a=general.get_viewport_size().x, b=SCREEN_WIDTH, rel_tol=0.1) and helper.isclose(
             a=general.get_viewport_size().y, b=SCREEN_HEIGHT, rel_tol=0.1)
-        print(general.get_viewport_size().x)
-        print(general.get_viewport_size().y)
-        print(general.get_viewport_size().z)
-        print(f"Viewport is set to the expected size: {result}")
-        print("Basic level created")
+        general.log(general.get_viewport_size().x)
+        general.log(general.get_viewport_size().y)
+        general.log(general.get_viewport_size().z)
+        general.log(f"Viewport is set to the expected size: {result}")
+        general.log("Basic level created")
         general.run_console("r_DisplayInfo = 0")
 
     def after_level_load():
@@ -87,15 +87,15 @@ def run():
     return_code = general.create_level_no_prompt(
         new_level_name, heightmap_resolution, heightmap_meters_per_pixel, terrain_texture_resolution, use_terrain)
     if return_code == 1:
-        print(f"{new_level_name} level already exists")
+        general.log(f"{new_level_name} level already exists")
     elif return_code == 2:
-        print("Failed to create directory")
+        general.log("Failed to create directory")
     elif return_code == 3:
-        print("Directory length is too long")
+        general.log("Directory length is too long")
     elif return_code != 0:
-        print("Unknown error, failed to create level")
+        general.log("Unknown error, failed to create level")
     else:
-        print(f"{new_level_name} level created successfully")
+        general.log(f"{new_level_name} level created successfully")
 
     # Basic setup for newly created level.
     after_level_load()
@@ -185,7 +185,7 @@ def run():
     ScreenshotHelper(general.idle_wait_frames).capture_screenshot_blocking(f"{'AtomBasicLevelSetup'}.ppm")
     general.exit_game_mode()
     helper.wait_for_condition(function=lambda: not general.is_in_game_mode(), timeout_in_seconds=2.0)
-    print("Basic level created")
+    general.log("Basic level created")
 
 
 if __name__ == "__main__":
