@@ -295,5 +295,6 @@ def run():
         lambda entity_obj: verify_required_component_addition(entity_obj, ["Box Shape"], reflection_probe),
         lambda entity_obj: verify_cubemap_generation(reflection_probe, entity_obj),)
 
+
 if __name__ == "__main__":
     run()

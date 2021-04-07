@@ -21,7 +21,8 @@ from Automated.atom_utils import hydra_test_utils as hydra
 
 logger = logging.getLogger(__name__)
 
-EDITOR_TIMEOUT = 200
+
+EDITOR_TIMEOUT = 60
 TEST_DIRECTORY = os.path.dirname(__file__)
 # Go to the project root directory
 PROJECT_DIRECTORY = PurePath(TEST_DIRECTORY)

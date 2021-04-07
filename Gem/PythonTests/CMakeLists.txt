@@ -15,27 +15,26 @@
 ################################################################################
 
 if(PAL_TRAIT_BUILD_HOST_TOOLS AND PAL_TRAIT_BUILD_TESTS_SUPPORTED AND AtomTest IN_LIST LY_PROJECTS)
-    # ATOM-14836 will re-enable
-    #ly_add_pytest(
-    #    NAME AtomTest::HydraPythonTestsMain
-    #    TEST_REQUIRES gpu
-    #    TEST_SUITE main
-    #    PATH ${CMAKE_CURRENT_LIST_DIR}/Automated/test_suites/main/
-    #    TEST_SERIAL
-    #    TIMEOUT 3600
-    #    RUNTIME_DEPENDENCIES
-    #        AssetProcessor
-    #        AtomTest
-    #        AtomTest.Assets
-    #        Editor
-    #)
+    ly_add_pytest(
+        NAME AtomTest::HydraPythonTestsMain
+        TEST_REQUIRES gpu
+        TEST_SUITE main
+        PATH ${CMAKE_CURRENT_LIST_DIR}/Automated/test_suites/main/
+        TEST_SERIAL
+        TIMEOUT 1200
+        RUNTIME_DEPENDENCIES
+            AssetProcessor
+            AtomTest
+            AtomTest.Assets
+            Editor
+    )
     ly_add_pytest(
         NAME AtomTest::HydraPythonTestsPeriodic
         TEST_REQUIRES gpu
         TEST_SUITE periodic
         PATH ${CMAKE_CURRENT_LIST_DIR}/Automated/test_suites/periodic/
         TEST_SERIAL
-        TIMEOUT 3600
+        TIMEOUT 1200
         RUNTIME_DEPENDENCIES
             AssetProcessor
             AtomTest
