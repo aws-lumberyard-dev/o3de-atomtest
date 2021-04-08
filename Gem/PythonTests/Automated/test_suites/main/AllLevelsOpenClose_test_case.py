@@ -63,27 +63,20 @@ def run():
         """Function to call after creating/opening a level to ensure it loads."""
         # Give everything a second to initialize.
         general.idle_enable(True)
-        general.idle_wait(1.0)
         general.update_viewport()
         general.idle_wait(0.5)  # half a second is more than enough for updating the viewport.
 
         # Close out problematic windows, FPS meters, and anti-aliasing.
         if general.is_helpers_shown():  # Turn off the helper gizmos if visible
             general.toggle_helpers()
-            general.idle_wait(1.0)
         if general.is_pane_visible("Error Report"):  # Close Error Report windows that block focus.
             general.close_pane("Error Report")
         if general.is_pane_visible("Error Log"):  # Close Error Log windows that block focus.
             general.close_pane("Error Log")
-        general.idle_wait(1.0)
         general.run_console("r_displayInfo=0")
         general.run_console("r_antialiasingmode=0")
-        general.idle_wait(1.0)
 
         return True
-
-    # Wait for Editor idle loop before executing Python hydra scripts.
-    helper.init_idle()
 
     # Create a new level.
     new_level_name = "tmp_level"  # Specified in AllLevelsOpenClose_test.py
