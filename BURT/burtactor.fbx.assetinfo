@@ -8,15 +8,6 @@
             "rules": {
                 "rules": [
                     {
-                        "$type": "TangentsRule"
-                    },
-                    {
-                        "$type": "SkinRule"
-                    },
-                    {
-                        "$type": "MaterialRule"
-                    },
-                    {
                         "$type": "MetaDataRule",
                         "metaData": "AdjustActor -actorID $(ACTORID) -name \"burtactor\"\r\nActorSetCollisionMeshes -actorID $(ACTORID) -lod 0 -nodeList \"\"\r\nAdjustActor -actorID $(ACTORID) -nodesExcludedFromBounds \"\" -nodeAction \"select\"\r\nAdjustActor -actorID $(ACTORID) -nodeAction \"replace\" -attachmentNodes \"\"\r\nAdjustActor -actorID $(ACTORID) -motionExtractionNodeName \"Reference\"\r\n"
                     },
