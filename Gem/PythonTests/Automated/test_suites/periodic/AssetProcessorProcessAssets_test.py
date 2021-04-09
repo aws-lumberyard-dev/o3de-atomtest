@@ -60,8 +60,8 @@ class TestAssetProcessorProcessAssets(object):
         # Clear Cache
         shutil.rmtree(editor.workspace.paths.cache(), ignore_errors=True)
         shutil.rmtree(os.path.join(editor.workspace.paths.build_directory(), "logs"), ignore_errors=True)
-        if os.getcwd() != editor.workspace.paths.dev():
-            os.chdir(editor.workspace.paths.dev())
+        if os.getcwd() != editor.workspace.paths.engine_root():
+            os.chdir(editor.workspace.paths.engine_root())
         log_finished_line = 'AssetProcessor~~Processed "bootstrap.cfg"'
 
         # Launch Editor, Check failed assets and list out failed assets
@@ -100,7 +100,7 @@ class TestAssetProcessorProcessAssets(object):
 
             # Adding new asset in Asset Processor
             asset_file_path = os.path.join(
-                editor.workspace.paths.dev(),
+                editor.workspace.paths.engine_root(),
                 "AtomTest",
                 "Gem",
                 "PythonTests",
@@ -108,7 +108,7 @@ class TestAssetProcessorProcessAssets(object):
                 "TestAssets",
                 "Blue_gradient.png",
             )
-            default_materials_path = os.path.join(editor.workspace.paths.dev(), "AtomTest", "Materials", "Default")
+            default_materials_path = os.path.join(editor.workspace.paths.engine_root(), "AtomTest", "Materials", "Default")
 
             if not os.path.exists(asset_file_path) or not os.path.exists(default_materials_path):
                 raise OSError(
@@ -133,9 +133,9 @@ class TestAssetProcessorProcessAssets(object):
             finally:
                 shutil.move(
                     os.path.join(
-                        editor.workspace.paths.dev(), "AtomTest", "Materials", "Default", "Blue_gradient.png"),
+                        editor.workspace.paths.engine_root(), "AtomTest", "Materials", "Default", "Blue_gradient.png"),
                     os.path.join(
-                        editor.workspace.paths.dev(), "AtomTest", "Gem", "PythonTests", "Automated", "TestAssets"
+                        editor.workspace.paths.engine_root(), "AtomTest", "Gem", "PythonTests", "Automated", "TestAssets"
                     ),
                 )
                 assert not FailedAssets.failed_assets, f"Failed assets found: {FailedAssets.failed_assets}"
@@ -163,8 +163,8 @@ class TestAssetProcessorProcessAssets(object):
         # Clear Cache
         shutil.rmtree(editor.workspace.paths.cache(), ignore_errors=True)
         shutil.rmtree(os.path.join(editor.workspace.paths.build_directory(), "logs"), ignore_errors=True)
-        if os.getcwd() != editor.workspace.paths.dev():
-            os.chdir(editor.workspace.paths.dev())
+        if os.getcwd() != editor.workspace.paths.engine_root():
+            os.chdir(editor.workspace.paths.engine_root())
 
         # Launch Editor, Check failed assets and list out failed assets
         with editor.start():
@@ -190,8 +190,8 @@ class TestAssetProcessorProcessAssets(object):
         # Clear Cache
         shutil.rmtree(editor.workspace.paths.cache(), ignore_errors=True)
         shutil.rmtree(os.path.join(editor.workspace.paths.build_directory(), "logs"), ignore_errors=True)
-        if os.getcwd() != editor.workspace.paths.dev():
-            os.chdir(editor.workspace.paths.dev())
+        if os.getcwd() != editor.workspace.paths.engine_root():
+            os.chdir(editor.workspace.paths.engine_root())
         log_finished_line = 'AssetProcessor~~Processed "bootstrap.cfg"'
 
         # Launch Editor, Check failed assets and list out failed assets
