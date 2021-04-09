@@ -39,7 +39,7 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
     def test_C34603773_BasicLevelSetup_SetsUpLevel(
             self, request, editor, workspace, project, launcher_platform, level, screenshot_name):
         # Clear the test level to start the test.
-        file_system.delete([os.path.join(workspace.paths.dev(), project, "Levels", level)], True, True)
+        file_system.delete([os.path.join(workspace.paths.engine_root(), project, "Levels", level)], True, True)
 
         cache_images = [os.path.join(
             workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, screenshot_name)]
@@ -70,14 +70,14 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
 
     @pytest.mark.test_case_id("C35035568", "C34525095", "C34525110")
     def test_AllComponentsIndepthTests(self, request, editor, workspace, project, launcher_platform, level):
-        basic_level = os.path.join(workspace.paths.dev(), project, "Levels", level)
+        basic_level = os.path.join(workspace.paths.engine_root(), project, "Levels", level)
         if not os.path.exists(basic_level):
             raise AllComponentsIndepthTestsException(
                 f'Level "{level}" does not exist at path: "{basic_level}"\n'
                 'Please run the "test_C34603773_BasicLevelSetup_SetsUpLevel()" test first.')
 
         def teardown():
-            file_system.delete([os.path.join(workspace.paths.dev(), project, "Levels", level)], True, True)
+            file_system.delete([os.path.join(workspace.paths.engine_root(), project, "Levels", level)], True, True)
         request.addfinalizer(teardown)
 
         screenshot_names = [

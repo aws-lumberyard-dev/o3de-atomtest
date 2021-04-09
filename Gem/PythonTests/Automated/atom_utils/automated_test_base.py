@@ -64,7 +64,7 @@ class TestAutomationBase:
         """
         return the full path of the project in this workspace
         """
-        return os.path.join(workspace.paths.dev(), workspace.project)
+        return os.path.join(workspace.paths.engine_root(), workspace.project)
 
     def _capture_screenshot(self):
         """
