@@ -41,4 +41,8 @@ set(GEM_DEPENDENCIES
     Gem::AtomToolsFramework.Editor
     Gem::GradientSignal.Editor
     Gem::WhiteBox.Editor
+    Gem::Atom_RHI_Null.Private
+    Gem::Atom_RHI_Null.Builders
+    Gem::AtomTressFX
+    Gem::AtomTressFX.Builders
 )

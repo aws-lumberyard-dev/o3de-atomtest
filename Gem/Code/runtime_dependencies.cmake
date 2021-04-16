@@ -34,4 +34,5 @@ set(GEM_DEPENDENCIES
     Gem::GradientSignal
     Gem::AtomFont
     Gem::WhiteBox
+    Gem::AtomTressFX
 )

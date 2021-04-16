@@ -6,6 +6,21 @@
         "ShaderCompilerArguments" : {
             "DefaultMatrixOrder" : "Row",
             "AzslcAdditionalFreeArguments" : "--strip-unused-srgs"
+        },
+        "PreprocessorOptions" : {
+            "predefinedMacros": ["AZSL=17"],
+            "projectIncludePaths": [
+                "AtomTest",
+                // These include paths are already part of the automatic include folders list.
+                // By specifying them here, we are boosting the priority of these folders above all the other automatic include folders.
+                // (This is not necessary for the project, but just shown as a usage example.)
+                "Gems/Atom/RPI/Assets/ShaderLib",
+                "Gems/Atom/Feature/Common/Assets/ShaderLib",
+                "Gems/AtomTressFX/Assets/Shaders",
+                "Gems/AtomTressFX/Assets/ShaderLib",
+                "Gems/AtomTressFX/External/Assets/Shaders",
+                "Gems/AtomTressFX/External/Assets/ShaderLib"
+            ]
         }
     }
 }

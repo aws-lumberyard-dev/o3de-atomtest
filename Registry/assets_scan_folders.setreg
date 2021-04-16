@@ -37,6 +37,14 @@
                 [
                     "Gems/AtomContent/Sponza"
                 ]
+            },
+            "Hair":
+            {
+                "SourcePaths":
+                [
+                    "Gems/AtomTressFX/Assets",
+                    "Gems/AtomTressFX/External/Assets"
+                ]
             }
         }
     }
