@@ -41,4 +41,8 @@ set(GEM_DEPENDENCIES
     Gem::AtomToolsFramework.Editor
     Gem::GradientSignal.Editor
     Gem::WhiteBox.Editor
+    Gem::RADTelemetry
+    Gem::PhysX.Editor
+    Gem::Multiplayer
+    Gem::Multiplayer.Tools
 )
