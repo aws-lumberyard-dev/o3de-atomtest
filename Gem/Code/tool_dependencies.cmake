@@ -44,5 +44,6 @@ set(GEM_DEPENDENCIES
     Gem::RADTelemetry
     Gem::PhysX.Editor
     Gem::Multiplayer
+    Gem::Multiplayer.Debug
     Gem::Multiplayer.Tools
 )

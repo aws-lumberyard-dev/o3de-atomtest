@@ -1,0 +1,1 @@
+start ..\build\windows_vs2019\bin\debug\AtomTest.GameLauncher.exe --customcfg=client.cfg

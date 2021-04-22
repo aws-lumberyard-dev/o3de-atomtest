@@ -37,4 +37,5 @@ set(GEM_DEPENDENCIES
     Gem::RADTelemetry
     Gem::PhysX
     Gem::Multiplayer
+    Gem::Multiplayer.Debug
 )
