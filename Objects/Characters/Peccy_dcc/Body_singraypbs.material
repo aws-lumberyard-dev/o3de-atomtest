@@ -19,10 +19,6 @@
             "useTexture": true, 
             "factor": 1.0
         }, 
-        "ambientOcclusion": {
-            "textureMap": "EngineAssets/TextureMsg/DefaultNoUVs.tif", 
-            "factor": 1.0
-        }, 
         "normal": {
             "textureMap": "Objects/Characters/Peccy_dcc/Body_normal.png", 
             "useTexture": true, 
