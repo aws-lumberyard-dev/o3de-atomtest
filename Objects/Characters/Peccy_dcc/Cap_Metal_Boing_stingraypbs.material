@@ -4,9 +4,6 @@
     "parentMaterial": "",
     "propertyLayoutVersion": 3,
     "properties": {
-        "ambientOcclusion": {
-            "textureMap": "EngineAssets/TextureMsg/DefaultNoUVs.tif"
-        },
         "baseColor": {
             "textureMap": "Objects/Characters/Peccy_dcc/Cap_Metal_Boing_BaseColor.png"
         },
