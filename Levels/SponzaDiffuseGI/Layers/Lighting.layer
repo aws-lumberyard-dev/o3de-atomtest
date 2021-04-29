@@ -26,11 +26,11 @@
 						</Class>
 						<Class name="EditorTransform" field="Transform Data" version="2" type="{B02B7063-D238-4F40-A724-405F7A6D68CB}">
 							<Class name="Vector3" field="Translate" value="0.0000000 0.0000000 0.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
-							<Class name="Vector3" field="Rotate" value="-89.9999924 -0.0000004 6.1677461" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
+							<Class name="Vector3" field="Rotate" value="-90.8651276 -0.0000009 6.1677461" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="Vector3" field="Scale" value="1.0000000 1.0000000 1.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 						</Class>
-						<Class name="Transform" field="Cached World Transform" value="-0.7060827 0.0380407 0.0380408 0.7060828 1.0000000 1.0000000 1.0000000 0.0000000 0.0000000 0.0000000" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
+						<Class name="Transform" field="Cached World Transform" value="-0.7113933 0.0383269 0.0377525 0.7007321 1.0000000 1.0000000 1.0000000 0.0000000 0.0000000 0.0000000" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
 						<Class name="EntityId" field="Cached World Transform Parent" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
 							<Class name="AZ::u64" field="id" value="338542984257" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
@@ -149,7 +149,7 @@
 							<Class name="Vector3" field="Scale" value="1.0000000 1.0000000 1.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 						</Class>
-						<Class name="Transform" field="Cached World Transform" value="-0.7060827 0.0380407 0.0380408 0.7060828 1.0000000 1.0000000 1.0000000 0.0646288 -0.0000001 0.5980538" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
+						<Class name="Transform" field="Cached World Transform" value="-0.7113933 0.0383269 0.0377525 0.7007321 1.0000000 1.0000000 1.0000000 0.0646288 0.0090299 0.5979857" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
 						<Class name="EntityId" field="Cached World Transform Parent" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
 							<Class name="AZ::u64" field="id" value="329953049665" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
@@ -268,7 +268,7 @@
 							<Class name="Vector3" field="Scale" value="1.0000000 1.0000000 1.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 						</Class>
-						<Class name="Transform" field="Cached World Transform" value="-0.7060827 0.0380407 0.0380408 0.7060828 1.0000000 1.0000000 1.0000000 0.0646288 -0.0000001 0.5980538" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
+						<Class name="Transform" field="Cached World Transform" value="-0.7113933 0.0383269 0.0377525 0.7007321 1.0000000 1.0000000 1.0000000 0.0646288 0.0090299 0.5979857" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
 						<Class name="EntityId" field="Cached World Transform Parent" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
 							<Class name="AZ::u64" field="id" value="321363115073" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
@@ -416,12 +416,12 @@
 							<Class name="AZ::u64" field="id" value="338542984257" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
 						<Class name="EditorTransform" field="Transform Data" version="2" type="{B02B7063-D238-4F40-A724-405F7A6D68CB}">
-							<Class name="Vector3" field="Translate" value="0.0000000 0.0000000 7.4018412" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
+							<Class name="Vector3" field="Translate" value="0.0000000 0.0000000 7.5000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="Vector3" field="Rotate" value="0.0000000 0.0000000 0.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="Vector3" field="Scale" value="1.0000000 1.0000000 1.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 						</Class>
-						<Class name="Transform" field="Cached World Transform" value="0.0000000 0.0000000 0.0000000 1.0000000 1.0000000 1.0000000 1.0000000 0.0000000 0.0000000 7.4018412" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
+						<Class name="Transform" field="Cached World Transform" value="0.0000000 0.0000000 0.0000000 1.0000000 1.0000000 1.0000000 1.0000000 0.0000000 0.0000000 7.5000000" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
 						<Class name="EntityId" field="Cached World Transform Parent" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
 							<Class name="AZ::u64" field="id" value="338542984257" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
@@ -590,12 +590,12 @@
 							<Class name="AZ::u64" field="id" value="338542984257" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
 						<Class name="EditorTransform" field="Transform Data" version="2" type="{B02B7063-D238-4F40-A724-405F7A6D68CB}">
-							<Class name="Vector3" field="Translate" value="0.0000000 0.0000000 7.4018412" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
+							<Class name="Vector3" field="Translate" value="0.0000000 0.0000000 7.5000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="Vector3" field="Rotate" value="0.0000000 0.0000000 0.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="Vector3" field="Scale" value="1.0000000 1.0000000 1.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 						</Class>
-						<Class name="Transform" field="Cached World Transform" value="0.0000000 0.0000000 0.0000000 1.0000000 1.0000000 1.0000000 1.0000000 0.0000000 0.0000000 7.4018412" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
+						<Class name="Transform" field="Cached World Transform" value="0.0000000 0.0000000 0.0000000 1.0000000 1.0000000 1.0000000 1.0000000 0.0000000 0.0000000 7.5000000" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
 						<Class name="EntityId" field="Cached World Transform Parent" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
 							<Class name="AZ::u64" field="id" value="338542984257" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
@@ -715,7 +715,7 @@
 								</Class>
 								<Class name="AZ::Render::DiffuseProbeGridComponentController" field="Controller" type="{108588E8-355E-4A19-94AC-955E64A37CE2}">
 									<Class name="AZ::Render::DiffuseProbeGridComponentConfig" field="Configuration" type="{BF190F2A-D7F7-453B-9D42-5CE940180DCE}">
-										<Class name="Vector3" field="ProbeSpacing" value="2.0000000 2.0000000 2.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
+										<Class name="Vector3" field="ProbeSpacing" value="1.0000000 1.0000000 1.5000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 										<Class name="Vector3" field="Extents" value="36.0000000 20.0000000 15.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 										<Class name="float" field="AmbientMultiplier" value="4.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 										<Class name="float" field="ViewBias" value="0.2000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
@@ -724,9 +724,9 @@
 								</Class>
 							</Class>
 						</Class>
-						<Class name="float" field="probeSpacingX" value="2.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
-						<Class name="float" field="probeSpacingY" value="2.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
-						<Class name="float" field="probeSpacingZ" value="2.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
+						<Class name="float" field="probeSpacingX" value="1.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
+						<Class name="float" field="probeSpacingY" value="1.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
+						<Class name="float" field="probeSpacingZ" value="1.5000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 						<Class name="float" field="ambientMultiplier" value="4.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 						<Class name="float" field="viewBias" value="0.2000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 						<Class name="float" field="normalBias" value="0.1000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
