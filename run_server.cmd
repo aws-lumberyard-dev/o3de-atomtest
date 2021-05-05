@@ -1,1 +1,1 @@
-start ..\build\windows_vs2019\bin\debug\AtomTest.GameLauncher.exe --console_command_file=server.cfg
+start ..\build\windows_vs2019\bin\debug\AtomTest.GameLauncher.exe --console-command-file=server.cfg
