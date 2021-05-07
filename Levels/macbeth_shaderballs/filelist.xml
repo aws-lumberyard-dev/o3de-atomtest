@@ -1,6 +1,6 @@
 <download name="macbeth_shaderballs" type="Map">
  <index src="filelist.xml" dest="filelist.xml"/>
  <files>
-  <file src="level.pak" dest="level.pak" size="7710" md5="59cc20072b1352de347158b156ca5e14"/>
+  <file src="level.pak" dest="level.pak" size="2686" md5="39f4a6c952e744c0e8a9eeb708ef7d94"/>
  </files>
 </download>
