@@ -175,24 +175,14 @@
 			</Class>
 			<Class name="AZ::Entity" field="element" version="2" type="{75651658-8663-478D-9090-2432DFCAFA44}">
 				<Class name="EntityId" field="Id" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 					<Class name="AZ::u64" field="id" value="274324129710" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 				</Class>
 				<Class name="AZStd::string" field="Name" value="DiffuseProbeGrid1" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
-=======
-					<Class name="AZ::u64" field="id" value="278413442113" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-				</Class>
-				<Class name="AZStd::string" field="Name" value="GlobalSky" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 				<Class name="AZStd::vector" field="Components" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}">
 					<Class name="EditorOnlyEntityComponent" field="element" type="{22A16F1D-6D49-422D-AAE9-91AE45B5D3E7}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="10650022088306804656" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="1505253063981186092" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="bool" field="IsEditorOnly" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
@@ -200,31 +190,19 @@
 					<Class name="TransformComponent" field="element" version="9" type="{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="2767915924263884988" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="12952232878016107351" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="EntityId" field="Parent Entity" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
 							<Class name="AZ::u64" field="id" value="270029162414" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
 						<Class name="EditorTransform" field="Transform Data" version="2" type="{B02B7063-D238-4F40-A724-405F7A6D68CB}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 							<Class name="Vector3" field="Translate" value="-8.8519001 -0.0000217 7.1581659" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
-=======
-							<Class name="Vector3" field="Translate" value="0.0000000 0.0000000 0.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							<Class name="Vector3" field="Rotate" value="0.0000000 0.0000000 0.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="Vector3" field="Scale" value="1.0000000 1.0000000 1.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 						</Class>
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 						<Class name="Transform" field="Cached World Transform" value="0.0000000 0.0000000 0.0000000 1.0000000 1.0000000 1.0000000 1.0000000 -8.8519001 -0.0000217 7.1581659" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
-=======
-						<Class name="Transform" field="Cached World Transform" value="0.0000000 0.0000000 0.0000000 1.0000000 1.0000000 1.0000000 1.0000000 0.0000000 0.0000000 0.0000000" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 						<Class name="EntityId" field="Cached World Transform Parent" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
 							<Class name="AZ::u64" field="id" value="270029162414" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
@@ -260,16 +238,11 @@
 					<Class name="EditorInspectorComponent" field="element" version="2" type="{47DE3DDA-50C5-4F50-B1DB-BA4AE66AB056}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="12682061212794066421" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="16802543556595886839" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AZStd::vector" field="ComponentOrderEntryArray" type="{B6EFED5B-19B4-5084-9D92-42DECCE83872}">
 							<Class name="ComponentOrderEntry" field="element" version="1" type="{335C5861-5197-4DD5-A766-EF2B551B0D9D}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="ComponentId" value="2767915924263884988" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 								<Class name="AZ::u64" field="SortIndex" value="0" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 							</Class>
@@ -281,102 +254,33 @@
 								<Class name="AZ::u64" field="ComponentId" value="23018632319486423" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 								<Class name="AZ::u64" field="SortIndex" value="2" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 							</Class>
-=======
-								<Class name="AZ::u64" field="ComponentId" value="12952232878016107351" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-								<Class name="AZ::u64" field="SortIndex" value="0" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-							<Class name="ComponentOrderEntry" field="element" version="1" type="{335C5861-5197-4DD5-A766-EF2B551B0D9D}">
-								<Class name="AZ::u64" field="ComponentId" value="3987893510736782289" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-								<Class name="AZ::u64" field="SortIndex" value="1" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-							<Class name="ComponentOrderEntry" field="element" version="1" type="{335C5861-5197-4DD5-A766-EF2B551B0D9D}">
-								<Class name="AZ::u64" field="ComponentId" value="10332660484145119873" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-								<Class name="AZ::u64" field="SortIndex" value="2" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-						</Class>
-					</Class>
-					<Class name="AZ::Render::EditorImageBasedLightComponent" field="element" version="1" type="{6202F16C-DDF9-4026-9479-F5BDC621D372}">
-						<Class name="EditorRenderComponentAdapter&lt;AZ::Render::ImageBasedLightComponentController AZ::Render::ImageBasedLightComponent ImageBasedLigh" field="BaseClass1" type="{2415249F-0EBB-5E9F-8D57-A727A99683D9}">
-							<Class name="EditorComponentAdapter&lt;AZ::Render::ImageBasedLightComponentController AZ::Render::ImageBasedLightComponent ImageBasedLightCompo" field="BaseClass1" version="1" type="{B2478208-EF6E-5F67-8A3F-6D26B03CA4F1}">
-								<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-									<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-										<Class name="AZ::u64" field="Id" value="3987893510736782289" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-									</Class>
-								</Class>
-								<Class name="AZ::Render::ImageBasedLightComponentController" field="Controller" type="{73DBD008-4E77-471C-B7DE-F2217A256FE2}">
-									<Class name="ImageBasedLightComponentConfig" field="Configuration" version="1" type="{2BD353A5-562B-4D84-9508-B2EFAFF1415E}">
-										<Class name="ComponentConfig" field="BaseClass1" version="1" type="{0A7929DF-2932-40EA-B2B3-79BC1C3490D0}"/>
-										<Class name="Asset" field="diffuseImageAsset" value="id={3FD09945-D0F2-55C8-B9AF-B2FD421FE3BE}:bb8,type={3C96A826-9099-4308-A604-7B19ADBF8761},hint={lightingpresets/highcontrast/goegap_4k_iblglobalcm_ibldiffuse.exr.streamingimage},loadBehavior=1" version="2" type="{77A19D40-8731-4D3C-9041-1B43047366A4}"/>
-										<Class name="Asset" field="specularImageAsset" value="id={3FD09945-D0F2-55C8-B9AF-B2FD421FE3BE}:7d0,type={3C96A826-9099-4308-A604-7B19ADBF8761},hint={lightingpresets/highcontrast/goegap_4k_iblglobalcm_iblspecular.exr.streamingimage},loadBehavior=1" version="2" type="{77A19D40-8731-4D3C-9041-1B43047366A4}"/>
-										<Class name="float" field="exposure" value="0.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
-									</Class>
-								</Class>
-							</Class>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 						</Class>
 					</Class>
 					<Class name="EditorEntitySortComponent" field="element" version="2" type="{6EA1E03D-68B2-466D-97F7-83998C8C27F0}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="10621521402528214734" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="580609154998111404" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AZStd::vector" field="ChildEntityOrderEntryArray" type="{BE163120-C1ED-5F69-A650-DC2528A8FF94}"/>
 					</Class>
 					<Class name="SelectionComponent" field="element" type="{73B724FC-43D1-4C75-ACF5-79AA8A3BF89D}">
 						<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 							<Class name="AZ::u64" field="Id" value="10287739345254472558" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-							<Class name="AZ::u64" field="Id" value="3688925937489095277" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 						</Class>
 					</Class>
 					<Class name="EditorVisibilityComponent" field="element" type="{88E08E78-5C2F-4943-9F73-C115E6FFAB43}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="11167406755332869090" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 							</Class>
 						</Class>
 						<Class name="bool" field="VisibilityFlag" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="1371996851098627205" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-						</Class>
-						<Class name="bool" field="VisibilityFlag" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-					</Class>
-					<Class name="AZ::Render::EditorHDRiSkyboxComponent" field="element" version="2" type="{B736789D-0101-4D17-A932-B5224EEFA8B4}">
-						<Class name="EditorRenderComponentAdapter&lt;AZ::Render::HDRiSkyboxComponentController AZ::Render::HDRiSkyboxComponent AZ::Render::HDRiSkyboxCo" field="BaseClass1" type="{C16B67CC-4B9B-5ADC-B05A-66EA6AC35CB0}">
-							<Class name="EditorComponentAdapter&lt;AZ::Render::HDRiSkyboxComponentController AZ::Render::HDRiSkyboxComponent AZ::Render::HDRiSkyboxComponen" field="BaseClass1" version="1" type="{11C7E20F-8763-5381-AC2A-11D65F0DEA5D}">
-								<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-									<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-										<Class name="AZ::u64" field="Id" value="10332660484145119873" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-									</Class>
-								</Class>
-								<Class name="AZ::Render::HDRiSkyboxComponentController" field="Controller" version="1" type="{D01C123D-4EA1-4A9B-A7D9-47EF26A55CD0}">
-									<Class name="AZ::Render::HDRiSkyboxComponentConfig" field="Configuration" version="7" type="{AEAD8F5A-8D2F-47CD-B98C-C99541F7B229}">
-										<Class name="ComponentConfig" field="BaseClass1" version="1" type="{0A7929DF-2932-40EA-B2B3-79BC1C3490D0}"/>
-										<Class name="Asset" field="CubemapAsset" value="id={215E47FD-D181-5832-B1AB-91673ABF6399}:3e8,type={3C96A826-9099-4308-A604-7B19ADBF8761},hint={lightingpresets/highcontrast/goegap_4k_skyboxcm.exr.streamingimage},loadBehavior=1" version="2" type="{77A19D40-8731-4D3C-9041-1B43047366A4}"/>
-										<Class name="float" field="Exposure" value="0.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
-									</Class>
-								</Class>
-							</Class>
-						</Class>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 					</Class>
 					<Class name="EditorLockComponent" field="element" type="{C3A169C9-7EFB-4D6C-8710-3591680D0936}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="5155057984600269412" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="11920880790709496746" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
@@ -384,25 +288,15 @@
 					<Class name="EditorPendingCompositionComponent" field="element" type="{D40FCB35-153D-45B3-AF6D-7BA576D8AFBB}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="8331866305449401875" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="15702817444318959685" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AZStd::vector" field="PendingComponents" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}"/>
 					</Class>
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 					<Class name="EditorEntityIconComponent" field="element" type="{E15D42C2-912D-466F-9547-E7E948CE2D7D}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
 								<Class name="AZ::u64" field="Id" value="9452712513496033692" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-					<Class name="EditorEntityIconComponent" field="element" type="{E15D42C2-912D-466F-9547-E7E948CE2D7D}">
-						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-								<Class name="AZ::u64" field="Id" value="8849815262247255063" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 							</Class>
 						</Class>
 						<Class name="AssetId" field="EntityIconAssetId" version="1" type="{652ED536-3402-439B-AEBE-4A5DBC554085}">
@@ -413,124 +307,7 @@
 					<Class name="EditorDisabledCompositionComponent" field="element" type="{E77AE6AC-897D-4035-8353-637449B6DCFB}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-								<Class name="AZ::u64" field="Id" value="1509808064392572438" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-						</Class>
-						<Class name="AZStd::vector" field="DisabledComponents" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}"/>
-					</Class>
-				</Class>
-				<Class name="bool" field="IsDependencyReady" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-				<Class name="bool" field="IsRuntimeActive" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-			</Class>
-			<Class name="AZ::Entity" field="element" version="2" type="{75651658-8663-478D-9090-2432DFCAFA44}">
-				<Class name="EntityId" field="Id" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-					<Class name="AZ::u64" field="id" value="325658082369" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-				</Class>
-				<Class name="AZStd::string" field="Name" value="origin" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
-				<Class name="AZStd::vector" field="Components" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}">
-					<Class name="EditorOnlyEntityComponent" field="element" type="{22A16F1D-6D49-422D-AAE9-91AE45B5D3E7}">
-						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-								<Class name="AZ::u64" field="Id" value="17668702497933236465" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-						</Class>
-						<Class name="bool" field="IsEditorOnly" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-					</Class>
-					<Class name="TransformComponent" field="element" version="9" type="{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0}">
-						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-								<Class name="AZ::u64" field="Id" value="4112365631821980723" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-						</Class>
-						<Class name="EntityId" field="Parent Entity" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-							<Class name="AZ::u64" field="id" value="261233572929" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-						</Class>
-						<Class name="EditorTransform" field="Transform Data" version="2" type="{B02B7063-D238-4F40-A724-405F7A6D68CB}">
-							<Class name="Vector3" field="Translate" value="0.0000000 0.0000000 0.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
-							<Class name="Vector3" field="Rotate" value="0.0000000 0.0000000 0.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
-							<Class name="Vector3" field="Scale" value="1.0000000 1.0000000 1.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
-							<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-						</Class>
-						<Class name="Transform" field="Cached World Transform" value="0.0000000 0.0000000 0.0000000 1.0000000 1.0000000 1.0000000 1.0000000 0.0000000 0.0000000 0.0000000" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
-						<Class name="EntityId" field="Cached World Transform Parent" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-							<Class name="AZ::u64" field="id" value="261233572929" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-						</Class>
-						<Class name="unsigned int" field="Parent Activation Transform Mode" value="0" type="{43DA906B-7DEF-4CA8-9790-854106D3F983}"/>
-						<Class name="bool" field="IsStatic" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-						<Class name="bool" field="Sync Enabled" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-						<Class name="unsigned int" field="InterpolatePosition" value="0" type="{43DA906B-7DEF-4CA8-9790-854106D3F983}"/>
-						<Class name="unsigned int" field="InterpolateRotation" value="0" type="{43DA906B-7DEF-4CA8-9790-854106D3F983}"/>
-					</Class>
-					<Class name="EditorInspectorComponent" field="element" version="2" type="{47DE3DDA-50C5-4F50-B1DB-BA4AE66AB056}">
-						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-								<Class name="AZ::u64" field="Id" value="17236653384486108574" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-						</Class>
-						<Class name="AZStd::vector" field="ComponentOrderEntryArray" type="{B6EFED5B-19B4-5084-9D92-42DECCE83872}">
-							<Class name="ComponentOrderEntry" field="element" version="1" type="{335C5861-5197-4DD5-A766-EF2B551B0D9D}">
-								<Class name="AZ::u64" field="ComponentId" value="4112365631821980723" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-								<Class name="AZ::u64" field="SortIndex" value="0" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-						</Class>
-					</Class>
-					<Class name="EditorEntitySortComponent" field="element" version="2" type="{6EA1E03D-68B2-466D-97F7-83998C8C27F0}">
-						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-								<Class name="AZ::u64" field="Id" value="2082846472000388341" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-						</Class>
-						<Class name="AZStd::vector" field="ChildEntityOrderEntryArray" type="{BE163120-C1ED-5F69-A650-DC2528A8FF94}"/>
-					</Class>
-					<Class name="SelectionComponent" field="element" type="{73B724FC-43D1-4C75-ACF5-79AA8A3BF89D}">
-						<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-							<Class name="AZ::u64" field="Id" value="17491837294844013578" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-						</Class>
-					</Class>
-					<Class name="EditorVisibilityComponent" field="element" type="{88E08E78-5C2F-4943-9F73-C115E6FFAB43}">
-						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-								<Class name="AZ::u64" field="Id" value="4869923260132785370" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-						</Class>
-						<Class name="bool" field="VisibilityFlag" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-					</Class>
-					<Class name="EditorLockComponent" field="element" type="{C3A169C9-7EFB-4D6C-8710-3591680D0936}">
-						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-								<Class name="AZ::u64" field="Id" value="949251942027576442" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-						</Class>
-						<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-					</Class>
-					<Class name="EditorPendingCompositionComponent" field="element" type="{D40FCB35-153D-45B3-AF6D-7BA576D8AFBB}">
-						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-								<Class name="AZ::u64" field="Id" value="109258068274296885" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-						</Class>
-						<Class name="AZStd::vector" field="PendingComponents" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}"/>
-					</Class>
-					<Class name="EditorEntityIconComponent" field="element" type="{E15D42C2-912D-466F-9547-E7E948CE2D7D}">
-						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-								<Class name="AZ::u64" field="Id" value="13210747958143208490" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
-							</Class>
-						</Class>
-						<Class name="AssetId" field="EntityIconAssetId" version="1" type="{652ED536-3402-439B-AEBE-4A5DBC554085}">
-							<Class name="AZ::Uuid" field="guid" value="{00000000-0000-0000-0000-000000000000}" type="{E152C105-A133-4D03-BBF8-3D4B2FBA3E2A}"/>
-							<Class name="unsigned int" field="subId" value="0" type="{43DA906B-7DEF-4CA8-9790-854106D3F983}"/>
-						</Class>
-					</Class>
-					<Class name="EditorDisabledCompositionComponent" field="element" type="{E77AE6AC-897D-4035-8353-637449B6DCFB}">
-						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="15607041393301034512" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="2273724835678233436" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AZStd::vector" field="DisabledComponents" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}"/>
@@ -589,21 +366,12 @@
 							<Class name="AZ::u64" field="id" value="270029162414" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
 						<Class name="EditorTransform" field="Transform Data" version="2" type="{B02B7063-D238-4F40-A724-405F7A6D68CB}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 							<Class name="Vector3" field="Translate" value="7.5208731 -0.0000217 7.1581659" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="Vector3" field="Rotate" value="0.0000000 0.0000000 0.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="Vector3" field="Scale" value="1.0000000 1.0000000 1.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 						</Class>
 						<Class name="Transform" field="Cached World Transform" value="0.0000000 0.0000000 0.0000000 1.0000000 1.0000000 1.0000000 1.0000000 7.5208731 -0.0000217 7.1581659" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
-=======
-							<Class name="Vector3" field="Translate" value="-9.0764894 0.3791146 3.3556778" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
-							<Class name="Vector3" field="Rotate" value="0.0266553 3.3221443 -90.4601135" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
-							<Class name="Vector3" field="Scale" value="1.0000001 1.0000000 1.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
-							<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-						</Class>
-						<Class name="Transform" field="Cached World Transform" value="-0.0197114 0.0198699 -0.7096573 0.7039909 1.0000000 1.0000000 1.0000000 -9.0764894 0.3791146 3.3556778" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 						<Class name="EntityId" field="Cached World Transform Parent" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
 							<Class name="AZ::u64" field="id" value="270029162414" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
@@ -745,24 +513,14 @@
 			</Class>
 			<Class name="AZ::Entity" field="element" version="2" type="{75651658-8663-478D-9090-2432DFCAFA44}">
 				<Class name="EntityId" field="Id" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 					<Class name="AZ::u64" field="id" value="287209031598" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 				</Class>
 				<Class name="AZStd::string" field="Name" value="areaLight_sky_01" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
-=======
-					<Class name="AZ::u64" field="id" value="269823507521" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-				</Class>
-				<Class name="AZStd::string" field="Name" value="Shaderball" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 				<Class name="AZStd::vector" field="Components" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}">
 					<Class name="EditorOnlyEntityComponent" field="element" type="{22A16F1D-6D49-422D-AAE9-91AE45B5D3E7}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="34121725148037184" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="5289291410702493741" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="bool" field="IsEditorOnly" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
@@ -770,32 +528,19 @@
 					<Class name="TransformComponent" field="element" version="9" type="{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="447018349481451708" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="4993170367452717571" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="EntityId" field="Parent Entity" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
 							<Class name="AZ::u64" field="id" value="270029162414" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
 						<Class name="EditorTransform" field="Transform Data" version="2" type="{B02B7063-D238-4F40-A724-405F7A6D68CB}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 							<Class name="Vector3" field="Translate" value="-4.7390242 0.5591918 10.4311085" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="Vector3" field="Rotate" value="180.0000000 0.0000000 0.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="Vector3" field="Scale" value="1.0000000 1.0000000 1.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 						</Class>
 						<Class name="Transform" field="Cached World Transform" value="1.0000000 0.0000000 0.0000000 0.0000000 1.0000000 1.0000000 1.0000000 -4.7390242 0.5591918 10.4311085" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
-=======
-							<Class name="Vector3" field="Translate" value="0.0000000 0.0000000 0.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
-							<Class name="Vector3" field="Rotate" value="0.0000000 0.0000000 180.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
-							<Class name="Vector3" field="Scale" value="1.0000000 1.0000000 1.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
-							<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-						</Class>
-						<Class name="Transform" field="Cached World Transform" value="0.0000000 0.0000000 1.0000000 0.0000000 1.0000000 1.0000000 1.0000000 0.0000000 0.0000000 0.0000000" version="1" type="{5D9958E9-9F1E-4985-B532-FFFDE75FEDFD}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 						<Class name="EntityId" field="Cached World Transform Parent" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
 							<Class name="AZ::u64" field="id" value="270029162414" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 						</Class>
@@ -808,16 +553,11 @@
 					<Class name="EditorInspectorComponent" field="element" version="2" type="{47DE3DDA-50C5-4F50-B1DB-BA4AE66AB056}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="2296116473777479179" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="17302862295003345881" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AZStd::vector" field="ComponentOrderEntryArray" type="{B6EFED5B-19B4-5084-9D92-42DECCE83872}">
 							<Class name="ComponentOrderEntry" field="element" version="1" type="{335C5861-5197-4DD5-A766-EF2B551B0D9D}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="ComponentId" value="447018349481451708" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 								<Class name="AZ::u64" field="SortIndex" value="0" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 							</Class>
@@ -829,58 +569,33 @@
 								<Class name="AZ::u64" field="ComponentId" value="6581889290755907318" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 								<Class name="AZ::u64" field="SortIndex" value="2" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 							</Class>
-=======
-								<Class name="AZ::u64" field="ComponentId" value="4993170367452717571" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-								<Class name="AZ::u64" field="SortIndex" value="0" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-							<Class name="ComponentOrderEntry" field="element" version="1" type="{335C5861-5197-4DD5-A766-EF2B551B0D9D}">
-								<Class name="AZ::u64" field="ComponentId" value="16575018698753922781" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-								<Class name="AZ::u64" field="SortIndex" value="1" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 						</Class>
 					</Class>
 					<Class name="EditorEntitySortComponent" field="element" version="2" type="{6EA1E03D-68B2-466D-97F7-83998C8C27F0}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="12932347760663884294" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="10923115151304706844" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AZStd::vector" field="ChildEntityOrderEntryArray" type="{BE163120-C1ED-5F69-A650-DC2528A8FF94}"/>
 					</Class>
 					<Class name="SelectionComponent" field="element" type="{73B724FC-43D1-4C75-ACF5-79AA8A3BF89D}">
 						<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 							<Class name="AZ::u64" field="Id" value="13650435488907192073" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-							<Class name="AZ::u64" field="Id" value="13943942964321373168" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 						</Class>
 					</Class>
 					<Class name="EditorVisibilityComponent" field="element" type="{88E08E78-5C2F-4943-9F73-C115E6FFAB43}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="6468120643651080107" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="11584601375049398197" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
-						<Class name="bool" field="VisibilityFlag" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
+						<Class name="bool" field="VisibilityFlag" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 					</Class>
 					<Class name="EditorLockComponent" field="element" type="{C3A169C9-7EFB-4D6C-8710-3591680D0936}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="6834478947743950053" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="6871857201096355436" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
@@ -888,44 +603,15 @@
 					<Class name="EditorPendingCompositionComponent" field="element" type="{D40FCB35-153D-45B3-AF6D-7BA576D8AFBB}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="4024404114704534798" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="17063224558106026575" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AZStd::vector" field="PendingComponents" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}"/>
 					</Class>
-					<Class name="AZ::Render::EditorMeshComponent" field="element" version="2" type="{DCE68F6E-2E16-4CB4-A834-B6C2F900A7E9}">
-						<Class name="EditorRenderComponentAdapter&lt;AZ::Render::MeshComponentController AZ::Render::MeshComponent AZ::Render::MeshComponentConfig &gt;" field="BaseClass1" type="{3D614286-9164-53B5-833B-4F98D2820BA7}">
-							<Class name="EditorComponentAdapter&lt;AZ::Render::MeshComponentController AZ::Render::MeshComponent AZ::Render::MeshComponentConfig &gt;" field="BaseClass1" version="1" type="{52DFE044-18C1-5861-BA2A-EDB61107FEE9}">
-								<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-									<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-										<Class name="AZ::u64" field="Id" value="16575018698753922781" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-									</Class>
-								</Class>
-								<Class name="AZ::Render::MeshComponentController" field="Controller" type="{D0F35FAC-4194-4C89-9487-D000DDB8B272}">
-									<Class name="AZ::Render::MeshComponentConfig" field="Configuration" version="1" type="{63737345-51B1-472B-9355-98F99993909B}">
-										<Class name="Asset" field="ModelAsset" value="id={FD340C30-755C-5911-92A3-19A3F7A77931}:10c60e88,type={2C7477B6-69C5-45BE-8163-BCD6A275B6D8},hint={objects/shaderball/shaderball_default_1m.azmodel},loadBehavior=0" version="2" type="{77A19D40-8731-4D3C-9041-1B43047366A4}"/>
-										<Class name="AZ::s64" field="SortKey" value="0" type="{70D8A282-A1EA-462D-9D04-51EDE81FAC2F}"/>
-										<Class name="unsigned char" field="LodOverride" value="255" type="{72B9409A-7D1A-4831-9CFE-FCB3FADD3426}"/>
-										<Class name="bool" field="ExcludeFromReflectionCubeMaps" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-										<Class name="bool" field="UseForwardPassIBLSpecular" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-									</Class>
-								</Class>
-							</Class>
-						</Class>
-						<Class name="bool" field="addMaterialComponentFlag" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-					</Class>
 					<Class name="EditorEntityIconComponent" field="element" type="{E15D42C2-912D-466F-9547-E7E948CE2D7D}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="10039721802689705902" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="17065327108808778363" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AssetId" field="EntityIconAssetId" version="1" type="{652ED536-3402-439B-AEBE-4A5DBC554085}">
@@ -936,11 +622,7 @@
 					<Class name="EditorDisabledCompositionComponent" field="element" type="{E77AE6AC-897D-4035-8353-637449B6DCFB}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="13619098404414468672" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="168045347833164355" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AZStd::vector" field="DisabledComponents" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}"/>
@@ -1008,24 +690,14 @@
 			</Class>
 			<Class name="AZ::Entity" field="element" version="2" type="{75651658-8663-478D-9090-2432DFCAFA44}">
 				<Class name="EntityId" field="Id" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 					<Class name="AZ::u64" field="id" value="282481278051" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 				</Class>
 				<Class name="AZStd::string" field="Name" value="Sun" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
-=======
-					<Class name="AZ::u64" field="id" value="282708409409" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-				</Class>
-				<Class name="AZStd::string" field="Name" value="Ground" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 				<Class name="AZStd::vector" field="Components" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}">
 					<Class name="EditorOnlyEntityComponent" field="element" type="{22A16F1D-6D49-422D-AAE9-91AE45B5D3E7}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="16665614856018488123" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="12706188704735343212" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="bool" field="IsEditorOnly" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
@@ -1033,11 +705,7 @@
 					<Class name="TransformComponent" field="element" version="9" type="{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="12256845872556267458" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="1573925864469983995" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="EntityId" field="Parent Entity" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
@@ -1099,16 +767,11 @@
 					<Class name="EditorInspectorComponent" field="element" version="2" type="{47DE3DDA-50C5-4F50-B1DB-BA4AE66AB056}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="3986162720704884578" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="337457869483948875" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AZStd::vector" field="ComponentOrderEntryArray" type="{B6EFED5B-19B4-5084-9D92-42DECCE83872}">
 							<Class name="ComponentOrderEntry" field="element" version="1" type="{335C5861-5197-4DD5-A766-EF2B551B0D9D}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="ComponentId" value="12256845872556267458" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 								<Class name="AZ::u64" field="SortIndex" value="0" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 							</Class>
@@ -1118,17 +781,6 @@
 							</Class>
 							<Class name="ComponentOrderEntry" field="element" version="1" type="{335C5861-5197-4DD5-A766-EF2B551B0D9D}">
 								<Class name="AZ::u64" field="ComponentId" value="5918909756198560714" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="ComponentId" value="1573925864469983995" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-								<Class name="AZ::u64" field="SortIndex" value="0" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-							<Class name="ComponentOrderEntry" field="element" version="1" type="{335C5861-5197-4DD5-A766-EF2B551B0D9D}">
-								<Class name="AZ::u64" field="ComponentId" value="17864202697797706305" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-								<Class name="AZ::u64" field="SortIndex" value="1" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-							</Class>
-							<Class name="ComponentOrderEntry" field="element" version="1" type="{335C5861-5197-4DD5-A766-EF2B551B0D9D}">
-								<Class name="AZ::u64" field="ComponentId" value="7751505222023007382" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 								<Class name="AZ::u64" field="SortIndex" value="2" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 							</Class>
 							<Class name="ComponentOrderEntry" field="element" version="1" type="{335C5861-5197-4DD5-A766-EF2B551B0D9D}">
@@ -1137,7 +789,6 @@
 							</Class>
 						</Class>
 					</Class>
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 					<Class name="AZ::Render::EditorPostFxLayerComponent" field="element" version="4" type="{4DE50024-068D-4656-862B-6B51D38C3273}">
 						<Class name="EditorComponentAdapter&lt;AZ::Render::PostFxLayerComponentController AZ::Render::PostFxLayerComponent AZ::Render::PostFxLayerCompo" field="BaseClass1" version="1" type="{E91B457B-8C31-5E52-ACBB-500AE0660FD1}">
 							<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
@@ -1207,33 +858,19 @@
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
 								<Class name="AZ::u64" field="Id" value="6128433265673423961" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-					<Class name="EditorEntitySortComponent" field="element" version="2" type="{6EA1E03D-68B2-466D-97F7-83998C8C27F0}">
-						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-								<Class name="AZ::u64" field="Id" value="3906065428856629485" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AZStd::vector" field="ChildEntityOrderEntryArray" type="{BE163120-C1ED-5F69-A650-DC2528A8FF94}"/>
 					</Class>
 					<Class name="SelectionComponent" field="element" type="{73B724FC-43D1-4C75-ACF5-79AA8A3BF89D}">
 						<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 							<Class name="AZ::u64" field="Id" value="14676903636088758323" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-							<Class name="AZ::u64" field="Id" value="10750522924528825861" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 						</Class>
 					</Class>
 					<Class name="EditorVisibilityComponent" field="element" type="{88E08E78-5C2F-4943-9F73-C115E6FFAB43}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="15785473599508150979" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="13808409990050818205" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="bool" field="VisibilityFlag" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
@@ -1241,11 +878,7 @@
 					<Class name="EditorLockComponent" field="element" type="{C3A169C9-7EFB-4D6C-8710-3591680D0936}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="4763659870697442399" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="1809844524913497810" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="bool" field="Locked" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
@@ -1253,105 +886,15 @@
 					<Class name="EditorPendingCompositionComponent" field="element" type="{D40FCB35-153D-45B3-AF6D-7BA576D8AFBB}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="12853017703306734296" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="14186351150034224116" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AZStd::vector" field="PendingComponents" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}"/>
 					</Class>
-					<Class name="AZ::Render::EditorMeshComponent" field="element" version="2" type="{DCE68F6E-2E16-4CB4-A834-B6C2F900A7E9}">
-						<Class name="EditorRenderComponentAdapter&lt;AZ::Render::MeshComponentController AZ::Render::MeshComponent AZ::Render::MeshComponentConfig &gt;" field="BaseClass1" type="{3D614286-9164-53B5-833B-4F98D2820BA7}">
-							<Class name="EditorComponentAdapter&lt;AZ::Render::MeshComponentController AZ::Render::MeshComponent AZ::Render::MeshComponentConfig &gt;" field="BaseClass1" version="1" type="{52DFE044-18C1-5861-BA2A-EDB61107FEE9}">
-								<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-									<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-										<Class name="AZ::u64" field="Id" value="17864202697797706305" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-									</Class>
-								</Class>
-								<Class name="AZ::Render::MeshComponentController" field="Controller" type="{D0F35FAC-4194-4C89-9487-D000DDB8B272}">
-									<Class name="AZ::Render::MeshComponentConfig" field="Configuration" version="1" type="{63737345-51B1-472B-9355-98F99993909B}">
-										<Class name="Asset" field="ModelAsset" value="id={935F694A-8639-515B-8133-81CDC7948E5B}:1087c6db,type={2C7477B6-69C5-45BE-8163-BCD6A275B6D8},hint={objects/groudplane/groundplane_521x521m.azmodel},loadBehavior=0" version="2" type="{77A19D40-8731-4D3C-9041-1B43047366A4}"/>
-										<Class name="AZ::s64" field="SortKey" value="0" type="{70D8A282-A1EA-462D-9D04-51EDE81FAC2F}"/>
-										<Class name="unsigned char" field="LodOverride" value="255" type="{72B9409A-7D1A-4831-9CFE-FCB3FADD3426}"/>
-										<Class name="bool" field="ExcludeFromReflectionCubeMaps" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-										<Class name="bool" field="UseForwardPassIBLSpecular" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-									</Class>
-								</Class>
-							</Class>
-						</Class>
-						<Class name="bool" field="addMaterialComponentFlag" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-					</Class>
-					<Class name="EditorMaterialComponent" field="element" version="5" type="{02B60E9D-470B-447D-A6EE-7D635B154183}">
-						<Class name="EditorRenderComponentAdapter&lt;MaterialComponentController MaterialComponent MaterialComponentConfig &gt;" field="BaseClass1" type="{DF046B40-536D-5D59-96EF-7A40DA6191B2}">
-							<Class name="EditorComponentAdapter&lt;MaterialComponentController MaterialComponent MaterialComponentConfig &gt;" field="BaseClass1" version="1" type="{6C4D4557-3728-56F8-A0FF-A309C3AAB853}">
-								<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
-									<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-										<Class name="AZ::u64" field="Id" value="7751505222023007382" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-									</Class>
-								</Class>
-								<Class name="MaterialComponentController" field="Controller" version="1" type="{34AD7ED0-9866-44CD-93B6-E86840214B91}">
-									<Class name="MaterialComponentConfig" field="Configuration" version="3" type="{3366C279-32AE-48F6-839B-7700AE117A54}">
-										<Class name="ComponentConfig" field="BaseClass1" version="1" type="{0A7929DF-2932-40EA-B2B3-79BC1C3490D0}"/>
-										<Class name="AZStd::unordered_map" field="materials" type="{50F6716F-698B-5A6C-AACD-940597FDEC24}"/>
-									</Class>
-								</Class>
-							</Class>
-						</Class>
-						<Class name="AZStd::string" field="message" value="" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
-						<Class name="EditorMaterialComponentSlot" field="defaultMaterialSlot" version="4" type="{344066EB-7C3D-4E92-B53D-3C9EBD546488}">
-							<Class name="AZ::Render::MaterialAssignmentId" field="id" version="1" type="{EB603581-4654-4C17-B6DE-AE61E79EDA97}">
-								<Class name="AZ::u64" field="lodIndex" value="18446744073709551615" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-								<Class name="AssetId" field="materialAssetId" version="1" type="{652ED536-3402-439B-AEBE-4A5DBC554085}">
-									<Class name="AZ::Uuid" field="guid" value="{00000000-0000-0000-0000-000000000000}" type="{E152C105-A133-4D03-BBF8-3D4B2FBA3E2A}"/>
-									<Class name="unsigned int" field="subId" value="0" type="{43DA906B-7DEF-4CA8-9790-854106D3F983}"/>
-								</Class>
-							</Class>
-							<Class name="Asset" field="materialAsset" value="id={00000000-0000-0000-0000-000000000000}:0,type={522C7BE0-501D-463E-92C6-15184A2B7AD8},hint={},loadBehavior=1" version="2" type="{77A19D40-8731-4D3C-9041-1B43047366A4}"/>
-							<Class name="AZStd::unordered_map" field="propertyOverrides" type="{6E6962E1-04C9-56F9-89C4-361031CC1384}"/>
-							<Class name="AZStd::unordered_map" field="matModUvOverrides" type="{D6E637F3-3BD8-55E7-911F-F35DE5769296}"/>
-						</Class>
-						<Class name="AZStd::vector" field="materialSlots" type="{7FDDDE36-46C8-5DBC-8566-E792AA358BD9}">
-							<Class name="EditorMaterialComponentSlot" field="element" version="4" type="{344066EB-7C3D-4E92-B53D-3C9EBD546488}">
-								<Class name="AZ::Render::MaterialAssignmentId" field="id" version="1" type="{EB603581-4654-4C17-B6DE-AE61E79EDA97}">
-									<Class name="AZ::u64" field="lodIndex" value="18446744073709551615" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-									<Class name="AssetId" field="materialAssetId" version="1" type="{652ED536-3402-439B-AEBE-4A5DBC554085}">
-										<Class name="AZ::Uuid" field="guid" value="{935F694A-8639-515B-8133-81CDC7948E5B}" type="{E152C105-A133-4D03-BBF8-3D4B2FBA3E2A}"/>
-										<Class name="unsigned int" field="subId" value="803645540" type="{43DA906B-7DEF-4CA8-9790-854106D3F983}"/>
-									</Class>
-								</Class>
-								<Class name="Asset" field="materialAsset" value="id={00000000-0000-0000-0000-000000000000}:0,type={522C7BE0-501D-463E-92C6-15184A2B7AD8},hint={},loadBehavior=1" version="2" type="{77A19D40-8731-4D3C-9041-1B43047366A4}"/>
-								<Class name="AZStd::unordered_map" field="propertyOverrides" type="{6E6962E1-04C9-56F9-89C4-361031CC1384}"/>
-								<Class name="AZStd::unordered_map" field="matModUvOverrides" type="{D6E637F3-3BD8-55E7-911F-F35DE5769296}"/>
-							</Class>
-						</Class>
-						<Class name="bool" field="materialSlotsByLodEnabled" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-						<Class name="AZStd::vector" field="materialSlotsByLod" type="{22E4F3CF-29C1-54AC-89DD-6FD47A657229}">
-							<Class name="AZStd::vector" field="element" type="{7FDDDE36-46C8-5DBC-8566-E792AA358BD9}">
-								<Class name="EditorMaterialComponentSlot" field="element" version="4" type="{344066EB-7C3D-4E92-B53D-3C9EBD546488}">
-									<Class name="AZ::Render::MaterialAssignmentId" field="id" version="1" type="{EB603581-4654-4C17-B6DE-AE61E79EDA97}">
-										<Class name="AZ::u64" field="lodIndex" value="0" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-										<Class name="AssetId" field="materialAssetId" version="1" type="{652ED536-3402-439B-AEBE-4A5DBC554085}">
-											<Class name="AZ::Uuid" field="guid" value="{935F694A-8639-515B-8133-81CDC7948E5B}" type="{E152C105-A133-4D03-BBF8-3D4B2FBA3E2A}"/>
-											<Class name="unsigned int" field="subId" value="803645540" type="{43DA906B-7DEF-4CA8-9790-854106D3F983}"/>
-										</Class>
-									</Class>
-									<Class name="Asset" field="materialAsset" value="id={00000000-0000-0000-0000-000000000000}:0,type={522C7BE0-501D-463E-92C6-15184A2B7AD8},hint={},loadBehavior=1" version="2" type="{77A19D40-8731-4D3C-9041-1B43047366A4}"/>
-									<Class name="AZStd::unordered_map" field="propertyOverrides" type="{6E6962E1-04C9-56F9-89C4-361031CC1384}"/>
-									<Class name="AZStd::unordered_map" field="matModUvOverrides" type="{D6E637F3-3BD8-55E7-911F-F35DE5769296}"/>
-								</Class>
-							</Class>
-						</Class>
-					</Class>
 					<Class name="EditorEntityIconComponent" field="element" type="{E15D42C2-912D-466F-9547-E7E948CE2D7D}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="45357996206716862" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="6470446722747338650" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AssetId" field="EntityIconAssetId" version="1" type="{652ED536-3402-439B-AEBE-4A5DBC554085}">
@@ -1362,11 +905,7 @@
 					<Class name="EditorDisabledCompositionComponent" field="element" type="{E77AE6AC-897D-4035-8353-637449B6DCFB}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 							<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 								<Class name="AZ::u64" field="Id" value="16405599729441718679" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
-=======
-								<Class name="AZ::u64" field="Id" value="10300371515023602081" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 							</Class>
 						</Class>
 						<Class name="AZStd::vector" field="DisabledComponents" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}"/>
@@ -1491,7 +1030,6 @@
 						</Class>
 						<Class name="AZStd::vector" field="DisabledComponents" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}"/>
 					</Class>
-<<<<<<< HEAD:Levels/SponzaDiffuseGI/Layers/Lights.layer
 					<Class name="LmbrCentral::EditorQuadShapeComponent" field="element" version="1" type="{E8E60770-40E9-426F-B134-3964BF8BDD84}">
 						<Class name="EditorBaseShapeComponent" field="BaseClass1" version="2" type="{32B9D7E9-6743-427B-BAFD-1C42CFBE4879}">
 							<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
@@ -1549,8 +1087,6 @@
 							</Class>
 						</Class>
 					</Class>
-=======
->>>>>>> 1a22931 (Updating some AtomTest Level files):Levels/SponzaDiffuseGI/Layers/DefaultLevel.layer
 				</Class>
 				<Class name="bool" field="IsDependencyReady" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 				<Class name="bool" field="IsRuntimeActive" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>

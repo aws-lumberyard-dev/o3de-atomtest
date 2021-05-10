@@ -1,10 +1,6 @@
 <download name="Lucy" type="Map">
  <index src="filelist.xml" dest="filelist.xml"/>
  <files>
-<<<<<<< HEAD
   <file src="level.pak" dest="level.pak" size="203D" md5="d1c05cbf51487f3ebf3441d28a92b1a1"/>
-=======
-  <file src="level.pak" dest="level.pak" size="20D5" md5="0d3148e2bfe599f3c32b029f3e8fbe29"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files)
  </files>
 </download>

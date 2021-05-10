@@ -1,10 +1,6 @@
 <download name="SponzaDiffuseGI" type="Map">
  <index src="filelist.xml" dest="filelist.xml"/>
  <files>
-<<<<<<< HEAD
   <file src="level.pak" dest="level.pak" size="255D" md5="5a0edb83b46f797589ed503ef3749c2a"/>
-=======
-  <file src="level.pak" dest="level.pak" size="23C0" md5="985ef94aad66d28beb27a52cc83635d8"/>
->>>>>>> 1a22931 (Updating some AtomTest Level files)
  </files>
 </download>
