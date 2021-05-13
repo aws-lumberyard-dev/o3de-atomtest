@@ -1,6 +1,6 @@
 <download name="Sponza" type="Map">
  <index src="filelist.xml" dest="filelist.xml"/>
  <files>
-  <file src="level.pak" dest="level.pak" size="2256" md5="313516e1540de2bc7307031f0bec802f"/>
+  <file src="level.pak" dest="level.pak" size="2115" md5="c1b717c66260edc3204f2171cf8b1931"/>
  </files>
 </download>
