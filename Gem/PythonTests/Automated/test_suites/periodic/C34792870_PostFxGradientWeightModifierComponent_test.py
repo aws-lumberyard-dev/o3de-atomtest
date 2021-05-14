@@ -26,11 +26,12 @@ EDITOR_TIMEOUT = 30
 class TestAutomation(TestAutomationBase):
 
     @pytest.mark.test_case_id('C34792870')
-    def test_C34792870_PostFxGradientWeightModifierComponent(self, request, workspace, editor, project, launcher_platform):
+    def test_C34792870_PostFxGradientWeightModifierComponent(
+            self, request, workspace, editor, project, launcher_platform, golden_images_directory):
         golden_screenshots = [
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'GradientWeightModifierComponent_RandomExposure1.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'GradientWeightModifierComponent_RandomExposure2.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'GradientWeightModifierComponent_NoExposure.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'GradientWeightModifierComponent_RandomExposure1.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'GradientWeightModifierComponent_RandomExposure2.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'GradientWeightModifierComponent_NoExposure.ppm'),
         ]
 
         test_screenshots = [

@@ -26,12 +26,13 @@ EDITOR_TIMEOUT = 30
 class TestAutomation(TestAutomationBase):
 
     @pytest.mark.test_case_id('C34896059')
-    def test_C34896059_ExposureComponent(self, request, workspace, editor, project, launcher_platform):
+    def test_C34896059_ExposureComponent(
+            self, request, workspace, editor, project, launcher_platform, golden_images_directory):
         from . import C34896059_ExposureComponent_test_case as test_module
         
         golden_screenshots = [
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'ExposureComponent_Manual.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'ExposureComponent_EyeAdaptation.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'ExposureComponent_Manual.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'ExposureComponent_EyeAdaptation.ppm'),
         ]
 
         test_screenshots = [

@@ -26,8 +26,9 @@ EDITOR_TIMEOUT = 30
 class TestAutomation(TestAutomationBase):
 
     @pytest.mark.test_case_id('C30993189')
-    def test_C30993189_MeshComponent(self, request, workspace, editor, project, launcher_platform):
-        golden_screenshot = os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MeshComponent.ppm')
+    def test_C30993189_MeshComponent(
+            self, request, workspace, editor, project, launcher_platform, golden_images_directory):
+        golden_screenshot = os.path.join(golden_images_directory, 'Windows', 'MeshComponent.ppm')
         print(golden_screenshot)
         
         test_screenshot = os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_MeshComponent.ppm')

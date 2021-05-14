@@ -26,11 +26,12 @@ EDITOR_TIMEOUT = 30
 class TestAutomation(TestAutomationBase):
 
     @pytest.mark.test_case_id('C34792869')
-    def test_C34792869_PostFxShapeWeightModifierComponent(self, request, workspace, editor, project, launcher_platform):
+    def test_C34792869_PostFxShapeWeightModifierComponent(
+            self, request, workspace, editor, project, launcher_platform, golden_images_directory):
         golden_screenshots = [
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'ShapeWeightModifierComponent_FullExposure.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'ShapeWeightModifierComponent_HalfExposure.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'ShapeWeightModifierComponent_NoExposure.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'ShapeWeightModifierComponent_FullExposure.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'ShapeWeightModifierComponent_HalfExposure.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'ShapeWeightModifierComponent_NoExposure.ppm'),
         ]
 
         test_screenshots = [

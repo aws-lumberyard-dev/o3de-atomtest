@@ -26,8 +26,9 @@ EDITOR_TIMEOUT = 30
 class TestAutomation(TestAutomationBase):
 
     @pytest.mark.test_case_id('C32078125')
-    def test_C32078125_PhysicalSkyComponent(self, request, workspace, editor, project, launcher_platform):
-        golden_screenshot = os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'PhysicalSkyComponent.ppm')
+    def test_C32078125_PhysicalSkyComponent(
+            self, request, workspace, editor, project, launcher_platform, golden_images_directory):
+        golden_screenshot = os.path.join(golden_images_directory, 'Windows', 'PhysicalSkyComponent.ppm')
         print(golden_screenshot)
          
         test_screenshot = os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_PhysicalSkyComponent.ppm')
