@@ -27,7 +27,7 @@ class TestAutomation(TestAutomationBase):
 
     @pytest.mark.test_case_id('C34389076')
     def test_C34389076_ActorComponent(self, request, workspace, editor, project, launcher_platform):
-        golden_screenshot = os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'ActorComponent.ppm')
+        golden_screenshot = os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'ActorComponent.ppm')
         print(golden_screenshot)
         
         test_screenshot = os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_ActorComponent.ppm')

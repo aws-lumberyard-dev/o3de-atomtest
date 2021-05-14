@@ -43,12 +43,12 @@ class TestAutomation(TestAutomationBase):
     @pytest.mark.test_case_id('C35756266')
     def test_C35756266_TransformManipulators(self, request, workspace, editor, project, launcher_platform):
         golden_screenshots = [
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_rotation_close.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_rotation_far.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_scale_close.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_scale_far.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_translation_close.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_translation_far.ppm')
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_rotation_close.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_rotation_far.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_scale_close.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_scale_far.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_translation_close.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_translation_far.ppm')
         ]
 
         test_screenshots = [

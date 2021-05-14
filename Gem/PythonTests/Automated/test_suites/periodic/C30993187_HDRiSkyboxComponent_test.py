@@ -27,7 +27,7 @@ class TestAutomation(TestAutomationBase):
 
     @pytest.mark.test_case_id('C30993187')
     def test_C30993187_HDRiSkyboxComponent(self, request, workspace, editor, project, launcher_platform):
-        golden_screenshot = os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'HDRiSkyboxComponent.ppm')
+        golden_screenshot = os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'HDRiSkyboxComponent.ppm')
         print(golden_screenshot)
         
         test_screenshot = os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_HDRiSkyboxComponent.ppm')

@@ -28,11 +28,11 @@ class TestAutomation(TestAutomationBase):
     @pytest.mark.test_case_id('C30993188')
     def test_C30993188_MaterialComponent(self, request, workspace, editor, project, launcher_platform):
         golden_screenshots = [
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MaterialComponent.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MaterialComponent_Lod0.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MaterialComponent_Lod1.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MaterialComponent_Lod2.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MaterialComponent_Default.ppm')
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'MaterialComponent.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'MaterialComponent_Lod0.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'MaterialComponent_Lod1.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'MaterialComponent_Lod2.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'MaterialComponent_Default.ppm')
         ]
 
         test_screenshots = [

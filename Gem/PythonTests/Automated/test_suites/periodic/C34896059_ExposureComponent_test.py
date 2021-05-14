@@ -30,8 +30,8 @@ class TestAutomation(TestAutomationBase):
         from . import C34896059_ExposureComponent_test_case as test_module
         
         golden_screenshots = [
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'ExposureComponent_Manual.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'ExposureComponent_EyeAdaptation.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'ExposureComponent_Manual.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'ExposureComponent_EyeAdaptation.ppm'),
         ]
 
         test_screenshots = [

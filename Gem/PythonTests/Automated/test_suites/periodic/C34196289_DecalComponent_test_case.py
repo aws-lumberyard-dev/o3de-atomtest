@@ -10,7 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 """
 
 # Test case ID : C34196289
-# Test Case Title : Decal
+# Test Case Title : Decal (Atom)
 # URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/34196289
 
 import os

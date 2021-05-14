@@ -28,9 +28,9 @@ class TestAutomation(TestAutomationBase):
     @pytest.mark.test_case_id('C32077236')
     def test_C32077236_RadiusWeightModifierComponent(self, request, workspace, editor, project, launcher_platform):
         golden_screenshots = [
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'RadiusWeightModifierComponent_FullExposure.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'RadiusWeightModifierComponent_HalfExposure.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'RadiusWeightModifierComponent_NoExposure.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'RadiusWeightModifierComponent_FullExposure.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'RadiusWeightModifierComponent_HalfExposure.ppm'),
+            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'RadiusWeightModifierComponent_NoExposure.ppm'),
         ]
 
         test_screenshots = [

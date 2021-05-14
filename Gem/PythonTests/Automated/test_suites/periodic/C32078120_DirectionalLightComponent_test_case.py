@@ -84,10 +84,10 @@ def prepare_level_and_prepare_camera():
 
 def prepare_for_floor_and_bunny(base_entity):
     # 2. Create an entity with a Mesh Component and set plane.azmodel which is used for shadow receiver.
-    floor = helper_create_entity_with_mesh('objects/plane.azmodel', azlmbr.math.Vector3(), 'Floor', base_entity)
+    floor = helper_create_entity_with_mesh('objects/plane.azmodel', azlmbr.math.Vector3(), 'Floor')
 
     # 3. Create an entity with a Mesh Component and set bunny.azmodel which is used for shadow caster.
-    bunny = helper_create_entity_with_mesh('objects/bunny.azmodel', azlmbr.math.Vector3(), 'Bunny', base_entity)
+    bunny = helper_create_entity_with_mesh('objects/bunny.azmodel', azlmbr.math.Vector3(), 'Bunny')
     components.TransformBus(bus.Event, 'SetLocalTranslation', bunny, azlmbr.math.Vector3(-1.0, 0.0, 1.0))
 
     # 4. Move the plane to beneath the bunny and scale the plane to be a shadow catcher.

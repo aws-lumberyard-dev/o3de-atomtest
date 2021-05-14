@@ -27,7 +27,7 @@ class TestAutomation(TestAutomationBase):
 
     @pytest.mark.test_case_id('C32078120')
     def test_C32078120_DirectionalLightComponent(self, request, workspace, editor, project, launcher_platform):
-        golden_screenshot_base = os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'C32078120_atom_directionallight')
+        golden_screenshot_base = os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C32078120_atom_directionallight')
         
         test_screenshot_base = os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'screenshot_C32078120_atom_directionallight')
         

@@ -27,7 +27,7 @@ class TestAutomation(TestAutomationBase):
 
     @pytest.mark.test_case_id('C23490360')
     def test_C23490360_GridComponent(self, request, workspace, editor, project, launcher_platform):
-        golden_screenshot = os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', "GridComponent.ppm")
+        golden_screenshot = os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', "GridComponent.ppm")
         print(golden_screenshot)
 
         test_screenshot = os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, "screenshot_atom_GridComponent.ppm")

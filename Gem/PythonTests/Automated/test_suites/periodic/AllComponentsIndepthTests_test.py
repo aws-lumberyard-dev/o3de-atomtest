@@ -12,8 +12,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 import os
 import pytest
 
-# Bail on the test if ly_test_tools doesn't exist.
-pytest.importorskip("ly_test_tools")
 import ly_test_tools.environment.file_system as file_system
 
 from Automated.atom_utils import hydra_test_utils as hydra
@@ -46,7 +44,7 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
         self.remove_artifacts(cache_images)
 
         golden_images = [os.path.join(
-            TEST_DIRECTORY, "GoldenImages", "Windows", "AllComponentsIndepthTests", screenshot_name)]
+            TEST_DIRECTORY, '..', '..', 'GoldenImages', "Windows", "AllComponentsIndepthTests", screenshot_name)]
 
         level_creation_expected_lines = [
             "Viewport is set to the expected size: True",
@@ -106,7 +104,7 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
         golden_images = []
         for golden_image in screenshot_names:
             golden_image_path = os.path.join(
-                TEST_DIRECTORY, "GoldenImages", "Windows", "AllComponentsIndepthTests", golden_image)
+                TEST_DIRECTORY, '..', '..', "GoldenImages", "Windows", "AllComponentsIndepthTests", golden_image)
             golden_images.append(golden_image_path)
 
         component_test_expected_lines = [
