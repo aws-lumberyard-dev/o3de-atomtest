@@ -56,7 +56,7 @@
     "Entities": {
         "Entity_[316131557748]": {
             "Id": "Entity_[316131557748]",
-            "Name": "static_floor",
+            "Name": "static_networked_floor",
             "Components": {
                 "Component_[10217670592909276220]": {
                     "$type": "EditorOnlyEntityComponent",
@@ -110,36 +110,7 @@
                                 }
                             ]
                         }
-                    },
-                    "materialSlots": [
-                        {
-                            "id": {
-                                "materialAssetId": {
-                                    "guid": "{593006BE-FE73-5A4B-A0A6-06C02EFFE458}",
-                                    "subId": 2342896224
-                                }
-                            },
-                            "materialAsset": {
-                                "assetId": {
-                                    "guid": "{8CD1B4C0-74BA-56BE-86CD-E7E3E043F850}"
-                                },
-                                "assetHint": "objects/cube_cube_material.azmaterial"
-                            }
-                        }
-                    ],
-                    "materialSlotsByLod": [
-                        [
-                            {
-                                "id": {
-                                    "lodIndex": 0,
-                                    "materialAssetId": {
-                                        "guid": "{593006BE-FE73-5A4B-A0A6-06C02EFFE458}",
-                                        "subId": 2342896224
-                                    }
-                                }
-                            }
-                        ]
-                    ]
+                    }
                 },
                 "Component_[2708941500575147730]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
@@ -147,16 +118,16 @@
                     "Parent Entity": "Entity_[281771819380]",
                     "Transform Data": {
                         "Translate": [
-                            -1.0,
-                            20.0,
-                            34.0
+                            9.346518516540528,
+                            -3.398591995239258,
+                            -4.720827579498291
                         ]
                     },
                     "Cached World Transform": {
                         "Translation": [
-                            -1.0,
-                            20.0,
-                            34.0
+                            9.346518516540528,
+                            -3.398591995239258,
+                            -4.720827579498291
                         ]
                     },
                     "Cached World Transform Parent": "Entity_[281771819380]"
@@ -183,6 +154,13 @@
                 "Component_[7285545694135157740]": {
                     "$type": "EditorInspectorComponent",
                     "Id": 7285545694135157740
+                },
+                "Component_[11430926958968559803]": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 11430926958968559803,
+                    "m_template": {
+                        "$type": "NetBindComponent"
+                    }
                 }
             },
             "IsDependencyReady": true
@@ -259,22 +237,278 @@
                 "Component_[713650613042830715]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 713650613042830715,
-                    "Parent Entity": "Entity_[281771819380]",
+                    "Parent Entity": "Entity_[316131557748]",
                     "Transform Data": {
                         "Translate": [
-                            -1.0,
-                            29.0,
-                            36.58270263671875
+                            0.0,
+                            9.0,
+                            2.582901000976563
                         ]
                     },
                     "Cached World Transform": {
                         "Translation": [
-                            -1.0,
-                            29.0,
-                            36.58290100097656
+                            9.346518516540528,
+                            5.601408004760742,
+                            -2.137926578521729
+                        ]
+                    },
+                    "Cached World Transform Parent": "Entity_[316131557748]"
+                }
+            },
+            "IsDependencyReady": true
+        },
+        "Entity_[321301785678]": {
+            "Id": "Entity_[321301785678]",
+            "Name": "light",
+            "Components": {
+                "Component_[13577951537809705068]": {
+                    "$type": "SelectionComponent",
+                    "Id": 13577951537809705068
+                },
+                "Component_[1683669567139196643]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 1683669567139196643
+                },
+                "Component_[17077722771109365517]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 17077722771109365517
+                },
+                "Component_[17825351909212537728]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17825351909212537728
+                },
+                "Component_[3306200252708905845]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 3306200252708905845
+                },
+                "Component_[3894670105585148803]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 3894670105585148803
+                },
+                "Component_[4913893291715616242]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4913893291715616242
+                },
+                "Component_[5001292574260656974]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 5001292574260656974
+                },
+                "Component_[7499113848132880665]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 7499113848132880665
+                },
+                "Component_[9401572971649066606]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9401572971649066606,
+                    "Parent Entity": "Entity_[281771819380]",
+                    "Transform Data": {
+                        "Translate": [
+                            13.346518516540528,
+                            4.460744857788086,
+                            5.166394710540772
+                        ]
+                    },
+                    "Cached World Transform": {
+                        "Translation": [
+                            13.346518516540528,
+                            4.460744857788086,
+                            5.166394710540772
                         ]
                     },
                     "Cached World Transform Parent": "Entity_[281771819380]"
+                },
+                "Component_[11432098328705872730]": {
+                    "$type": "AZ::Render::EditorAreaLightComponent",
+                    "Id": 11432098328705872730,
+                    "Controller": {
+                        "Configuration": {
+                            "LightType": 1,
+                            "AttenuationRadius": 88.31761169433594,
+                            "Intensity": 780.0
+                        }
+                    }
+                },
+                "Component_[3410441128978508736]": {
+                    "$type": "EditorSphereShapeComponent",
+                    "Id": 3410441128978508736,
+                    "ShapeColor": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "SphereShape": {
+                        "Configuration": {
+                            "Radius": 0.05000000074505806
+                        }
+                    }
+                }
+            },
+            "IsDependencyReady": true
+        },
+        "Entity_[536050150478]": {
+            "Id": "Entity_[536050150478]",
+            "Name": "camera",
+            "Components": {
+                "Component_[1250380642799454617]": {
+                    "$type": "SelectionComponent",
+                    "Id": 1250380642799454617
+                },
+                "Component_[12682137598124556022]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 12682137598124556022
+                },
+                "Component_[13352403738356115608]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 13352403738356115608,
+                    "Parent Entity": "Entity_[281771819380]",
+                    "Transform Data": {
+                        "Translate": [
+                            18.44108772277832,
+                            2.8415935039520265,
+                            -1.9384980201721192
+                        ],
+                        "Rotate": [
+                            0.01731567829847336,
+                            -2.291600465774536,
+                            90.43303680419922
+                        ]
+                    },
+                    "Cached World Transform": {
+                        "Translation": [
+                            18.44108772277832,
+                            2.8415935039520265,
+                            -1.9384980201721192
+                        ],
+                        "Rotation": [
+                            -0.01407245546579361,
+                            -0.014207523316144944,
+                            0.7103336453437805,
+                            0.7035809755325317
+                        ]
+                    },
+                    "Cached World Transform Parent": "Entity_[281771819380]"
+                },
+                "Component_[13790816614789412758]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 13790816614789412758
+                },
+                "Component_[15255066981221893504]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 15255066981221893504
+                },
+                "Component_[16067266762969499434]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16067266762969499434
+                },
+                "Component_[4349486864723705050]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4349486864723705050
+                },
+                "Component_[4501731077895522525]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 4501731077895522525
+                },
+                "Component_[7257491257311048935]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7257491257311048935
+                },
+                "Component_[919182242223240048]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 919182242223240048
+                },
+                "Component_[1214523176255126730]": {
+                    "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
+                    "Id": 1214523176255126730,
+                    "Controller": {
+                        "Configuration": {
+                            "EditorEntityId": 17912305016907643185
+                        }
+                    }
+                }
+            },
+            "IsDependencyReady": true
+        },
+        "Entity_[810928057422]": {
+            "Id": "Entity_[810928057422]",
+            "Name": "wrong_pos_cone",
+            "Components": {
+                "Component_[11435989997577235430]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 11435989997577235430
+                },
+                "Component_[16683614898333577769]": {
+                    "$type": "SelectionComponent",
+                    "Id": 16683614898333577769
+                },
+                "Component_[17968672302636429172]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 17968672302636429172
+                },
+                "Component_[2832998711811143245]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 2832998711811143245
+                },
+                "Component_[4412580761751775303]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 4412580761751775303
+                },
+                "Component_[4869174886467672962]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4869174886467672962
+                },
+                "Component_[6349350123782626014]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6349350123782626014,
+                    "Parent Entity": "Entity_[281771819380]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            9.0,
+                            2.582901000976563
+                        ],
+                        "Scale": [
+                            0.04999999701976776,
+                            0.04999999701976776,
+                            0.04999999701976776
+                        ]
+                    },
+                    "Cached World Transform": {
+                        "Translation": [
+                            0.0,
+                            9.0,
+                            2.582901000976563
+                        ],
+                        "Scale": 0.04999999701976776
+                    },
+                    "Cached World Transform Parent": "Entity_[281771819380]"
+                },
+                "Component_[8436390141833142540]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 8436390141833142540
+                },
+                "Component_[9377217727335753492]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 9377217727335753492
+                },
+                "Component_[9577381160469105724]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 9577381160469105724
+                },
+                "Component_[9181568614979232208]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 9181568614979232208,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{1B14BD84-0EA3-55BF-A2E3-0572CE16C348}",
+                                    "subId": 284874770
+                                },
+                                "assetHint": "objects/cone.azmodel"
+                            }
+                        }
+                    }
                 }
             },
             "IsDependencyReady": true
