@@ -26,11 +26,12 @@ EDITOR_TIMEOUT = 30
 class TestAutomation(TestAutomationBase):
 
     @pytest.mark.test_case_id('C32077236')
-    def test_C32077236_RadiusWeightModifierComponent(self, request, workspace, editor, project, launcher_platform):
+    def test_C32077236_RadiusWeightModifierComponent(
+            self, request, workspace, editor, project, launcher_platform, golden_images_directory):
         golden_screenshots = [
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'RadiusWeightModifierComponent_FullExposure.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'RadiusWeightModifierComponent_HalfExposure.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'RadiusWeightModifierComponent_NoExposure.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'RadiusWeightModifierComponent_FullExposure.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'RadiusWeightModifierComponent_HalfExposure.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'RadiusWeightModifierComponent_NoExposure.ppm'),
         ]
 
         test_screenshots = [

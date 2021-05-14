@@ -35,7 +35,8 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
     @pytest.mark.test_case_id("C34603773")
     @pytest.mark.parametrize("screenshot_name", ["AtomBasicLevelSetup.ppm"])
     def test_C34603773_BasicLevelSetup_SetsUpLevel(
-            self, request, editor, workspace, project, launcher_platform, level, screenshot_name):
+            self, request, editor, workspace, project, launcher_platform, level, screenshot_name,
+            golden_images_directory):
         # Clear the test level to start the test.
         file_system.delete([os.path.join(workspace.paths.engine_root(), project, "Levels", level)], True, True)
 
@@ -43,8 +44,7 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
             workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, screenshot_name)]
         self.remove_artifacts(cache_images)
 
-        golden_images = [os.path.join(
-            TEST_DIRECTORY, '..', '..', 'GoldenImages', "Windows", "AllComponentsIndepthTests", screenshot_name)]
+        golden_images = [os.path.join(golden_images_directory, "Windows", "AllComponentsIndepthTests", screenshot_name)]
 
         level_creation_expected_lines = [
             "Viewport is set to the expected size: True",
@@ -67,7 +67,8 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
             self.compare_screenshots(test_screenshot, golden_screenshot)
 
     @pytest.mark.test_case_id("C35035568", "C34525095", "C34525110")
-    def test_AllComponentsIndepthTests(self, request, editor, workspace, project, launcher_platform, level):
+    def test_AllComponentsIndepthTests(
+            self, request, editor, workspace, project, launcher_platform, level, golden_images_directory):
         basic_level = os.path.join(workspace.paths.engine_root(), project, "Levels", level)
         if not os.path.exists(basic_level):
             raise AllComponentsIndepthTestsException(
@@ -103,8 +104,7 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
 
         golden_images = []
         for golden_image in screenshot_names:
-            golden_image_path = os.path.join(
-                TEST_DIRECTORY, '..', '..', "GoldenImages", "Windows", "AllComponentsIndepthTests", golden_image)
+            golden_image_path = os.path.join(golden_images_directory, "Windows", "AllComponentsIndepthTests", golden_image)
             golden_images.append(golden_image_path)
 
         component_test_expected_lines = [

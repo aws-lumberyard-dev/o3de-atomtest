@@ -28,16 +28,15 @@ class TestMaterialEditorEnableGridShadowCatcherLight(TestAutomationBase):
     )
     @pytest.mark.parametrize("exe_file_name", ["MaterialEditor"])
     def test_MaterialEditorEnableGridShadowCatcherLight(
-        self, request, workspace, project, launcher_platform, generic_launcher, exe_file_name
-    ):
+        self, request, workspace, project, launcher_platform, generic_launcher, exe_file_name, golden_images_directory):
         golden_screenshots = [
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'MaterialEditorCube.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'MaterialEditorGridDisable.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'MaterialEditorGridEnable.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'MaterialEditorLight.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'MaterialEditorShaderBall.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'MaterialEditorShadowDisable.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'MaterialEditorShadowEnable.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorCube.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorGridDisable.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorGridEnable.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorLight.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorShaderBall.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorShadowDisable.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorShadowEnable.ppm'),
         ]
 
         test_screenshots = [

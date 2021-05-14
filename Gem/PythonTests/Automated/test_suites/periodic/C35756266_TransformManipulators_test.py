@@ -41,14 +41,15 @@ class TestAutomation(TestAutomationBase):
         registry_utils.set_ly_registry_value(REG_PATH, 'ShowGridGuide', cls.show_grid)
 
     @pytest.mark.test_case_id('C35756266')
-    def test_C35756266_TransformManipulators(self, request, workspace, editor, project, launcher_platform):
+    def test_C35756266_TransformManipulators(
+            self, request, workspace, editor, project, launcher_platform, golden_images_directory):
         golden_screenshots = [
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_rotation_close.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_rotation_far.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_scale_close.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_scale_far.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_translation_close.ppm'),
-            os.path.join(TEST_DIRECTORY, '..', '..', 'GoldenImages', 'Windows', 'C35756266_TransformManipulators', 'manipulator_translation_far.ppm')
+            os.path.join(golden_images_directory, 'Windows', 'C35756266_TransformManipulators', 'manipulator_rotation_close.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'C35756266_TransformManipulators', 'manipulator_rotation_far.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'C35756266_TransformManipulators', 'manipulator_scale_close.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'C35756266_TransformManipulators', 'manipulator_scale_far.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'C35756266_TransformManipulators', 'manipulator_translation_close.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'C35756266_TransformManipulators', 'manipulator_translation_far.ppm')
         ]
 
         test_screenshots = [
