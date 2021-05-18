@@ -41,7 +41,7 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
         file_system.delete([os.path.join(workspace.paths.engine_root(), project, "Levels", level)], True, True)
 
         cache_images = [os.path.join(
-            workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, screenshot_name)]
+            workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, screenshot_name)]
         self.remove_artifacts(cache_images)
 
         golden_images = [os.path.join(golden_images_directory, "Windows", "AllComponentsIndepthTests", screenshot_name)]
@@ -98,7 +98,7 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
 
         cache_images = []
         for cache_image in screenshot_names:
-            screenshot_path = os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, cache_image)
+            screenshot_path = os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, cache_image)
             cache_images.append(screenshot_path)
         self.remove_artifacts(cache_images)
 

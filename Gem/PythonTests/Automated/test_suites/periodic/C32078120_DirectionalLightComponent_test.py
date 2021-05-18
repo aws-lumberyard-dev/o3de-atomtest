@@ -31,7 +31,7 @@ class TestAutomation(TestAutomationBase):
         golden_screenshot_base = os.path.join(
             golden_images_directory, 'Windows', 'C32078120_atom_directionallight')
         
-        test_screenshot_base = os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'screenshot_C32078120_atom_directionallight')
+        test_screenshot_base = os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'screenshot_C32078120_atom_directionallight')
         
         golden_screenshots = []
         test_screenshots = []

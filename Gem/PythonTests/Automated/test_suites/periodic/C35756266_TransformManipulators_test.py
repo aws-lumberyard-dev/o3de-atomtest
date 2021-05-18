@@ -53,12 +53,12 @@ class TestAutomation(TestAutomationBase):
         ]
 
         test_screenshots = [
-            os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'manipulator_rotation_close.ppm'),
-            os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'manipulator_rotation_far.ppm'),
-            os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'manipulator_scale_close.ppm'),
-            os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'manipulator_scale_far.ppm'),
-            os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'manipulator_translation_close.ppm'),
-            os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'manipulator_translation_far.ppm')
+            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'manipulator_rotation_close.ppm'),
+            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'manipulator_rotation_far.ppm'),
+            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'manipulator_scale_close.ppm'),
+            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'manipulator_scale_far.ppm'),
+            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'manipulator_translation_close.ppm'),
+            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'manipulator_translation_far.ppm')
         ]
 
         self.remove_artifacts(test_screenshots)
