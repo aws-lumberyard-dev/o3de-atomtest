@@ -35,9 +35,9 @@ class TestAutomation(TestAutomationBase):
         ]
 
         test_screenshots = [
-            os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_RadiusWeightModifierComponent_FullExposure.ppm'),
-            os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_RadiusWeightModifierComponent_HalfExposure.ppm'),
-            os.path.join(workspace.paths.platform_cache(), DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_RadiusWeightModifierComponent_NoExposure.ppm')
+            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_RadiusWeightModifierComponent_FullExposure.ppm'),
+            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_RadiusWeightModifierComponent_HalfExposure.ppm'),
+            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_RadiusWeightModifierComponent_NoExposure.ppm')
         ]
 
         self.remove_artifacts(test_screenshots)
