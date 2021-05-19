@@ -11,7 +11,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 import logging
 import os
-from  pathlib import PurePath
+from pathlib import PurePath
 import pytest
 
 # Bail on the test if ly_test_tools doesn't exist.
@@ -29,6 +29,7 @@ PROJECT_DIRECTORY = PurePath(TEST_DIRECTORY)
 if len(PROJECT_DIRECTORY.parents) > 5:
     for _ in range(5):
         PROJECT_DIRECTORY = PROJECT_DIRECTORY.parent
+
 
 @pytest.mark.parametrize("project", ["AtomTest"])
 @pytest.mark.parametrize("launcher_platform", ['windows_editor'])
@@ -62,17 +63,20 @@ class TestAllLevelsOpenClose(object):
     )
 
     def test_AllLevelsOpenClose(self, request, editor, level, workspace, project, launcher_platform):
-
         cfg_args = [level]
-        test_levels = hydra.get_valid_test_levels(os.path.join(str(PROJECT_DIRECTORY), "Levels"))
+        test_levels = os.listdir(os.path.join(str(PROJECT_DIRECTORY), "Levels"))
+        test_levels.remove("DefaultLevel")
+        test_levels.append(level)
 
         expected_lines = []
         for level in test_levels:
             expected_lines.append(f"Successfully opened {level}")
 
         unexpected_lines = [
-            "failed to open",
+            "The following levels failed to open:",
             "Traceback (most recent call last):",
+            "Trace::Assert",
+            "Trace::Error",
         ]
 
         hydra.launch_and_validate_results(

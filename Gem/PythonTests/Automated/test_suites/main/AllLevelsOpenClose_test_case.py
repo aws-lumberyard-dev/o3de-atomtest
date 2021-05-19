@@ -40,12 +40,10 @@ from Automated.atom_utils.automated_test_utils import TestHelper as helper
 
 # Set up our valid test levels first that can be tested.
 LEVELS = os.listdir(os.path.join(azlmbr.paths.devroot, "AtomTest", "Levels"))
-INVALID_LEVELS = ["mult-mat-fbx-test", "bentley_test", "ColorSpaceTest", "DefaultLevel"]
-for invalid_level in INVALID_LEVELS:
-    try:
-        LEVELS.remove(invalid_level)
-    except ValueError:  # Level doesn't exist already
-        continue
+try:
+    LEVELS.remove("DefaultLevel")
+except ValueError:  # Level doesn't exist already
+    pass
 
 
 class TestAllLevelsOpenClose(object):

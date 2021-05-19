@@ -77,6 +77,8 @@ class TestMaterialEditorBasicTests(object):
             "Save All worked as expected: True",
         ]
         unexpected_lines = [
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 

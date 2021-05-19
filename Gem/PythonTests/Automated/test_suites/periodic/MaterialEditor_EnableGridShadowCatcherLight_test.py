@@ -57,12 +57,13 @@ class TestMaterialEditorEnableGridShadowCatcherLight(TestAutomationBase):
             "Shadow Catcher is toggled ON in viewport: True",
             "Shadow Catcher is toggled OFF in viewport: True",
         ]
-
         unexpected_lines = [
             "The grid is toggled ON in viewport: False",
             "The grid is toggled OFF in viewport: False",
             "Shadow Catcher is toggled ON in viewport: False",
             "Shadow Catcher is toggled OFF in viewport: False",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 

@@ -50,7 +50,11 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
             "Viewport is set to the expected size: True",
             "Basic level created"
         ]
-        unexpected_lines = ["Assert"]
+        unexpected_lines = [
+            "Trace::Assert",
+            "Trace::Error",
+            "Traceback (most recent call last):",
+        ]
 
         hydra.launch_and_validate_results(
             request,
@@ -60,6 +64,7 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
             timeout=EDITOR_TIMEOUT,
             expected_lines=level_creation_expected_lines,
             unexpected_lines=unexpected_lines,
+            halt_on_unexpected=True,
             cfg_args=[level],
         )
 

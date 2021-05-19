@@ -27,8 +27,8 @@ class TestLaunchEditorMaterialEditorRHIArgs(object):
     def test_EditorLaunch(self, request, editor, workspace, project, launcher_platform, cfg_args):
         expected_lines = []
         unexpected_lines = [
-            "Error",
-            "Assert",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 
@@ -40,6 +40,7 @@ class TestLaunchEditorMaterialEditorRHIArgs(object):
             timeout=EDITOR_TIMEOUT,
             expected_lines=expected_lines,
             unexpected_lines=unexpected_lines,
+            halt_on_unexpected=True,
             cfg_args=[cfg_args],
         )
 
@@ -53,8 +54,8 @@ class TestLaunchEditorMaterialEditorRHIArgs(object):
 
         expected_lines = []
         unexpected_lines = [
-            "Error",
-            "Assert",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 
