@@ -34,7 +34,7 @@ class Tests():
 def run():
     # open test level
     helper.init_idle()
-    helper.open_level("DefaultLevel")
+    helper.open_level("EmptyLevel")
 
     # Create new entity
     myEntityId = azlmbr.editor.ToolsApplicationRequestBus(azlmbr.bus.Broadcast, 'CreateNewEntity', EntityId())

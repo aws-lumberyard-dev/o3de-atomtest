@@ -14,8 +14,6 @@ import os
 from pathlib import PurePath
 import pytest
 
-# Bail on the test if ly_test_tools doesn't exist.
-pytest.importorskip("ly_test_tools")
 import ly_test_tools.environment.file_system as file_system
 from Automated.atom_utils import hydra_test_utils as hydra
 
@@ -65,7 +63,6 @@ class TestAllLevelsOpenClose(object):
     def test_AllLevelsOpenClose(self, request, editor, level, workspace, project, launcher_platform):
         cfg_args = [level]
         test_levels = os.listdir(os.path.join(str(PROJECT_DIRECTORY), "Levels"))
-        test_levels.remove("DefaultLevel")
         test_levels.append(level)
 
         expected_lines = []

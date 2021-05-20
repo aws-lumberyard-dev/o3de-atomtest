@@ -17,7 +17,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # C34428160: Editor - ActorTest_MultipleActors (https://testrail.agscollab.com/index.php?/cases/view/34428160)
 # C34428161: Editor - ActorTest_SingleActor (https://testrail.agscollab.com/index.php?/cases/view/34428161)
 # C34428162: Editor - ColorSpaceTest (https://testrail.agscollab.com/index.php?/cases/view/34428162)
-# C34428163: Editor - DefaultLevel (https://testrail.agscollab.com/index.php?/cases/view/34428163)
+# C34428163: Editor - EmptyLevel (https://testrail.agscollab.com/index.php?/cases/view/34428163)
 # C34428165: Editor - Lucy (https://testrail.agscollab.com/index.php?/cases/view/34428165)
 # C34428166: Editor - lucy_high (https://testrail.agscollab.com/index.php?/cases/view/34428166)
 # C34428167: Editor - macbeth_shaderballs (https://testrail.agscollab.com/index.php?/cases/view/34428167)
@@ -40,10 +40,6 @@ from Automated.atom_utils.automated_test_utils import TestHelper as helper
 
 # Set up our valid test levels first that can be tested.
 LEVELS = os.listdir(os.path.join(azlmbr.paths.devroot, "AtomTest", "Levels"))
-try:
-    LEVELS.remove("DefaultLevel")
-except ValueError:  # Level doesn't exist already
-    pass
 
 
 class TestAllLevelsOpenClose(object):

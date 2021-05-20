@@ -57,7 +57,7 @@ class TestLevelsLauncher(object):
             "ActorTest_MultipleActors",
             "ActorTest_SingleActor",
             "ColorSpaceTest",
-            "DefaultLevel",
+            "EmptyLevel",
             "Lucy",
             "lucy_high",
             "macbeth_shaderballs",

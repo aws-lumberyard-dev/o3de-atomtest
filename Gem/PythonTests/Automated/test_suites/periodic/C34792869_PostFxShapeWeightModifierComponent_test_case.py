@@ -92,7 +92,7 @@ def set_and_verify_shape_weight_modifier_component(shape_weight_modifier_compone
 
 def run():
     helper.init_idle()
-    helper.open_level("DefaultLevel")
+    helper.open_level("EmptyLevel")
 
     # create entities
     entityId = create_high_exposure_entity_with_sphere_shape()

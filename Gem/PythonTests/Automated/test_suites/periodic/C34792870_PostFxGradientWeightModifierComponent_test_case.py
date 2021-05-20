@@ -130,7 +130,7 @@ def set_and_verify_gradient_weight_modifier_component(gradient_weight_modifier_c
 
 def run():
     helper.init_idle()
-    helper.open_level("DefaultLevel")
+    helper.open_level("EmptyLevel")
 
     # create entities
     entityId = create_high_exposure_entity()
