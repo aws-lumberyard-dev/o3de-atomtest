@@ -396,7 +396,7 @@
 				<Class name="EntityId" field="Id" version="1" type="{6383F1D3-BB27-4E6B-A49A-6409B2059EAA}">
 					<Class name="AZ::u64" field="id" value="342837951553" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 				</Class>
-				<Class name="AZStd::string" field="Name" value="Speular Reflection Probe" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
+				<Class name="AZStd::string" field="Name" value="ReflectionProbe" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
 				<Class name="AZStd::vector" field="Components" type="{13D58FF9-1088-5C69-9A1F-C2A144B57B78}">
 					<Class name="EditorOnlyEntityComponent" field="element" type="{22A16F1D-6D49-422D-AAE9-91AE45B5D3E7}">
 						<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
@@ -449,7 +449,7 @@
 									<Class name="Color" field="DrawColor" value="1.0000000 1.0000000 0.7800000 0.4000000" type="{7894072A-9050-4F0F-901B-34B1A0D29417}"/>
 									<Class name="bool" field="IsFilled" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 								</Class>
-								<Class name="Vector3" field="Dimensions" value="36.0000000 20.0000000 15.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
+								<Class name="Vector3" field="Dimensions" value="38.0000000 24.0000000 16.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 							</Class>
 						</Class>
 						<Class name="ComponentModeDelegate" field="ComponentMode" version="1" type="{635B28F0-601A-43D2-A42A-02C4A88CD9C2}"/>
@@ -470,7 +470,7 @@
 								<Class name="AZ::u64" field="SortIndex" value="1" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 							</Class>
 							<Class name="ComponentOrderEntry" field="element" version="1" type="{335C5861-5197-4DD5-A766-EF2B551B0D9D}">
-								<Class name="AZ::u64" field="ComponentId" value="16097081421367331301" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+								<Class name="AZ::u64" field="ComponentId" value="7257900794527743872" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 								<Class name="AZ::u64" field="SortIndex" value="2" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 							</Class>
 						</Class>
@@ -488,30 +488,30 @@
 							<Class name="EditorComponentAdapter&lt;AZ::Render::ReflectionProbeComponentController AZ::Render::ReflectionProbeComponent AZ::Render::Reflecti" field="BaseClass1" version="1" type="{8CB64FD9-F409-5A87-984F-77AB466784F2}">
 								<Class name="EditorComponentBase" field="BaseClass1" version="1" type="{D5346BD4-7F20-444E-B370-327ACD03D4A0}">
 									<Class name="AZ::Component" field="BaseClass1" type="{EDFCB2CF-F75D-43BE-B26B-F35821B29247}">
-										<Class name="AZ::u64" field="Id" value="16097081421367331301" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
+										<Class name="AZ::u64" field="Id" value="7257900794527743872" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 									</Class>
 								</Class>
 								<Class name="AZ::Render::ReflectionProbeComponentController" field="Controller" type="{EFFA88F1-7ED2-4552-B6F6-5E6B2B6D9311}">
 									<Class name="AZ::Render::ReflectionProbeComponentConfig" field="Configuration" type="{D61730A1-CAF5-448C-B2A3-50D5DC909F31}">
-										<Class name="float" field="OuterHeight" value="15.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
-										<Class name="float" field="OuterLength" value="20.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
-										<Class name="float" field="OuterWidth" value="36.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
-										<Class name="float" field="InnerHeight" value="15.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
-										<Class name="float" field="InnerLength" value="20.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
-										<Class name="float" field="InnerWidth" value="36.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
+										<Class name="float" field="OuterHeight" value="16.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
+										<Class name="float" field="OuterLength" value="24.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
+										<Class name="float" field="OuterWidth" value="38.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
+										<Class name="float" field="InnerHeight" value="16.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
+										<Class name="float" field="InnerLength" value="24.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
+										<Class name="float" field="InnerWidth" value="38.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 										<Class name="bool" field="UseBakedCubemap" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-										<Class name="AZStd::string" field="BakedCubeMapRelativePath" value="ReflectionProbes/Speular Reflection Probe__F078D181-C6A7-4811-A311-6F521FA8D447__iblspecularcm.dds" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
-										<Class name="Asset" field="BakedCubeMapAsset" value="id={021C2D82-6AB9-5D89-BBAE-FC892BCDA40A}:7d0,type={3C96A826-9099-4308-A604-7B19ADBF8761},hint={reflectionprobes/speular reflection probe__f078d181-c6a7-4811-a311-6f521fa8d447__iblspecularcm.dds.streamingimage},loadBehavior=0" version="2" type="{77A19D40-8731-4D3C-9041-1B43047366A4}"/>
+										<Class name="AZStd::string" field="BakedCubeMapRelativePath" value="ReflectionProbes/ReflectionProbe__148ED692-512C-482C-BD09-42D8A12427EA__iblspecularcm.dds" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
+										<Class name="Asset" field="BakedCubeMapAsset" value="id={2DD53089-C949-54BD-86FF-528CC352CAE5}:7d0,type={3C96A826-9099-4308-A604-7B19ADBF8761},hint={reflectionprobes/reflectionprobe__148ed692-512c-482c-bd09-42d8a12427ea__iblspecularcm.dds.streamingimage},loadBehavior=0" version="2" type="{77A19D40-8731-4D3C-9041-1B43047366A4}"/>
 										<Class name="Asset" field="AuthoredCubeMapAsset" value="id={00000000-0000-0000-0000-000000000000}:0,type={3C96A826-9099-4308-A604-7B19ADBF8761},hint={},loadBehavior=1" version="2" type="{77A19D40-8731-4D3C-9041-1B43047366A4}"/>
 										<Class name="AZ::u64" field="EntityId" value="342837951553" type="{D6597933-47CD-4FC8-B911-63F3E2B0993A}"/>
 										<Class name="bool" field="UseParallaxCorrection" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-										<Class name="bool" field="ShowVisualization" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
+										<Class name="bool" field="ShowVisualization" value="false" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
 									</Class>
 								</Class>
 							</Class>
 						</Class>
 						<Class name="bool" field="useBakedCubemap" value="true" type="{A0CA880C-AFE4-43CB-926C-59AC48496112}"/>
-						<Class name="AZStd::string" field="bakedCubeMapRelativePath" value="ReflectionProbes/Speular Reflection Probe__F078D181-C6A7-4811-A311-6F521FA8D447__iblspecularcm.dds" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
+						<Class name="AZStd::string" field="bakedCubeMapRelativePath" value="ReflectionProbes/ReflectionProbe__148ED692-512C-482C-BD09-42D8A12427EA__iblspecularcm.dds" type="{03AAAB3F-5C47-5A66-9EBC-D5FA4DB353C9}"/>
 						<Class name="Asset" field="authoredCubeMapAsset" value="id={00000000-0000-0000-0000-000000000000}:0,type={3C96A826-9099-4308-A604-7B19ADBF8761},hint={},loadBehavior=1" version="2" type="{77A19D40-8731-4D3C-9041-1B43047366A4}"/>
 					</Class>
 					<Class name="SelectionComponent" field="element" type="{73B724FC-43D1-4C75-ACF5-79AA8A3BF89D}">
@@ -717,7 +717,7 @@
 									<Class name="AZ::Render::DiffuseProbeGridComponentConfig" field="Configuration" type="{BF190F2A-D7F7-453B-9D42-5CE940180DCE}">
 										<Class name="Vector3" field="ProbeSpacing" value="1.5000000 1.5000000 1.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
 										<Class name="Vector3" field="Extents" value="36.0000000 20.0000000 15.0000000" type="{8379EB7D-01FA-4538-B64B-A6543B4BE73D}"/>
-										<Class name="float" field="AmbientMultiplier" value="1.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
+										<Class name="float" field="AmbientMultiplier" value="4.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 										<Class name="float" field="ViewBias" value="0.2000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 										<Class name="float" field="NormalBias" value="0.1000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 									</Class>
@@ -727,7 +727,7 @@
 						<Class name="float" field="probeSpacingX" value="1.5000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 						<Class name="float" field="probeSpacingY" value="1.5000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 						<Class name="float" field="probeSpacingZ" value="1.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
-						<Class name="float" field="ambientMultiplier" value="1.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
+						<Class name="float" field="ambientMultiplier" value="4.0000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 						<Class name="float" field="viewBias" value="0.2000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 						<Class name="float" field="normalBias" value="0.1000000" type="{EA2C3E90-AFBE-44D4-A90D-FAAF79BAF93D}"/>
 					</Class>
