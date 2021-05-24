@@ -27,17 +27,16 @@ class TestViewAssetBrowserMaterialInspector(object):
     )
     @pytest.mark.parametrize("exe_file_name", ["MaterialEditor"])
     def test_ViewAssetBrowserMaterialInspector(
-        self, request, workspace, project, launcher_platform, generic_launcher, exe_file_name
-    ):
-
+        self, request, workspace, project, launcher_platform, generic_launcher, exe_file_name):
         expected_lines = [
             "Asset Browser visibility working as expected: True",
             "Inspector visibility working as expected: True",
         ]
-
         unexpected_lines = [
             "Asset Browser visibility working as expected: False",
             "Inspector visibility working as expected: False",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 

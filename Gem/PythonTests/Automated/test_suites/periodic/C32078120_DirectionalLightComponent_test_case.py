@@ -68,7 +68,7 @@ def almost_equal(float0, float1):
 
 def prepare_level_and_prepare_camera():
     helper.init_idle()
-    helper.open_level("DefaultLevel")
+    helper.open_level("EmptyLevel")
     general.idle_wait_frames(1)
     
     # Get Default Atom Environment entity.

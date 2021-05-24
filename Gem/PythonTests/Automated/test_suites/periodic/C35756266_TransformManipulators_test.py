@@ -67,8 +67,8 @@ class TestAutomation(TestAutomationBase):
             "Screenshot taken."
         ]
         unexpected_lines = [
-            "Assert",
-            "screenshot failed",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 

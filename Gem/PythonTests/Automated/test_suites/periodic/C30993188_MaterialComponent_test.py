@@ -53,10 +53,11 @@ class TestAutomation(TestAutomationBase):
             "Screenshot taken."
         ]
         unexpected_lines = [
-            "Assert",
             "Model material asset property of material is not correctly set",
             "LOD material asset property of material is not correctly set",
             "Default material asset property of material is not correctly set",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 
