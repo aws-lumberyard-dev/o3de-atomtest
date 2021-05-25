@@ -16,7 +16,6 @@ from Automated.atom_utils import hydra_test_utils as hydra
 from Automated.atom_utils.automated_test_base import TestAutomationBase
 from Automated.atom_utils.automated_test_base import DEFAULT_SUBFOLDER_PATH
 
-pytest.importorskip("ly_test_tools")
 TEST_DIRECTORY = os.path.dirname(__file__)
 EDITOR_TIMEOUT = 30
 

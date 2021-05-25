@@ -12,8 +12,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 import pytest
 import os
 
-pytest.importorskip("ly_test_tools")
-
 from Automated.atom_utils import hydra_test_utils as hydra
 from Automated.atom_utils.automated_test_base import TestAutomationBase
 

@@ -17,7 +17,6 @@ from Automated.atom_utils.automated_test_base import TestAutomationBase
 from Automated.atom_utils.automated_test_base import DEFAULT_SUBFOLDER_PATH
 from Automated.atom_utils import registry_utils
 
-pytest.importorskip("ly_test_tools")
 REG_PATH = os.path.join('Software', 'Amazon', 'Lumberyard', 'Settings')
 TEST_DIRECTORY = os.path.dirname(__file__)
 EDITOR_TIMEOUT = 30

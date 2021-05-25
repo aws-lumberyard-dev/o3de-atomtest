@@ -10,12 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 """
 
 import pytest
-# This test is temporarily disabled because it takes too long to run.
-# See ATOM-14758 for more info.
-pytestmark = pytest.mark.skip
 
-# Bail on the test if ly_test_tools doesn't exist.
-pytest.importorskip("ly_test_tools")
 from Automated.atom_utils import hydra_test_utils as hydra
 from ly_remote_console.remote_console_commands import RemoteConsole as RemoteConsole
 

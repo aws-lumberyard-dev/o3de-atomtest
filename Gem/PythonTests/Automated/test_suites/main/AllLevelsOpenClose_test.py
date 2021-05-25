@@ -32,7 +32,7 @@ if len(PROJECT_DIRECTORY.parents) > 5:
 @pytest.mark.parametrize("project", ["AtomTest"])
 @pytest.mark.parametrize("launcher_platform", ['windows_editor'])
 @pytest.mark.parametrize("level", ["tmp_level"])
-class TestAllLevelsOpenClose(object):
+class TestAllLevels(object):
     @pytest.fixture(autouse=True)
     def setup_teardown(self, request, workspace, project, level):
         # Cleanup our temp level
@@ -44,23 +44,11 @@ class TestAllLevelsOpenClose(object):
 
         request.addfinalizer(teardown)
 
-    @pytest.mark.test_case_id(
-        "C34428159",
-        "C34428160",
-        "C34428161",
-        "C34428162",
-        "C34428163",
-        "C34428165",
-        "C34428166",
-        "C34428167",
-        "C34428158",
-        "C34428172",
-        "C34428173",
-        "C34428174",
-        "C34428175",
-    )
-
-    def test_AllLevelsOpenClose(self, request, editor, level, workspace, project, launcher_platform):
+    def test_OpenCloseAllLevels_FindsExpectedLines(self, request, editor, level, workspace, project, launcher_platform):
+        """
+        Please review the hydra script run by this test for more specific test info.
+        Tests that all levels inside the AtomTest "Levels" directory can be opened & closed without any issues.
+        """
         cfg_args = [level]
         test_levels = os.listdir(os.path.join(str(PROJECT_DIRECTORY), "Levels"))
         test_levels.append(level)
