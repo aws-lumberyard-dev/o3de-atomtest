@@ -146,7 +146,8 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
             "Component tests completed",
         ]
         unexpected_lines = [
-            "Assert",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 

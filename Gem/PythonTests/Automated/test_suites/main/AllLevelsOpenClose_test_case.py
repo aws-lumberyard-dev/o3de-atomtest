@@ -24,11 +24,6 @@ from Automated.atom_utils.automated_test_utils import TestHelper as helper
 LEVELS = os.listdir(os.path.join(azlmbr.paths.devroot, "AtomTest", "Levels"))
 
 
-class TestAllLevelsOpenClose(object):
-    """Reserved for the test name."""
-    pass
-
-
 def run():
     """
     Scans the AtomTest "Levels" directory for any levels and for each level it:

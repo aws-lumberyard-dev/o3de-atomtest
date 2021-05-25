@@ -27,7 +27,8 @@ class TestAutomation(TestAutomationBase):
     def test_C24116651_MeshScaling(self, request, workspace, editor, launcher_platform):
         expected_lines = []
         unexpected_lines = [
-            "Assert",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 
