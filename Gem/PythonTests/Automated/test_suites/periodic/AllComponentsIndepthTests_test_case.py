@@ -44,7 +44,7 @@ def run():
     Sets up the tests by making sure the required level is created & setup correctly.
     It then executes 2 test cases:
 
-    Test Case: Area Light below:
+    Test Case - Area Light:
     1. Creates "area_light" entity w/ an Area Light component that has a Capsule Shape w/ the color set to 255, 0, 0
     2. Enters game mode to take a screenshot for comparison, then exits game mode.
     3. Sets the Area Light component Intensity Mode to Lumens (default).
@@ -64,7 +64,7 @@ def run():
     17. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
     18. Deletes the Area Light component from the "area_light" entity and verifies its successful.
 
-    Test Case: Spot Light below:
+    Test Case - Spot Light:
     1. Creates "spot_light" entity w/ a Spot Light component attached to it.
     2. Selects the "directional_light" entity already present in the level and disables it.
     3. Selects the "global_skylight" entity already present in the level and disables the HDRi Skybox component,
@@ -85,10 +85,15 @@ def run():
         - Mode: Explicit
         - Radius: 8
     14. Enters game mode to take a screenshot for comparison, then exits game mode.
-    15. Selects the "spot_light" entity modifies the Shadow controls to the following values:
+    15. Selects the "spot_light" entity and modifies the Shadow controls to the following values:
         - Enable Shadow: On
         - ShadowmapSize: 256
     16. Enters game mode to take a screenshot for comparison, then exits game mode.
+    17. Deletes the "spotlight_entity" and selects the "ground_plane" entity, updating the Material component to a new
+        material.
+    18. Selects the "directional_light" entity and enables the Directional Light component.
+    19. Selects the "global_skylight" entity and enables the HDRi Skybox component & Global Skylight (IBL) component.
+    20. Prints general.log("Component tests completed") when completely finished with the test.
 
     Tests will fail immediately if any of these log lines are found:
     1. Trace::Assert
