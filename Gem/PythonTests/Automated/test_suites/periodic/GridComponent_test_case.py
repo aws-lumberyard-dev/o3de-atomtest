@@ -9,7 +9,7 @@ remove or modify any license notices. This file is distributed on an "AS IS" BAS
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 Hydra script that is used to test the Grid component functionality inside the Editor.
-Creates an entity and attaches the Grid component, modifying its size, spacing, and color.
+Opens the MeshTest level & creates an entity and attaches the Grid component, modifying its size, spacing, and color.
 Results are verified using log messages & screenshot comparisons diffed against golden images.
 
 See the run() function for more in-depth test info.

@@ -7,27 +7,21 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+Hydra script that is used to test FBX mesh import scaling.
+Creates a new level and uses a list of .azmodel meshes to test creating new entities with these meshes.
+It then modifies the x, y, z scaling values for each mesh that was attached to the entity.
+Results are verified using log messages & screenshot comparisons diffed against golden images.
+
+See the run() function for more in-depth test info.
 """
 
-# Test case ID : C24116651
-# Test Case Title : Imported fbx meshes correctly scale in Atom projects
-# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/24116651
-
-# This test case can be run in the Editor:
-#       pyRunFile @devroot@/Tests/Atom/Automated/C24116651_MeshScaling.py
-
-import logging
 import os
 import sys
 
 import azlmbr.legacy.general as general
-import azlmbr.atom
 import azlmbr.math as math
-import azlmbr.asset as asset
-import azlmbr.bus as bus
-import azlmbr.editor
 import azlmbr.paths
-from azlmbr.entity import EntityId
 
 sys.path.append(os.path.join(azlmbr.paths.devroot, "AtomTest", "Gem", "PythonTests"))
 
@@ -36,11 +30,25 @@ from Automated.atom_utils.hydra_editor_utils import helper_create_entity_with_me
 from Automated.atom_utils.screenshot_utils import ScreenshotHelper
 
 
-class Tests():
-    pass
-
-
 def run():
+    """
+    Test Case - Fbx mesh Import scaling in Atom:
+    1. Creates a new level called MeshScalingTemporaryLevel
+    2. Has a list of 12 meshes, which it will do the following for each one:
+        - Create an entity and attach the mesh to it.
+        - Sets it with an initial offset of x:-20, y:0, z:0
+        - For each additional mesh the x offset is modified by +3.0
+    3. Enters game mode to take a screenshot for comparison, then exits game mode.
+    4. Prints general.log("FBX mesh scaling test has completed.")
+    5. Exit the Editor and ends the test.
+
+    Tests will fail immediately if any of these log lines are found:
+    1. Trace::Assert
+    2. Trace::Error
+    3. Traceback (most recent call last):
+
+    :return: None
+    """
 
     def after_level_load():
         """Function to call after creating/opening a level to ensure it loads."""
@@ -87,8 +95,9 @@ def run():
     helper.open_level(test_level_name)
     general.idle_wait(1)
 
-    ### test body
-    meshes = ["zup_scene_cm_auto.azmodel",
+    # These are the meshes that are used to test FBX mesh import scaling.
+    meshes = [
+        "zup_scene_cm_auto.azmodel",
         "zup_scene_cm_explicit_cm.azmodel",
         "zup_scene_cm_explicit_ft.azmodel",
         "zup_scene_cm_explicit_m.azmodel",
@@ -99,13 +108,16 @@ def run():
         "zup_scene_m_auto.azmodel",
         "zup_scene_m_explicit_cm.azmodel",
         "zup_scene_m_explicit_ft.azmodel",
-        "zup_scene_m_explicit_m.azmodel" ]
+        "zup_scene_m_explicit_m.azmodel"
+    ]
 
+    # Initial offset values to iterate off of for mesh scaling of meshes.
     offset = math.Vector3()
     offset.x = -20.0
     offset.y = 0.0
     offset.z = 0.0
 
+    # For each mesh, create an entity and attach the mesh to it, then scale it using the values in offset.
     meshIndex = 0
     for mesh in meshes:
         general.log(mesh)
@@ -114,14 +126,14 @@ def run():
         entityName = "TestEntity{}".format(meshIndex)
         helper_create_entity_with_mesh("scale_factor/" + mesh, offset, entityName)
 
+    # Enter game mode, take screenshot, exit game mode, and close the Editor.
     helper.enter_game_mode(["", ""])
-    # Example: how to capture a screenshot
     general.set_viewport_size(1280,720)
     general.set_cvar_integer('r_DisplayInfo', 0)
     general.idle_wait_frames(1)
-
-    ScreenshotHelper(general.idle_wait_frames).capture_screenshot_blocking("screenshot_atom_C24116651.dds")
+    ScreenshotHelper(general.idle_wait_frames).capture_screenshot_blocking("screenshot_atom_FBXMeshScaling.dds")
     helper.exit_game_mode(["", ""])
+    general.log("FBX mesh scaling test has completed.")
     helper.close_editor()
 
 

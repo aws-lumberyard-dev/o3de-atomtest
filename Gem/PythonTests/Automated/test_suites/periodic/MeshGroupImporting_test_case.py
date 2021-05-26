@@ -7,26 +7,21 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+Hydra script that is used to test FBX mesh group import scaling.
+Creates a new level and uses a list of .azmodel meshes to test creating new entities with these group meshes.
+It then modifies the x, y, z scaling values for each mesh that was attached to the entity.
+Results are verified using log messages & screenshot comparisons diffed against golden images.
+
+See the run() function for more in-depth test info.
 """
-
-# Test case ID : C24134029
-# Test Case Title : Mesh groups imported to Atom correctly preserve their spatial structure
-# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/24134029
-
-# This test case can be run in the Editor:
-# pyRunFile @devroot@/AtomTest/Gem/PythonTests/Automated/test_suites/periodic/C24134029_MeshGroupImporting_test_case.py
 
 import os
 import sys
 
 import azlmbr.legacy.general as general
-import azlmbr.atom
 import azlmbr.math as math
-import azlmbr.paths
-import azlmbr.asset as asset
-import azlmbr.bus as bus
 import azlmbr.editor
-from azlmbr.entity import EntityId
 
 sys.path.append(os.path.join(azlmbr.paths.devroot, "AtomTest", "Gem", "PythonTests"))
 
@@ -35,11 +30,25 @@ from Automated.atom_utils.hydra_editor_utils import helper_create_entity_with_me
 from Automated.atom_utils.screenshot_utils import ScreenshotHelper
 
 
-class Tests():
-    pass
-
-
 def run():
+    """
+    Test Case - Fbx mesh group Import scaling in Atom:
+    1. Creates a new level called MeshScalingTemporaryLevel
+    2. Has a list of 12 meshes, which it will do the following for each one:
+        - Create an entity and attach the mesh to it.
+        - Sets it with an initial offset of x:-15, y:0, z:0
+        - For each additional mesh the x offset is modified by +3.0
+    3. Enters game mode to take a screenshot for comparison, then exits game mode.
+    4. Prints general.log("FBX mesh group scaling test has completed.")
+    5. Exit the Editor and ends the test.
+
+    Tests will fail immediately if any of these log lines are found:
+    1. Trace::Assert
+    2. Trace::Error
+    3. Traceback (most recent call last):
+
+    :return: None
+    """
 
     def after_level_load():
         """Function to call after creating/opening a level to ensure it loads."""
@@ -86,20 +95,24 @@ def run():
     helper.open_level(test_level_name)
     general.idle_wait_frames(1)
 
-    ### test body
-    meshes = ["cube_group.azmodel",
-              "cube_parent.azmodel",
-              "cube_parent_plus_locator.azmodel",
-              "cube_parent_plus_locator_rotatez_90.azmodel",
-              "cube_parent__rotatez_90_locator.azmodel",
-              "cube_parent__scaley_2_locator.azmodel",
-              "cube_parent__transx_100_locator.azmodel"]
+    # These are the meshes that are used to test FBX mesh import scaling.
+    meshes = [
+        "cube_group.azmodel",
+        "cube_parent.azmodel",
+        "cube_parent_plus_locator.azmodel",
+        "cube_parent_plus_locator_rotatez_90.azmodel",
+        "cube_parent__rotatez_90_locator.azmodel",
+        "cube_parent__scaley_2_locator.azmodel",
+        "cube_parent__transx_100_locator.azmodel"
+    ]
 
+    # Initial offset values to iterate off of for mesh scaling of meshes.
     offset = math.Vector3()
     offset.x = -15.0
     offset.y = 0.0
     offset.z = 0.0
 
+    # For each mesh, create an entity and attach the mesh to it, then scale it using the values in offset.
     meshIndex = 0
     for mesh in meshes:
         meshIndex = meshIndex + 1
@@ -113,8 +126,10 @@ def run():
     general.set_cvar_integer('r_DisplayInfo', 0)
     general.idle_wait_frames(1)
 
-    ScreenshotHelper(general.idle_wait_frames).capture_screenshot_blocking("screenshot_atom_C24134029.dds")
+    ScreenshotHelper(general.idle_wait_frames).capture_screenshot_blocking(
+        "screenshot_atom_FBXMeshGroupImportScaling.dds")
     helper.exit_game_mode(["", ""])
+    general.log("FBX mesh group scaling test has completed.")
     helper.close_editor()
 
 
