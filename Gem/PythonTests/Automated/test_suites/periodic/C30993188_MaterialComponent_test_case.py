@@ -165,5 +165,6 @@ def run():
     screenshotHelper.capture_screenshot_blocking_in_game_mode('screenshot_atom_MaterialComponent_default.ppm')
     helper.close_editor()
 
+
 if __name__ == "__main__":
     run()

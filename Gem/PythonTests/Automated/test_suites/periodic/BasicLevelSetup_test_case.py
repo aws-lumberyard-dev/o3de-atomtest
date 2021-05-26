@@ -7,10 +7,13 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+Hydra script that is used to create a new level with a default rendering setup.
+After the level is setup, screenshots are diffed against golden images are used to verify pass/fail results of the test.
+
+The AllComponentsIndepthTests_test_case.py script in this same directory requires this script to run its tests.
+This is mainly for the "all_components_indepth_level" level it creates, with the expected entities and components setup.
 """
-# Test case ID : C34603773
-# Test Case Title : Atom Component - Basic Level Setup
-# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/34603773
 
 import os
 import sys
@@ -33,6 +36,23 @@ DEGREE_RADIAN_FACTOR = 0.0174533
 
 
 def run():
+    """
+    1. View -> Layouts -> Restore Default Layout, sets the viewport to ratio 16:9 @ 1280 x 720
+    2. Runs console command r_DisplayInfo = 0
+    3. Deletes all entities currently present in the level.
+    4. Creates a "default_level" entity to hold all other entities, setting the translate values to x:0, y:0, z:0
+    5. Adds a Grid component to the "default_level" & updates its Grid Spacing to 1.0m
+    6. Adds a "global_skylight" entity to "default_level", attaching an HDRi Skybox w/ a Cubemap Texture.
+    7. Adds a Global Skylight (IBL) component w/ diffuse image and specular image to "global_skylight" entity.
+    8. Adds a "ground_plane" entity to "default_level", attaching a Mesh component & Material component.
+    9. Adds a "directional_light" entity to "default_level" & adds a Directional Light component.
+    10. Adds a "sphere" entity to "default_level" & adds a Mesh component with a Material component to it.
+    11. Adds a "camera" entity to "default_level" & adds a Camera component with 80 degree FOV and Transform values:
+        Translate - x:5.5m, y:-12.0m, z:9.0m
+        Rotate - x:-27.0, y:-12.0, z:25.0
+    12. Finally enters game mode, takes a screenshot, exits game mode, & saves the level.
+    :return: None
+    """
     def initial_viewport_setup(screen_width, screen_height):
         general.set_viewport_size(screen_width, screen_height)
         general.update_viewport()

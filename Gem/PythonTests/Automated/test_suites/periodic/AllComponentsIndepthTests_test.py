@@ -7,6 +7,9 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+Does in-depth component tests for a new level setup, as well as the Light component with "Area" and "Spot" options.
+Utilizes screenshots & log lines printed from a hydra script to verify test results.
 """
 
 import os
@@ -32,11 +35,14 @@ class AllComponentsIndepthTestsException(Exception):
 @pytest.mark.parametrize("level", ["all_components_indepth_level"])
 class TestAllComponentsIndepthTests(TestAutomationBase):
 
-    @pytest.mark.test_case_id("C34603773")
     @pytest.mark.parametrize("screenshot_name", ["AtomBasicLevelSetup.ppm"])
-    def test_C34603773_BasicLevelSetup_SetsUpLevel(
+    def test_BasicLevelSetup_SetsUpLevel(
             self, request, editor, workspace, project, launcher_platform, level, screenshot_name,
             golden_images_directory):
+        """
+        Please review the hydra script run by this test for more specific test info.
+        Tests that a basic rendering level setup can be created (lighting, meshes, materials, etc.).
+        """
         # Clear the test level to start the test.
         file_system.delete([os.path.join(workspace.paths.engine_root(), project, "Levels", level)], True, True)
 
@@ -60,7 +66,7 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
             request,
             TEST_DIRECTORY,
             editor,
-            "C34603773_BasicLevelSetup_test_case.py",
+            "BasicLevelSetup_test_case.py",
             timeout=EDITOR_TIMEOUT,
             expected_lines=level_creation_expected_lines,
             unexpected_lines=unexpected_lines,
@@ -71,14 +77,13 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
         for test_screenshot, golden_screenshot in zip(cache_images, golden_images):
             self.compare_screenshots(test_screenshot, golden_screenshot)
 
-    @pytest.mark.test_case_id("C35035568", "C34525095", "C34525110")
-    def test_AllComponentsIndepthTests(
+    def test_LightComponentsInBasicLevel_ScreenshotsMatchGoldenImages(
             self, request, editor, workspace, project, launcher_platform, level, golden_images_directory):
         basic_level = os.path.join(workspace.paths.engine_root(), project, "Levels", level)
         if not os.path.exists(basic_level):
             raise AllComponentsIndepthTestsException(
                 f'Level "{level}" does not exist at path: "{basic_level}"\n'
-                'Please run the "test_C34603773_BasicLevelSetup_SetsUpLevel()" test first.')
+                'Please run the "BasicLevelSetup_SetsUpLevel()" test first.')
 
         def teardown():
             file_system.delete([os.path.join(workspace.paths.engine_root(), project, "Levels", level)], True, True)
@@ -109,15 +114,16 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
 
         golden_images = []
         for golden_image in screenshot_names:
-            golden_image_path = os.path.join(golden_images_directory, "Windows", "AllComponentsIndepthTests", golden_image)
+            golden_image_path = os.path.join(
+                golden_images_directory, "Windows", "AllComponentsIndepthTests", golden_image)
             golden_images.append(golden_image_path)
 
         component_test_expected_lines = [
-            # Level save/load - Test case ID:C35035568
+            # Level save/load
             "Level is saved successfully: True",
             "New entity created: True",
             "New entity deleted: True",
-            # Area Light Component - Test case ID: C34525095
+            # Area Light Component
             "Area Light Entity successfully created",
             "Area Light_test: Component added to the entity: True",
             "Area Light_test: Component removed after UNDO: True",
@@ -131,7 +137,7 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
             "Area Light_test: Entity deleted: True",
             "Area Light_test: UNDO entity deletion works: True",
             "Area Light_test: REDO entity deletion works: True",
-            # Spot Light Component - Test case ID: C34525110
+            # Spot Light Component
             "Spot Light Entity successfully created",
             "Spot Light_test: Component added to the entity: True",
             "Spot Light_test: Component removed after UNDO: True",
