@@ -28,6 +28,16 @@ class TestAutomation(TestAutomationBase):
 
     def test_MeshGroupScaling_AllMeshesScaleTheSame(
             self, request, workspace, editor, project, launcher_platform, golden_images_directory):
+        """
+        Please review the hydra script run by this test for more specific test info.
+        Tests that FBX group meshes scale correctly.
+        """
+        golden_screenshot = os.path.join(golden_images_directory, 'Windows', 'FBXMeshGroupImportScaling.ppm')
+        test_screenshot = os.path.join(
+            workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH,
+            "screenshot_atom_FBXMeshGroupImportScaling.dds")
+        self.remove_artifacts([test_screenshot])
+
         expected_lines = ["FBX mesh group scaling test has completed."]
         unexpected_lines = [
             "Trace::Assert",
@@ -39,15 +49,11 @@ class TestAutomation(TestAutomationBase):
             request,
             TEST_DIRECTORY,
             editor,
-            "C24134029_MeshGroupImporting_test_case.py",
+            "MeshGroupImporting_test_case.py",
             timeout=EDITOR_TIMEOUT,
             expected_lines=expected_lines,
             unexpected_lines=unexpected_lines,
             halt_on_unexpected=True,
         )
 
-        golden_screenshot = os.path.join(golden_images_directory, 'Windows', 'FBXMeshGroupImportScaling.ppm')
-        test_screenshot = os.path.join(
-            workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH,
-            "screenshot_atom_FBXMeshGroupImportScaling.dds")
         self.compare_screenshots(test_screenshot, golden_screenshot)

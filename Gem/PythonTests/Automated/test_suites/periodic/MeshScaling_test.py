@@ -28,6 +28,10 @@ class TestAutomation(TestAutomationBase):
 
     def test_MeshScaling_AllMeshesScaleTheSame(
             self, request, workspace, editor, project, launcher_platform, golden_images_directory):
+        """
+        Please review the hydra script run by this test for more specific test info.
+        Tests that FBX meshes scale correctly.
+        """
         expected_lines = ["FBX mesh scaling test has completed."]
         unexpected_lines = [
             "Trace::Assert",
