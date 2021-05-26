@@ -13,6 +13,8 @@ After the level is setup, screenshots are diffed against golden images are used 
 
 The AllComponentsIndepthTests_test_case.py script in this same directory requires this script to run its tests.
 This is mainly for the "all_components_indepth_level" level it creates, with the expected entities and components setup.
+
+See the run() function for more in-depth test info.
 """
 
 import os

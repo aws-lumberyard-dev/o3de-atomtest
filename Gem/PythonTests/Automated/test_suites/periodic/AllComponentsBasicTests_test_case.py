@@ -9,6 +9,8 @@ remove or modify any license notices. This file is distributed on an "AS IS" BAS
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 Hydra script that creates an entity and attaches Atom components to it for test verification.
+
+See the run() function for more in-depth test info.
 """
 
 import os

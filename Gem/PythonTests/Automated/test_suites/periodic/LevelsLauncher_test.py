@@ -60,7 +60,8 @@ class TestLevelsLauncher(object):
             "NormalMapping",
             "PbrMaterialChart",
             "ShadowTest",
-            "TangentSpace",
+            "Sponza",
+            "SponzaDiffuseGI"
         ],
     )
     def test_LevelsLauncher(

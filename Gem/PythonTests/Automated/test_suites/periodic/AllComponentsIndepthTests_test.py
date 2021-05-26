@@ -77,13 +77,14 @@ class TestAllComponentsIndepthTests(TestAutomationBase):
         for test_screenshot, golden_screenshot in zip(cache_images, golden_images):
             self.compare_screenshots(test_screenshot, golden_screenshot)
 
-    def test_LightComponentsInBasicLevel_ScreenshotsMatchGoldenImages(
+    def test_ComponentsInBasicLevel_ScreenshotsMatchGoldenImages(
             self, request, editor, workspace, project, launcher_platform, level, golden_images_directory):
         basic_level = os.path.join(workspace.paths.engine_root(), project, "Levels", level)
         if not os.path.exists(basic_level):
             raise AllComponentsIndepthTestsException(
                 f'Level "{level}" does not exist at path: "{basic_level}"\n'
-                'Please run the "BasicLevelSetup_SetsUpLevel()" test first.')
+                'Please run the "BasicLevelSetup_SetsUpLevel()" test first. '
+                'You may also run the hydra script "BasicLevelSetup_test_case.py" directly to create the level.')
 
         def teardown():
             file_system.delete([os.path.join(workspace.paths.engine_root(), project, "Levels", level)], True, True)

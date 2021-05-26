@@ -9,6 +9,8 @@ remove or modify any license notices. This file is distributed on an "AS IS" BAS
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 Hydra script that is used to open all AtomTest levels inside its "Levels" directory, verifying they don't crash.
+
+See the run() function for more in-depth test info.
 """
 
 import os

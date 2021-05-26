@@ -13,6 +13,8 @@ WARNING: This script must be run after the "BasicLevelSetup_test_case.py" script
 Hydra script that uses the level created by the BasicLevelSetup_test_case.py script to verify rendering.
 After loading the level, it manipulates Area Lights & Spot Lights against a sphere object, and takes screenshots.
 Screenshots are diffed against golden images are used to verify pass/fail results of the test.
+
+See the run() function for more in-depth test info.
 """
 
 import os
@@ -35,6 +37,74 @@ BASIC_LEVEL_NAME = "all_components_indepth_level"  # Created by BasicLevelSetup_
 DEGREE_RADIAN_FACTOR = 0.0174533
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
+
+
+def run():
+    """
+    Sets up the tests by making sure the required level is created & setup correctly.
+    It then executes 2 test cases:
+
+    Test Case: Area Light below:
+    1. Creates "area_light" entity w/ an Area Light component that has a Capsule Shape w/ the color set to 255, 0, 0
+    2. Enters game mode to take a screenshot for comparison, then exits game mode.
+    3. Sets the Area Light component Intensity Mode to Lumens (default).
+    4. Ensures the Area Light component Mode is Automatic (default).
+    5. Sets the Intensity value of the Area Light component to 0.0
+    6. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
+    7. Updates the Intensity value of the Area Light component to 1000.0
+    8. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
+    9. Deletes the Capsule Shape from "area_light" entity and adds a Disk Shape component to "area_light" entity.
+    10. Updates "area_light" Transform rotate value to x: 90.0, y:0.0, z:0.0
+    11. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
+    12. Enables the "Both Directions" field in the Area Light component.
+    13. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
+    14. Disables the "Both Directions" field in the Area Light component.
+    15. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
+    16. Deletes Disk Shape component from "area_light" entity & adds a Sphere Shape component to "area_light" entity.
+    17. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
+    18. Deletes the Area Light component from the "area_light" entity and verifies its successful.
+
+    Test Case: Spot Light below:
+    1. Creates "spot_light" entity w/ a Spot Light component attached to it.
+    2. Selects the "directional_light" entity already present in the level and disables it.
+    3. Selects the "global_skylight" entity already present in the level and disables the HDRi Skybox component,
+        as well as the Global Skylight (IBL) component.
+    4. Enters game mode to take a screenshot for comparison, then exits game mode.
+    5. Selects the "ground_plane" entity and changes updates the material to a new material.
+    6. Enters game mode to take a screenshot for comparison, then exits game mode.
+    7. Selects the "spot_light" entity and increases the Spot Light component Intensity to 800 lm
+    8. Enters game mode to take a screenshot for comparison, then exits game mode.
+    9. Selects the "spot_light" entity and sets the Spot Light component Color to 47, 75, 37
+    10. Enters game mode to take a screenshot for comparison, then exits game mode.
+    11. Selects the "spot_light" entity and modifies the Cone Configuration controls to the following values:
+        - Outer Cone Angle: 130
+        - Inner Cone Angle: 80
+        - Penumbra Bias: 0.9
+    12. Enters game mode to take a screenshot for comparison, then exits game mode.
+    13. Selects the "spot_light" entity and modifies the Attenuation Radius controls to the following values:
+        - Mode: Explicit
+        - Radius: 8
+    14. Enters game mode to take a screenshot for comparison, then exits game mode.
+    15. Selects the "spot_light" entity modifies the Shadow controls to the following values:
+        - Enable Shadow: On
+        - ShadowmapSize: 256
+    16. Enters game mode to take a screenshot for comparison, then exits game mode.
+
+    Tests will fail immediately if any of these log lines are found:
+    1. Trace::Assert
+    2. Trace::Error
+    3. Traceback (most recent call last):
+
+    :return: None
+    """
+    test_class = TestAllComponentsIndepthTests()
+    test_class.level_load_save(level_name=BASIC_LEVEL_NAME)
+    test_class.initial_viewport_setup(screen_width=SCREEN_WIDTH, screen_height=SCREEN_HEIGHT)
+
+    # Run tests.
+    test_class.area_light_component_test()
+    test_class.spot_light_component_test()
+    general.log("Component tests completed")
 
 
 class AllComponentsIndepthLevelMissing(Exception):
@@ -290,48 +360,6 @@ class TestAllComponentsIndepthTests(object):
         self.spot_light.get_set_test(0, "Controller|Configuration|Shadow|ShadowmapSize", 256.0)
         self.spot_light.get_set_test(0, "Controller|Configuration|Shadow|Enable Shadow", True)
         self.take_screenshot_game_mode("SpotLight_7")
-
-
-def run():
-    """
-    Sets up the tests by making sure the required level is created & setup correctly, then executes 2 test cases:
-    Test Case: Area Light below:
-    1. Creates "area_light" entity w/ an Area Light component that has a Capsule Shape w/ the color set to 255, 0, 0
-    2. Enters game mode to take a screenshot for comparison, then exits game mode.
-    3. Sets the Area Light component Intensity Mode to Lumens (default).
-    4. Ensures the Area Light component Mode is Automatic (default).
-    5. Sets the Intensity value of the Area Light component to 0.0
-    6. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
-    7. Updates the Intensity value of the Area Light component to 1000.0
-    8. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
-    9. Deletes the Capsule Shape from "area_light" entity and adds a Disk Shape component to "area_light" entity.
-    10. Updates "area_light" Transform rotate value to x: 90.0, y:0.0, z:0.0
-    11. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
-    12. Enables the "Both Directions" field in the Area Light component.
-    13. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
-    14. Disables the "Both Directions" field in the Area Light component.
-    15. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
-    16. Deletes Disk Shape component from "area_light" entity & adds a Sphere Shape component to "area_light" entity.
-    17. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
-    18. Deletes the Area Light component from the "area_light" entity and verifies its successful.
-
-    Test Case: Spot Light below:
-    1. Creates "spot_light" entity w/ a Spot Light component attached to it.
-    2. Selects the "directional_light" entity already present in the level and disables it.
-    3. Selects the "global_skylight" entity already present in the level and disables the HDRi Skybox component,
-        as well as the Global Skylight (IBL) component.
-    4. Enters game mode to take a screenshot for comparison, then exits game mode.
-    TBD / WIP
-    :return: None
-    """
-    test_class = TestAllComponentsIndepthTests()
-    test_class.level_load_save(level_name=BASIC_LEVEL_NAME)
-    test_class.initial_viewport_setup(screen_width=SCREEN_WIDTH, screen_height=SCREEN_HEIGHT)
-
-    # Run tests.
-    test_class.area_light_component_test()
-    test_class.spot_light_component_test()
-    general.log("Component tests completed")
 
 
 if __name__ == "__main__":
