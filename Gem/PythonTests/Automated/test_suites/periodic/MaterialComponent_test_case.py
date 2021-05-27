@@ -10,6 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 Hydra script that is used to test the Material component functionality inside the Editor.
 Opens the MeshTest level & creates an entity w/ Mesh component, then uses this entity to test the Material component.
+Uses 3 different types of materials: a grouping of materials, 3 different LOD materials, and 1 default material.
 Results are verified using log messages & screenshot comparisons diffed against golden images.
 
 See the run() function for more in-depth test info.
@@ -75,7 +76,7 @@ def run():
     8. Modifies the camera position 3 times, each time entering/exiting game mode to take a screenshot for comparison.
     9. Selects the default material to the attach to the Material component.
     10. Verifies the correct .azmaterial files are attached for the default material.
-    11. Modifies the camera position then enters game mode and takes a screenshot for comparison.
+    11. Modifies the camera position then enters game mode again to take a screenshot for comparison.
     12. Closes the Editor and the test ends.
 
     Tests will fail immediately if any of these log lines are found:
