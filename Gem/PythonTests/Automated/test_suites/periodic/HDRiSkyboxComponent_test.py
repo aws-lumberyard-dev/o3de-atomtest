@@ -58,7 +58,7 @@ class TestAutomation(TestAutomationBase):
             request,
             TEST_DIRECTORY,
             editor,
-            "C30993187_HDRiSkyboxComponent_test_case.py",
+            "HDRiSkyboxComponent_test_case.py",
             timeout=EDITOR_TIMEOUT,
             expected_lines=expected_lines,
             unexpected_lines=unexpected_lines,
