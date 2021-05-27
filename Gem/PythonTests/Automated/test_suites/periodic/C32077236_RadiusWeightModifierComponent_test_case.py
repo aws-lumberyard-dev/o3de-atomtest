@@ -40,7 +40,7 @@ class Tests():
 
 def run():
     helper.init_idle()
-    helper.open_level("DefaultLevel")
+    helper.open_level("EmptyLevel")
 
     # Create component with radius weight modifier and high exposure control
     entityWithHighExposureAndRadiusWeightModifier = azlmbr.editor.ToolsApplicationRequestBus(azlmbr.bus.Broadcast, 'CreateNewEntity', EntityId())

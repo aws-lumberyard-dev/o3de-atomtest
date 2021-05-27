@@ -57,7 +57,7 @@ class TestLevelsLauncher(object):
             "ActorTest_MultipleActors",
             "ActorTest_SingleActor",
             "ColorSpaceTest",
-            "DefaultLevel",
+            "EmptyLevel",
             "Lucy",
             "lucy_high",
             "macbeth_shaderballs",
@@ -73,8 +73,8 @@ class TestLevelsLauncher(object):
     ):
         expected_lines = []
         unexpected_lines = [
-            "Error",
-            "Assert",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 
@@ -85,4 +85,5 @@ class TestLevelsLauncher(object):
             expected_lines,
             unexpected_lines=unexpected_lines,
             log_monitor_timeout=log_monitor_timeout,
+            halt_on_unexpected=True,
         )

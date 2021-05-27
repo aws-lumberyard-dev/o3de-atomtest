@@ -35,7 +35,9 @@ class TestAutomation(TestAutomationBase):
             "SUCCESS: The AssetCollectionAsyncLoader PASSED the test"
         ]
         unexpected_lines = [
-            "Assert",
+            "Trace::Assert",
+            "Trace::Error",
+            "Traceback (most recent call last):",
             "ERROR: Was expecting 0 pending assets",
             "ERROR: Failed to submit assets for asynchronous loading.",
             "ERROR: Was expecting the same list size.",
@@ -44,7 +46,6 @@ class TestAutomation(TestAutomationBase):
             "ERROR: Failed to copy temp source asset",
             "ERROR: Failed to load assets asynchronously",
             "ERROR: Asset should be available:",
-            "Traceback (most recent call last):",
         ]
 
         hydra.launch_and_validate_results(

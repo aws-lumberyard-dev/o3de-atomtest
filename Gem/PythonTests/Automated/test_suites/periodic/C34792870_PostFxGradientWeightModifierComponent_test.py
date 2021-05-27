@@ -50,7 +50,8 @@ class TestAutomation(TestAutomationBase):
             "Three screenshots taken."
         ]
         unexpected_lines = [
-            "Assert",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 
