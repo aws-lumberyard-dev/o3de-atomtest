@@ -27,7 +27,7 @@ EDITOR_TIMEOUT = 30
 @pytest.mark.parametrize("launcher_platform", ['windows_editor'])
 class TestAutomation(TestAutomationBase):
 
-    def test_RadiusWeightModifierComponent(
+    def test_RadiusWeightModifierComponent_DisplaysCorrectExposureValues(
             self, request, workspace, editor, project, launcher_platform, golden_images_directory):
         """
         Please review the hydra script run by this test for more specific test info.

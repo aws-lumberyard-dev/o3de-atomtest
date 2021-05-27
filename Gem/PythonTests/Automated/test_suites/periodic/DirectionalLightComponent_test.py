@@ -7,6 +7,9 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+Tests the Directional Light component inside the Editor.
+Utilizes screenshots & log lines printed from a hydra script to verify test results.
 """
 
 import pytest
@@ -24,13 +27,17 @@ EDITOR_TIMEOUT = 30
 @pytest.mark.parametrize("launcher_platform", ['windows_editor'])
 class TestAutomation(TestAutomationBase):
 
-    @pytest.mark.test_case_id('C32078120')
-    def test_C32078120_DirectionalLightComponent(
+    def test_DirectionalLightComponent(
             self, request, workspace, editor, project, launcher_platform, golden_images_directory):
+        """
+        Please review the hydra script run by this test for more specific test info.
+        Tests that the Directional Light component functionality is maintained within the Editor.
+        """
         golden_screenshot_base = os.path.join(
-            golden_images_directory, 'Windows', 'C32078120_atom_directionallight')
+            golden_images_directory, 'Windows', 'atom_directionallight')
         
-        test_screenshot_base = os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'screenshot_C32078120_atom_directionallight')
+        test_screenshot_base = os.path.join(
+            workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_directionallight')
         
         golden_screenshots = []
         test_screenshots = []
@@ -72,7 +79,7 @@ class TestAutomation(TestAutomationBase):
             request,
             TEST_DIRECTORY,
             editor,
-            "C32078120_DirectionalLightComponent_test_case.py",
+            "DirectionalLightComponent_test_case.py",
             timeout=EDITOR_TIMEOUT,
             expected_lines=expected_lines,
             unexpected_lines=unexpected_lines,
