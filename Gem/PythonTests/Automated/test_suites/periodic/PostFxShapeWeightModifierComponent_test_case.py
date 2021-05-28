@@ -9,8 +9,8 @@ remove or modify any license notices. This file is distributed on an "AS IS" BAS
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 Hydra script that is used to test the PostFX Shape Weight Modifier component functionality inside the Editor.
-Opens the EmptyLevel level and creates
-
+Opens the EmptyLevel level and creates a low exposure entity and a high exposure entity.
+It then moves the camera in 3 different positions, taking a screenshot each time.
 Results are verified using log messages & screenshot comparisons diffed against golden images.
 
 See the run() function for more in-depth test info.
@@ -54,7 +54,7 @@ def run():
         - Position 2: 512.0, 517.25, 34.0
         - Position 3: 512.0, 520.0, 34.0
     8. At each position, it will enter game mode and take a screenshot for comparison.
-    9. Closes the Editor and ends the test.
+    9. Prints general.log("Three screenshots taken.") then closes the Editor and ends the test.
 
     Tests will fail immediately if any of these log lines are found:
     1. Trace::Assert
