@@ -7,11 +7,14 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-"""
 
-# Test case ID : C34196289
-# Test Case Title : Decal (Atom)
-# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/34196289
+Hydra script that is used to test the Decal (Atom) component functionality inside the Editor.
+Opens the EmptyLevel level and creates a "Point light" entity and attaches a Point Light component.
+Modifies the Opacity, Attenuation Angle, & Sort Key properties for the Point Light component.
+Results are verified using log messages & screenshot comparisons diffed against golden images.
+
+See the run() function for more in-depth test info.
+"""
 
 import os
 import sys
@@ -28,26 +31,63 @@ from Automated.atom_utils.hydra_editor_utils import helper_create_entity_with_me
 from Automated.atom_utils.screenshot_utils import ScreenshotHelper
 
 
-class Tests():
-    pass
+def run():
+    """
+    Test Case - Decal (Atom):
+    1. Opens the "EmptyLevel" level and creates a new entity with a Mesh component and "objects/plane.azmodel" mesh.
+    2. Creates a new "Point light" entity and attaches a Point Light component to it.
+    3. Modifies each Decal property in CreateAngleAttenuationTestDecal(), CreateOpacityTestDecal(),
+       CreateSortTestDecalTop(), & CreateSortTestDecalBottom().
+    4. Specific properties modified on the Point Light component are Opacity, Attenuation Angle, & Sort Key.
+    5. Enters game mode and takes a screenshot for comparison.
+    6. Closes the Editor and the test ends.
+
+    Tests will fail immediately if any of these log lines are found:
+    1. Trace::Assert
+    2. Trace::Error
+    3. Traceback (most recent call last):
+
+    :return: None
+    """
+    helper.init_idle()
+    helper.open_level("EmptyLevel")
+
+    CreatePlane()
+    CreateLight()
+    MoveCamera()
+    CreateAngleAttenuationTestDecal()
+    CreateOpacityTestDecal()
+    CreateSortTestDecalTop()
+    CreateSortTestDecalBottom()
+
+    # generate screenshot and compare with golden
+    ScreenshotHelper(general.idle_wait_frames).capture_screenshot_blocking_in_game_mode(
+        'screenshot_atom_DecalComponent.ppm')
+    helper.close_editor()
 
 
 def SetEntityPosition(entity, x, y, z):
     position = azlmbr.math.Vector3(x, y, z)
     azlmbr.components.TransformBus(azlmbr.bus.Event, "SetWorldTranslation", entity, position)
 
+
 def SetEntityScale(entity, x, y, z):
     scale = azlmbr.math.Vector3(x, y, z)
     azlmbr.components.TransformBus(azlmbr.bus.Event, "SetScale", entity, scale)
+
 
 def SetRotationX(entity, degrees):
     radians = degrees * 3.141927 / 180.0
     azlmbr.components.TransformBus(azlmbr.bus.Event, "SetRotationX", entity, radians)    
 
+
 def SetDecalMaterial(decalComponent, filePath):
-    decalAssetId = azlmbr.asset.AssetCatalogRequestBus(azlmbr.bus.Broadcast, 'GetAssetIdByPath', filePath, azlmbr.math.Uuid(), False)
-    azlmbr.editor.EditorComponentAPIBus(azlmbr.bus.Broadcast, 'SetComponentProperty', decalComponent, 'Controller|Configuration|Material', decalAssetId)
-    
+    decalAssetId = azlmbr.asset.AssetCatalogRequestBus(
+        azlmbr.bus.Broadcast, 'GetAssetIdByPath', filePath, azlmbr.math.Uuid(), False)
+    azlmbr.editor.EditorComponentAPIBus(
+        azlmbr.bus.Broadcast, 'SetComponentProperty', decalComponent, 'Controller|Configuration|Material', decalAssetId)
+
+
 def SetComponentProperty(decalComponent, path, value):
     azlmbr.editor.EditorComponentAPIBus(azlmbr.bus.Broadcast, 'SetComponentProperty', decalComponent, path, value)
 
@@ -56,7 +96,7 @@ def CreateEntity(name):
     myEntityId = azlmbr.editor.ToolsApplicationRequestBus(azlmbr.bus.Broadcast, 'CreateNewEntity', EntityId())
     azlmbr.editor.EditorEntityAPIBus(azlmbr.bus.Event, 'SetName', myEntityId, name)
     return myEntityId
-    
+
 
 def CreateDecalComponentOnEntity(myEntityId):
     from Automated.atom_utils.automated_test_utils import TestHelper as helper
@@ -114,42 +154,29 @@ def CreateAngleAttenuationTestDecal():
     SetComponentProperty(decalComponent, 'Controller|Configuration|Sort Key', 12.0)
     return myEntityId
 
+
 def CreatePlane():
     planeId = helper_create_entity_with_mesh('objects/plane.azmodel')
     SetEntityPosition(planeId, 0.0, 0.0, 0.0)
     SetEntityScale(planeId, 10.0, 10.0, 10.0)
 
+
 def MoveCamera():
     cameraEntityId = helper.find_entities('Camera')[0]
-    azlmbr.editor.EditorCameraRequestBus(azlmbr.bus.Broadcast, "SetViewAndMovementLockFromEntityPerspective", cameraEntityId, False)
+    azlmbr.editor.EditorCameraRequestBus(
+        azlmbr.bus.Broadcast, "SetViewAndMovementLockFromEntityPerspective", cameraEntityId, False)
     SetEntityPosition(cameraEntityId, 0.0, 0.0, 4.5)
     SetRotationX(cameraEntityId, -90.0)
+
 
 def CreateLight():
     lightId = CreateEntity("Point light")
     SetEntityPosition(lightId, 0.0, 0.0, 2.0)
     SetRotationX(lightId, -90.0)
-    typeIdsList = azlmbr.editor.EditorComponentAPIBus(azlmbr.bus.Broadcast, 'FindComponentTypeIdsByEntityType', ["Point Light"], 0)
-    componentOutcome = azlmbr.editor.EditorComponentAPIBus(azlmbr.bus.Broadcast, 'AddComponentsOfType', lightId, typeIdsList)
- 
-
-def run():
-    helper.init_idle()
-    helper.open_level("EmptyLevel")
-
-    screenshotHelper = ScreenshotHelper(general.idle_wait_frames)
-    
-    CreatePlane()
-    CreateLight()
-    MoveCamera()
-    CreateAngleAttenuationTestDecal()
-    CreateOpacityTestDecal()
-    CreateSortTestDecalTop()
-    CreateSortTestDecalBottom()
-
-    # generate screenshot and compare with golden
-    ScreenshotHelper(general.idle_wait_frames).capture_screenshot_blocking_in_game_mode('screenshot_atom_DecalComponent.ppm')
-    helper.close_editor()
+    typeIdsList = azlmbr.editor.EditorComponentAPIBus(
+        azlmbr.bus.Broadcast, 'FindComponentTypeIdsByEntityType', ["Point Light"], 0)
+    componentOutcome = azlmbr.editor.EditorComponentAPIBus(
+        azlmbr.bus.Broadcast, 'AddComponentsOfType', lightId, typeIdsList)
 
 
 if __name__ == "__main__":

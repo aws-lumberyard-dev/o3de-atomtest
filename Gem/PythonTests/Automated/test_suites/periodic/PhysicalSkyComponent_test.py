@@ -29,15 +29,15 @@ class TestAutomation(TestAutomationBase):
 
     def test_PhysicalSkyComponent_DisplaysModifiedProperties(
             self, request, workspace, editor, project, launcher_platform, golden_images_directory):
+        """
+        Please review the hydra script run by this test for more specific test info.
+        Tests that the Physical Sky component functionality is maintained within the Editor.
+        """
         golden_screenshot = os.path.join(golden_images_directory, 'Windows', 'PhysicalSkyComponent.ppm')
-        print(golden_screenshot)
-         
-        test_screenshot = os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_PhysicalSkyComponent.ppm')
-        print(test_screenshot)
+        test_screenshot = os.path.join(
+            workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_PhysicalSkyComponent.ppm')
  
-        self.remove_artifacts([
-            test_screenshot
-         ])
+        self.remove_artifacts([test_screenshot])
  
         expected_lines = [
             "Entity successfully created.",
