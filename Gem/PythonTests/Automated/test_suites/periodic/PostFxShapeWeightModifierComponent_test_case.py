@@ -7,11 +7,14 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-"""
 
-# Test case ID : C34792869
-# Test Case Title : PostFx Shape Weight Modifier
-# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/34792869
+Hydra script that is used to test the PostFX Shape Weight Modifier component functionality inside the Editor.
+Opens the EmptyLevel level and creates
+
+Results are verified using log messages & screenshot comparisons diffed against golden images.
+
+See the run() function for more in-depth test info.
+"""
 
 import os
 import sys
@@ -33,6 +36,66 @@ COMPONENT_PROPERTIES = [
 ]
 
 FALLOFF_DIST = 0.5
+
+
+def run():
+    """
+    Test Case - PostFX Shape Weight Modifier:
+    1. Opens the "EmptyLevel" level.
+    2. Creates a high exposure entity with an Exposure Control component and sets it Manual Compensation to 4.0
+    3. Attaches a Sphere Shape component to the high exposure entity with a Radius of 5.0
+    4. Attaches a Post FX Layer to the high exposure entity then sets its world translation to 512.0, 512.0, 34.0
+    5. Attaches PostFX Shape Weight Modifier component to the high exposure entity and sets its Fall-off Distance to 0.5
+    6. Creates a low exposure entity with a similar setup as the previous one, except:
+        - Manual Compensation: -2.0
+        - Priority: 1.0
+    7. Finds the Camera entity and manipulates it to 3 different positions to observe lerp effect:
+        - Position 1: 512.0, 512.0, 34.0
+        - Position 2: 512.0, 517.25, 34.0
+        - Position 3: 512.0, 520.0, 34.0
+    8. At each position, it will enter game mode and take a screenshot for comparison.
+    9. Closes the Editor and ends the test.
+
+    Tests will fail immediately if any of these log lines are found:
+    1. Trace::Assert
+    2. Trace::Error
+    3. Traceback (most recent call last):
+
+    :return: None
+    """
+    # Open EmptyLevel level.
+    helper.init_idle()
+    helper.open_level("EmptyLevel")
+
+    # Create new entity with Exposure Control, Sphere Shape, and Post FX Layer.
+    entityId = create_high_exposure_entity_with_sphere_shape()
+    create_low_exposure_entity()
+
+    # Attach PostFX Shape Weight Modifier component and set its Fall-off Distance.
+    shape_weight_modifier_component = helper.attach_component_to_entity(entityId, 'PostFX Shape Weight Modifier')
+    set_and_verify_shape_weight_modifier_component(shape_weight_modifier_component)
+
+    # Search for entity containing the camera so we can move it around and observe changes in exposure
+    searchFilter = azlmbr.entity.SearchFilter()
+    searchFilter.names = ['Camera']
+    cameraEntityId = azlmbr.entity.SearchBus(azlmbr.bus.Broadcast, 'SearchEntities', searchFilter)[0]
+
+    # Take screenshots on multiple locations to verify lerp effect of shape weight modifier component
+    new_position1 = azlmbr.math.Vector3(512.0, 512.0, 34.0)
+    azlmbr.components.TransformBus(azlmbr.bus.Event, "SetWorldTranslation", cameraEntityId, new_position1)
+    screenshot_helper = ScreenshotHelper(general.idle_wait_frames)
+    screenshot_helper.capture_screenshot_blocking_in_game_mode(
+        'screenshot_atom_ShapeWeightModifierComponent_FullExposure.ppm')
+    new_position2 = azlmbr.math.Vector3(512.0, 517.25, 34.0)
+    azlmbr.components.TransformBus(azlmbr.bus.Event, "SetWorldTranslation", cameraEntityId, new_position2)
+    screenshot_helper.capture_screenshot_blocking_in_game_mode(
+        'screenshot_atom_ShapeWeightModifierComponent_HalfExposure.ppm')
+    new_position3 = azlmbr.math.Vector3(512.0, 520.0, 34.0)
+    azlmbr.components.TransformBus(azlmbr.bus.Event, "SetWorldTranslation", cameraEntityId, new_position3)
+    screenshot_helper.capture_screenshot_blocking_in_game_mode(
+        'screenshot_atom_ShapeWeightModifierComponent_NoExposure.ppm')
+    general.log("Three screenshots taken.")
+    helper.close_editor()
 
 
 def create_high_exposure_entity_with_sphere_shape():
@@ -85,41 +148,10 @@ def set_and_verify_shape_weight_modifier_component(shape_weight_modifier_compone
 
     # verify component properties
     helper.compare_property_list(shape_weight_modifier_component, COMPONENT_PROPERTIES)
-    falloff_dist = azlmbr.editor.EditorComponentAPIBus(azlmbr.bus.Broadcast, 'GetComponentProperty', shape_weight_modifier_component, falloff_property_path)
+    falloff_dist = azlmbr.editor.EditorComponentAPIBus(
+        azlmbr.bus.Broadcast, 'GetComponentProperty', shape_weight_modifier_component, falloff_property_path)
     if falloff_dist.GetValue() == FALLOFF_DIST:
         general.log('Fall-off distance property of shape weight modifier is correctly set')
-
-
-def run():
-    helper.init_idle()
-    helper.open_level("EmptyLevel")
-
-    # create entities
-    entityId = create_high_exposure_entity_with_sphere_shape()
-    create_low_exposure_entity()
-
-    # attach shape weight modifier component
-    shape_weight_modifier_component = helper.attach_component_to_entity(entityId, 'PostFX Shape Weight Modifier')
-    set_and_verify_shape_weight_modifier_component(shape_weight_modifier_component)
-
-    # Search for entity containing the camera so we can move it around and observe changes in exposure
-    searchFilter = azlmbr.entity.SearchFilter()
-    searchFilter.names = ['Camera']
-    cameraEntityId = azlmbr.entity.SearchBus(azlmbr.bus.Broadcast, 'SearchEntities', searchFilter)[0]
-
-    # Take screenshots on multiple locations to verify lerp effect of shape weight modifier component
-    new_position1 = azlmbr.math.Vector3(512.0, 512.0, 34.0)
-    azlmbr.components.TransformBus(azlmbr.bus.Event, "SetWorldTranslation", cameraEntityId, new_position1)
-    screenshot_helper = ScreenshotHelper(general.idle_wait_frames)
-    screenshot_helper.capture_screenshot_blocking_in_game_mode('screenshot_atom_ShapeWeightModifierComponent_FullExposure.ppm')
-    new_position2 = azlmbr.math.Vector3(512.0, 517.25, 34.0)
-    azlmbr.components.TransformBus(azlmbr.bus.Event, "SetWorldTranslation", cameraEntityId, new_position2)
-    screenshot_helper.capture_screenshot_blocking_in_game_mode('screenshot_atom_ShapeWeightModifierComponent_HalfExposure.ppm')
-    new_position3 = azlmbr.math.Vector3(512.0, 520.0, 34.0)
-    azlmbr.components.TransformBus(azlmbr.bus.Event, "SetWorldTranslation", cameraEntityId, new_position3)
-    screenshot_helper.capture_screenshot_blocking_in_game_mode('screenshot_atom_ShapeWeightModifierComponent_NoExposure.ppm')
-    general.log("Three screenshots taken.")
-    helper.close_editor()
 
 
 if __name__ == "__main__":

@@ -7,6 +7,9 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+Tests the PostFX Shape Weight Modifier component inside the Editor.
+Utilizes screenshots & log lines printed from a hydra script to verify test results.
 """
 
 import pytest
@@ -24,9 +27,12 @@ EDITOR_TIMEOUT = 30
 @pytest.mark.parametrize("launcher_platform", ['windows_editor'])
 class TestAutomation(TestAutomationBase):
 
-    @pytest.mark.test_case_id('C34792869')
-    def test_C34792869_PostFxShapeWeightModifierComponent(
+    def test_PostFxShapeWeightModifierComponent_DisplaysModifiedProperties(
             self, request, workspace, editor, project, launcher_platform, golden_images_directory):
+        """
+        Please review the hydra script run by this test for more specific test info.
+        Tests that the PostFX Shape Weight Modifier component functionality is maintained within the Editor.
+        """
         golden_screenshots = [
             os.path.join(golden_images_directory, 'Windows', 'ShapeWeightModifierComponent_FullExposure.ppm'),
             os.path.join(golden_images_directory, 'Windows', 'ShapeWeightModifierComponent_HalfExposure.ppm'),
@@ -34,11 +40,13 @@ class TestAutomation(TestAutomationBase):
         ]
 
         test_screenshots = [
-            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_ShapeWeightModifierComponent_FullExposure.ppm'),
-            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_ShapeWeightModifierComponent_HalfExposure.ppm'),
-            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH, 'screenshot_atom_ShapeWeightModifierComponent_NoExposure.ppm')
+            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH,
+                         'screenshot_atom_ShapeWeightModifierComponent_FullExposure.ppm'),
+            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH,
+                         'screenshot_atom_ShapeWeightModifierComponent_HalfExposure.ppm'),
+            os.path.join(workspace.paths.engine_root(), project, DEFAULT_SUBFOLDER_PATH,
+                         'screenshot_atom_ShapeWeightModifierComponent_NoExposure.ppm')
         ]
-
         self.remove_artifacts(test_screenshots)
 
         expected_lines = [
@@ -57,7 +65,7 @@ class TestAutomation(TestAutomationBase):
             request,
             TEST_DIRECTORY,
             editor,
-            "C34792869_PostFxShapeWeightModifierComponent_test_case.py",
+            "PostFxShapeWeightModifierComponent_test_case.py",
             timeout=EDITOR_TIMEOUT,
             expected_lines=expected_lines,
             unexpected_lines=unexpected_lines,
