@@ -7,6 +7,9 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+Tests the Physical Sky component inside the Editor.
+Utilizes screenshots & log lines printed from a hydra script to verify test results.
 """
 
 import pytest
@@ -24,8 +27,7 @@ EDITOR_TIMEOUT = 30
 @pytest.mark.parametrize("launcher_platform", ['windows_editor'])
 class TestAutomation(TestAutomationBase):
 
-    @pytest.mark.test_case_id('C32078125')
-    def test_C32078125_PhysicalSkyComponent(
+    def test_PhysicalSkyComponent_DisplaysModifiedProperties(
             self, request, workspace, editor, project, launcher_platform, golden_images_directory):
         golden_screenshot = os.path.join(golden_images_directory, 'Windows', 'PhysicalSkyComponent.ppm')
         print(golden_screenshot)
@@ -58,7 +60,7 @@ class TestAutomation(TestAutomationBase):
             request,
             TEST_DIRECTORY,
             editor,
-            "C32078125_PhysicalSkyComponent_test_case.py",
+            "PhysicalSkyComponent_test_case.py",
             timeout=EDITOR_TIMEOUT,
             expected_lines=expected_lines,
             unexpected_lines=unexpected_lines,

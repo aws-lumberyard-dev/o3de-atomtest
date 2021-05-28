@@ -10,7 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 Hydra script that is used to test the Radius Weight Modifier component functionality inside the Editor.
 Opens the EmptyLevel level & creates 2 entities: entityWithHighExposureAndRadiusWeightModifier + entityWithLowExposure
-Attaches and modifies the Exposure Control, PostFX Layer, & Radius Weight Moidifier components on the entities.
+Attaches and modifies the Exposure Control, PostFX Layer, & Radius Weight Modifier components on the entities.
 Three screenshots are then taken at 3 different x, y, z positions after setting up both entities.
 Results are verified using log messages & screenshot comparisons diffed against golden images.
 

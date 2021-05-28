@@ -9,9 +9,9 @@ remove or modify any license notices. This file is distributed on an "AS IS" BAS
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 Hydra script that is used to test the Directional Light component functionality inside the Editor.
-Opens the EmptyLevel level & creates 2 entities: entityWithHighExposureAndRadiusWeightModifier + entityWithLowExposure
-Attaches and modifies the Exposure Control, PostFX Layer, & Radius Weight Moidifier components on the entities.
-Three screenshots are then taken at 3 different x, y, z positions after setting up both entities.
+Opens the EmptyLevel level & creates a bunny and floor entity with components needed to test Directional Light.
+It then makes 7 different configurations of Directional Light component property options.
+A screenshot is taken for each of the 7 different configurations.
 Results are verified using log messages & screenshot comparisons diffed against golden images.
 
 See the run() function for more in-depth test info.
@@ -60,7 +60,7 @@ COMPONENT_PROPERTIES = [
 
 def run():
     """
-    Test Case - Radius Weight Modifier:
+    Test Case - Directional Light:
     1. Opens the "EmptyLevel" level
     2. Finds the "Camera" entity in the default level setup and set its translation and rotation values.
     3. Creates a "Floor" entity with a Mesh component and "objects/plane.azmodel" mesh attached.
