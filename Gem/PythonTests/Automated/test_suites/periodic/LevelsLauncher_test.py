@@ -30,21 +30,6 @@ class TestLevelsLauncher(object):
         request.addfinalizer(teardown)
         return console
 
-    @pytest.mark.test_case_id(
-        "C34448165",
-        "C34448166",
-        "C34448167",
-        "C34448168",
-        "C34448169",
-        "C34448170",
-        "C34448171",
-        "C34448172",
-        "C34448173",
-        "C34448174",
-        "C34448175",
-        "C34448176",
-        "C34448177",
-    )
     @pytest.mark.parametrize(
         "level",
         [
