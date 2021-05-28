@@ -7,11 +7,15 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-"""
 
-# Test case ID : C34389076
-# Test Case Title : Actor
-# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/C34389076
+Hydra script that is used to test the Actor component functionality inside the Editor.
+Opens the EmptyLevel level and creates an "Actor" entity and attaches an Actor component.
+It then attaches a BURT/burtactor.actor asset file to the Actor component.
+Several camera movements are made and screenshots taken.
+Results are verified using log messages & screenshot comparisons diffed against golden images.
+
+See the run() function for more in-depth test info.
+"""
 
 import os
 import sys
@@ -27,12 +31,24 @@ from Automated.atom_utils.automated_test_utils import TestHelper as helper
 from Automated.atom_utils.screenshot_utils import ScreenshotHelper
 
 
-class Tests():
-    pass
-
-
 def run():
-    # open test level
+    """
+    Test Case - Actor:
+    1. Opens the "EmptyLevel" level and creates a new "Actor" entity with Actor component attached.
+    2. Sets the "BURT/burtactor.actor" asset file as the Actor component's asset.
+    3. Verifies the "BURT/burtactor.actor" asset file was correctly set.
+    4. Sets the Camera entity Translation and Rotation to face the Actor entity.
+    5. Enters game mode and takes a screenshot for comparison.
+    6. Closes the Editor and the test ends.
+
+    Tests will fail immediately if any of these log lines are found:
+    1. Trace::Assert
+    2. Trace::Error
+    3. Traceback (most recent call last):
+
+    :return: None
+    """
+    # Open the EmptyLevel level.
     helper.init_idle()
     helper.open_level("EmptyLevel")
 
@@ -50,16 +66,19 @@ def run():
     # Set component properties
     actor_asset_property_path = 'Actor asset'
     actor_asset_filepath = 'BURT/burtactor.actor'
-    actor_asset_id = azlmbr.asset.AssetCatalogRequestBus(azlmbr.bus.Broadcast, 'GetAssetIdByPath', actor_asset_filepath, azlmbr.math.Uuid(), False)
+    actor_asset_id = azlmbr.asset.AssetCatalogRequestBus(
+        azlmbr.bus.Broadcast, 'GetAssetIdByPath', actor_asset_filepath, azlmbr.math.Uuid(), False)
     actor_asset_path =  azlmbr.asset.AssetCatalogRequestBus(azlmbr.bus.Broadcast, 'GetAssetPathById', actor_asset_id)
 
     # check if the asset path is valid
     if actor_asset_path != None:
         general.log("Actor asset for actor component is valid.")
-    azlmbr.editor.EditorComponentAPIBus(azlmbr.bus.Broadcast, 'SetComponentProperty', actor_component, actor_asset_property_path, actor_asset_id)
+    azlmbr.editor.EditorComponentAPIBus(
+        azlmbr.bus.Broadcast, 'SetComponentProperty', actor_component, actor_asset_property_path, actor_asset_id)
 
     # verify that component contains the expected values
-    asset_id = azlmbr.editor.EditorComponentAPIBus(azlmbr.bus.Broadcast, 'GetComponentProperty', actor_component, actor_asset_property_path)
+    asset_id = azlmbr.editor.EditorComponentAPIBus(
+        azlmbr.bus.Broadcast, 'GetComponentProperty', actor_component, actor_asset_property_path)
     if asset_id.GetValue().to_string() == actor_asset_id.to_string():
         general.log("Actor asset property of actor is correctly set")
 
@@ -74,7 +93,8 @@ def run():
     azlmbr.components.TransformBus(azlmbr.bus.Event, "RotateAroundLocalZ", camera_entity_id, 3.14)
 
     # generate screenshot to compare with golden
-    ScreenshotHelper(general.idle_wait_frames).capture_screenshot_blocking_in_game_mode('screenshot_atom_ActorComponent.ppm')
+    ScreenshotHelper(general.idle_wait_frames).capture_screenshot_blocking_in_game_mode(
+        'screenshot_atom_ActorComponent.ppm')
     helper.close_editor()
 
 
