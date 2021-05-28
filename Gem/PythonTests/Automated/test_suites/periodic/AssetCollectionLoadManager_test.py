@@ -7,6 +7,9 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+Tests the AssetCollectionAsyncLoader which handles detecting and loading assets asynchronously.
+Utilizes log lines printed from a hydra script to verify test results.
 """
 
 import pytest
@@ -22,7 +25,12 @@ EDITOR_TIMEOUT = 30
 @pytest.mark.parametrize("project", ["AtomTest"])
 @pytest.mark.parametrize("launcher_platform", ['windows_editor'])
 class TestAutomation(TestAutomationBase):
-    def test_C35655792_AssetCollectionAsyncLoader(self, request, workspace, editor, project, launcher_platform):
+    def test_AssetCollectionAsyncLoader_DetectsAndLoadsAssetsAsynchronously(
+            self, request, workspace, editor, project, launcher_platform):
+        """
+        Please review the hydra script run by this test for more specific test info.
+        Tests AssetCollectionAsyncLoader functionaltiy inside the Editor.
+        """
         expected_lines = [
             "Entity successfully created.",
             "SUCCESS: Assets were queued for loading.",
@@ -50,7 +58,7 @@ class TestAutomation(TestAutomationBase):
             request,
             TEST_DIRECTORY,
             editor,
-            "C35655792_AssetCollectionLoadManager_test_case.py",
+            "AssetCollectionLoadManager_test_case.py",
             timeout=EDITOR_TIMEOUT,
             expected_lines=expected_lines,
             unexpected_lines=unexpected_lines,

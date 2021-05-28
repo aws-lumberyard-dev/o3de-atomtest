@@ -29,7 +29,10 @@ class TestAutomation(TestAutomationBase):
 
     def test_ExposureComponent_DisplaysModifiedProperties(
             self, request, workspace, editor, project, launcher_platform, golden_images_directory):
-
+        """
+        Please review the hydra script run by this test for more specific test info.
+        Tests that the Exposure Control component functionality is maintained within the Editor.
+        """
         golden_screenshots = [
             os.path.join(golden_images_directory, 'Windows', 'ExposureComponent_Manual.ppm'),
             os.path.join(golden_images_directory, 'Windows', 'ExposureComponent_EyeAdaptation.ppm'),

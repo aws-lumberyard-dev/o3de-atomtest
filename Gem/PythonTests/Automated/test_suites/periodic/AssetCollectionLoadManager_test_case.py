@@ -7,12 +7,14 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-"""
 
-# Test case ID : C35655792
-# Test Case Title : AssetCollectionAsyncLoader will detect and process new assets using
-# asynchronous loading for the AssetProcessor.
-# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/35655792
+Hydra script that is used to test the AssetCollectionAsyncLoader class inside the Editor.
+This class detects when assets have been processed and loads them in memory - all loading is done asynchronously.
+If this test fails be sure to review asset logs for asset failures.
+
+See the run() function for more in-depth test info.
+There are also in-line comments for each function detailing specific interactions as well as docstrings.
+"""
 
 import os
 import sys
@@ -31,10 +33,6 @@ from azlmbr.entity import EntityId
 sys.path.append(os.path.join(azlmbr.paths.devroot, "AtomTest", "Gem", "PythonTests"))
 
 from Automated.atom_utils.automated_test_utils import TestHelper as helper
-
-
-class Tests():
-    pass
 
 
 def GetAssetsLists():
@@ -163,28 +161,28 @@ def AllAssetsAreReadyPredicate(entityIdWithAsyncLoadTestComponent):
 def run():
     # Define the source and product assets we will work with:
     sourceTxtList, sourceTempList, productList = GetAssetsLists()
-    
+
     #Before we start we must delete the temporary source assets.
     DeleteFilesInList(sourceTempList)
-    
+
     helper.init_idle()
     helper.open_level("EmptyLevel")
-    
+
     myEntityId = CreateEntityWithComponent("TheAssetLoader", "AssetCollectionAsyncLoaderTest")
     if myEntityId is None:
         return
-    
+
     if not WaitUntilProductAssetsAreRemoved(productList):
         general.log("ERROR: The AP did not removed the producs")
         return
-    
+
     #Start with a clean slate, cancel any pending jobs.
     aztest.AssetCollectionAsyncLoaderTestBus(bus.Event, "CancelLoadingAssets", myEntityId)
     expectedEmptyList = aztest.AssetCollectionAsyncLoaderTestBus(bus.Event, "GetPendingAssetsList", myEntityId)
     if len(expectedEmptyList) != 0:
         general.log(f"ERROR: Was expecting 0 pending assets, instead got {len(expectedEmptyList)} pending assets")
         return
-        
+
     # Let's submit a list of asset that don't exist yet, the AssetCollectionAsyncLoader should
     # accept and start a background job to load the assets. Because the assets don't exist in
     # the asset processor cache, the list of pending assets should be identical to the input list.
@@ -192,11 +190,11 @@ def run():
         general.log(f"ERROR: Failed to submit assets for asynchronous loading. Tried to submit {len(productList)} assets for loading.")
         return
     general.log(f"SUCCESS: Assets were queued for loading. Total count: {len(productList)}")
-    
+
     # Wait 1 second. In theory we could wait here forever, but for the sake of expedience 1 second is enough
     # to prove the point.
     general.idle_wait(1.0)
-    
+
     # Because the input list has assets that will never exist, We expected the pending asset list to have the same
     # items as original asset list.
     pendingAssetList = aztest.AssetCollectionAsyncLoaderTestBus(bus.Event, "GetPendingAssetsList", myEntityId)
@@ -209,14 +207,14 @@ def run():
             general.log(f"ERROR: Asset is not present in the pending list: {assetPath}")
             return
     general.log("SUCCESS: Pending list contains the same asset paths as the original list")
-    
+
     # Expect error when tying to validate if a given asset was loaded.
     for assetPath in productList:
         if aztest.AssetCollectionAsyncLoaderTestBus(bus.Event, "ValidateAssetWasLoaded", myEntityId, assetPath):
             general.log(f"ERROR: Asset should not be available: {assetPath}")
             return
     general.log("SUCCESS: No asset was available")
-    
+
     # Cancel the load operation and make sure there are no pending assets to load.
     aztest.AssetCollectionAsyncLoaderTestBus(bus.Event, "CancelLoadingAssets", myEntityId)
     expectedEmptyList = aztest.AssetCollectionAsyncLoaderTestBus(bus.Event, "GetPendingAssetsList", myEntityId)
@@ -224,14 +222,14 @@ def run():
         general.log(f"ERROR: Was expecting 0 pending assets, instead got {len(expectedEmptyList)} pending assets")
         return
     general.log("SUCCESS: Cancelled an impossible job")
-    
+
     # Now we are going to create a request for the same assets as before,
     # But this time around the source assets will eventually exist.
     if not aztest.AssetCollectionAsyncLoaderTestBus(bus.Event, "StartLoadingAssetsFromAssetList", myEntityId, productList):
         general.log(f"ERROR: Failed to submit assets for asynchronous loading. Tried to submit {len(productList)} assets for loading.")
         return
     general.log(f"SUCCESS: Assets were queued for loading. Total count: {len(productList)}")
-    
+
     #Let's create the source assets.
     for src, dst in zip(sourceTxtList, sourceTempList):
         if not CopyFile(src, dst):
@@ -248,7 +246,7 @@ def run():
             general.log(f"ERROR: Asset should be available: {assetPath}")
             return
     general.log("SUCCESS: The AssetCollectionAsyncLoader PASSED the test")
-    
+
     #Cleanup
     aztest.AssetCollectionAsyncLoaderTestBus(bus.Event, "CancelLoadingAssets", myEntityId)
     DeleteFilesInList(sourceTempList)
