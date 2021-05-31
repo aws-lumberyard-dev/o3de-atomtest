@@ -132,7 +132,7 @@ def launch_and_validate_results_launcher(
         )
         logger.debug("Done! log file <{}> exists.".format(gamelog_file))
         log_monitor = ly_test_tools.log.log_monitor.LogMonitor(launcher=launcher, log_file_path=gamelog_file)
-        # Workaround for LY-110925 - Wait for log file to be opened before checking for expected lines. This is done in
+        # Workaround fix: Wait for log file to be opened before checking for expected lines. This is done in
         # monitor_log_for_lines as well, but has a low timeout with no way to currently override
         logger.debug("Waiting for log file '{}' to be opened by another process.".format(gamelog_file))
         # Check for expected/unexpected lines
