@@ -23,12 +23,10 @@ log_monitor_timeout = 60
 @pytest.mark.parametrize("launcher_platform", ["windows_generic"])
 @pytest.mark.system
 class TestMaterialEditorEnableGridShadowCatcherLight(TestAutomationBase):
-    @pytest.mark.test_case_id(
-        "C34448151", "C34448152", "C34448153", "C34448154",
-    )
+
     @pytest.mark.parametrize("exe_file_name", ["MaterialEditor"])
     def test_MaterialEditorEnableGridShadowCatcherLight(
-        self, request, workspace, project, launcher_platform, generic_launcher, exe_file_name, golden_images_directory):
+            self, request, workspace, project, launcher_platform, generic_launcher, exe_file_name, golden_images_directory):
         golden_screenshots = [
             os.path.join(golden_images_directory, 'Windows', 'MaterialEditorCube.ppm'),
             os.path.join(golden_images_directory, 'Windows', 'MaterialEditorGridDisable.ppm'),

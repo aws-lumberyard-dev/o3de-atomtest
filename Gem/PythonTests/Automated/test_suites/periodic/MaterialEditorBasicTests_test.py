@@ -43,21 +43,7 @@ class TestMaterialEditorBasicTests(object):
             delete_files()
 
         request.addfinalizer(teardown)
-    
 
-    @pytest.mark.test_case_id(
-        "C34448113",
-        "C34448114",
-        "C34448115",
-        "C34448116",
-        "C34448117",
-        "C34448118",
-        "C34448119",
-        "C34448120",
-        "C34448121",
-    )
-
-    
     @pytest.mark.parametrize("exe_file_name", ["MaterialEditor"])
     def test_MaterialEditorBasicTests(
         self, request, workspace, project, launcher_platform, generic_launcher, exe_file_name

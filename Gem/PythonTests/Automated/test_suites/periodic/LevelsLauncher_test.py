@@ -10,12 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 """
 
 import pytest
-# This test is temporarily disabled because it takes too long to run.
-# See ATOM-14758 for more info.
-pytestmark = pytest.mark.skip
 
-# Bail on the test if ly_test_tools doesn't exist.
-pytest.importorskip("ly_test_tools")
 from Automated.atom_utils import hydra_test_utils as hydra
 from ly_remote_console.remote_console_commands import RemoteConsole as RemoteConsole
 
@@ -35,21 +30,6 @@ class TestLevelsLauncher(object):
         request.addfinalizer(teardown)
         return console
 
-    @pytest.mark.test_case_id(
-        "C34448165",
-        "C34448166",
-        "C34448167",
-        "C34448168",
-        "C34448169",
-        "C34448170",
-        "C34448171",
-        "C34448172",
-        "C34448173",
-        "C34448174",
-        "C34448175",
-        "C34448176",
-        "C34448177",
-    )
     @pytest.mark.parametrize(
         "level",
         [
@@ -65,7 +45,8 @@ class TestLevelsLauncher(object):
             "NormalMapping",
             "PbrMaterialChart",
             "ShadowTest",
-            "TangentSpace",
+            "Sponza",
+            "SponzaDiffuseGI"
         ],
     )
     def test_LevelsLauncher(

@@ -11,7 +11,6 @@
 
 ################################################################################
 # Automated Tests
-# Tests are not in their final/desired suites yet - see ATOM-14520
 ################################################################################
 
 if(PAL_TRAIT_BUILD_HOST_TOOLS AND PAL_TRAIT_BUILD_TESTS_SUPPORTED AND AtomTest IN_LIST LY_PROJECTS)
