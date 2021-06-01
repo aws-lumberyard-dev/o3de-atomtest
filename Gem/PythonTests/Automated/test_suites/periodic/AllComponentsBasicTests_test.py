@@ -7,6 +7,8 @@ distribution (the "License"). All use of this software is governed by the Licens
 or, if provided, by the license below or the license accompanying this file. Do not
 remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+Basic tests for the Atom components that can be added to an entity inside the Editor.
 """
 import os
 
@@ -23,7 +25,22 @@ EDITOR_TIMEOUT = 180
 @pytest.mark.parametrize("level", ["tmp_level"])
 class TestAllComponentsBasicTests(object):
 
-    def test_AllComponentsTest(self, request, editor, level, workspace, project, launcher_platform):
+    def test_AllAtomComponents_AddedToEntity(self, request, editor, level, workspace, project, launcher_platform):
+        """
+        Please review the hydra script run by this test for more specific test info.
+        Tests the following Atom components and verifies all "expected_lines" appear in Editor.log:
+        1. Display Mapper
+        2. Light
+        3. Radius Weight Modifier
+        4. PostFX Layer
+        5. Physical Sky
+        6. Global Skylight (IBL)
+        7. Exposure Control
+        8. Directional Light
+        9. DepthOfField
+        10. Decal (Atom)
+        11. Reflection Probe
+        """
         cfg_args = [level]
 
         expected_lines = [
@@ -163,7 +180,8 @@ class TestAllComponentsBasicTests(object):
         ]
 
         unexpected_lines = [
-            "failed to open",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 
