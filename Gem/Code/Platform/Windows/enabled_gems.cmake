@@ -9,5 +9,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #
 
-set(GEM_DEPENDENCIES
+set(ENABLED_GEMS
+    DccScriptingInterface
 )

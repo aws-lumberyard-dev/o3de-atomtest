@@ -9,22 +9,5 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #
 
-# Extracted from Editor.xml
-set(GEM_DEPENDENCIES
-    Gem::Maestro.Editor
-    Gem::TextureAtlas.Editor
-    Gem::LmbrCentral.Editor
-    Gem::NvCloth.Editor
-    Gem::LyShine.Editor
-    Gem::SceneProcessing.Editor
-    Gem::EditorPythonBindings.Editor
-    Gem::Camera.Editor
-    Gem::CameraFramework
-    Gem::EMotionFX.Editor
-    Gem::ImGui.Editor
-    Gem::Atom_AtomBridge.Editor
-    Gem::AtomTest
-    Gem::GradientSignal.Editor
-    Gem::WhiteBox.Editor
-    Gem::DebugDraw.Editor
+set(ENABLED_GEMS
 )

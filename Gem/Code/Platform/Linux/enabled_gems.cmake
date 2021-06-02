@@ -9,20 +9,5 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #
 
-# Extracted from Game.xml
-set(GEM_DEPENDENCIES
-    Gem::Maestro
-    Gem::TextureAtlas
-    Gem::LmbrCentral
-    Gem::NvCloth
-    Gem::LyShine
-    Gem::Camera
-    Gem::CameraFramework
-    Gem::EMotionFX
-    Gem::ImGui
-    Gem::Atom_AtomBridge
-    Gem::AtomTest
-    Gem::GradientSignal
-    Gem::WhiteBox
-    Gem::DebugDraw
+set(ENABLED_GEMS
 )
