@@ -9,7 +9,23 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #
 
-set(GEM_DEPENDENCIES
-    Gem::DccScriptingInterface.Editor
-    Gem::QtForPython.Editor
+set(ENABLED_GEMS
+    Maestro
+    TextureAtlas
+    LmbrCentral
+    NvCloth
+    LyShine
+    Camera
+    CameraFramework
+    EMotionFX
+    ImGui
+    Atom_AtomBridge
+    AtomTest
+    GradientSignal
+    WhiteBox
+    DebugDraw
+    SceneProcessing
+    EditorPythonBindings
+    QtForPython
+    DccScriptingInterface
 )
