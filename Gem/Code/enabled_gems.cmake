@@ -27,4 +27,5 @@ set(ENABLED_GEMS
     SceneProcessing
     EditorPythonBindings
     QtForPython
+    DccScriptingInterface
 )

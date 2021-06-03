@@ -27,7 +27,7 @@ ly_add_target(
 )
 
 # if enabled, AtomTest gem is used by the Client and Server Launchers as well as Tools
-# But it it isn't needed in Buildes
+# But it isn't needed in Builders
 ly_create_alias(NAME AtomTest.Clients NAMESPACE Gem TARGETS Gem::AtomTest)
 ly_create_alias(NAME AtomTest.Servers NAMESPACE Gem TARGETS Gem::AtomTest)
 ly_create_alias(NAME AtomTest.Tools   NAMESPACE Gem TARGETS Gem::AtomTest)
@@ -52,26 +52,13 @@ endif()
 
 if (PAL_TRAIT_BUILD_HOST_TOOLS)
     # The Editor uses "Tools" gem variants:
-    ly_enable_gems(
-        PROJECT_NAME AtomTest GEM_FILE enabled_gems.cmake
+    ly_enable_gems(PROJECT_NAME AtomTest GEM_FILE enabled_gems.cmake
         TARGETS Editor
         VARIANTS Tools)
 
-    # Platform specific "Tools" gem variants(for DccScriptingInterface) gem
-    ly_enable_gems(
-        PROJECT_NAME AtomTest GEM_FILE ${pal_dir}/enabled_gems.cmake
-        TARGETS Editor
-        VARIANTS Tools)
 
     # The pipeline tools use "Builders" gem variants:
-    ly_enable_gems(
-        PROJECT_NAME AtomTest GEM_FILE enabled_gems.cmake
-        TARGETS AssetBuilder AssetProcessor AssetProcessorBatch
-        VARIANTS Builders)
-
-    # Platform specific "Builder" gem variants(for DccScriptingInterface) gem
-    ly_enable_gems(
-        PROJECT_NAME AtomTest GEM_FILE ${pal_dir}/enabled_gems.cmake
+    ly_enable_gems(PROJECT_NAME AtomTest GEM_FILE enabled_gems.cmake
         TARGETS AssetBuilder AssetProcessor AssetProcessorBatch
         VARIANTS Builders)
 endif()
