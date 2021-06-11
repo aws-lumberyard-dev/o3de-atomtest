@@ -1,0 +1,6 @@
+<download name="Hair_Ngaz_001" type="Map">
+ <index src="filelist.xml" dest="filelist.xml"/>
+ <files>
+  <file src="level.pak" dest="level.pak" size="355" md5="c86b3b89ce36e42d25df96dbd719e62f"/>
+ </files>
+</download>
