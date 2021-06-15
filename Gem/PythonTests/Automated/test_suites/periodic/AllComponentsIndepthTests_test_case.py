@@ -109,6 +109,7 @@ def run():
     # Run tests.
     test_class.area_light_component_test()
     test_class.spot_light_component_test()
+    test_class.grid_component_test()
     general.log("Component tests completed")
 
 
@@ -130,6 +131,7 @@ class TestAllComponentsIndepthTests(object):
             raise AllComponentsIndepthLevelMissing(
                 f'Missing the level: "{BASIC_LEVEL_NAME}" - '
                 f'Please run the BasicLevelSetup_test_case.py script to create this level as the test requires it.')
+        general.idle_enable(True)
 
     def level_load_save(self, level_name):
         general.open_level_no_prompt(level_name)
@@ -365,6 +367,59 @@ class TestAllComponentsIndepthTests(object):
         self.spot_light.get_set_test(0, "Controller|Configuration|Shadow|ShadowmapSize", 256.0)
         self.spot_light.get_set_test(0, "Controller|Configuration|Shadow|Enable Shadow", True)
         self.take_screenshot_game_mode("SpotLight_7")
+
+    def grid_component_test(self):
+        """
+        Basic test for the Grid component attached to an entity.
+        """
+        # NOTE: This step is repeated to ensure we have the expected setup while running the test for each component
+        self.atom_component_basic_setup()
+        # Get the default_entity and Grid component objects
+        component_name = "Grid"
+        search_filter = azlmbr.entity.SearchFilter()
+        search_filter.names = ['default_level']
+        default_level_id = azlmbr.entity.SearchBus(azlmbr.bus.Broadcast, 'SearchEntities', search_filter)[0]
+        type_id_list = azlmbr.editor.EditorComponentAPIBus(azlmbr.bus.Broadcast, 'FindComponentTypeIdsByEntityType', [component_name], 0)
+        outcome = azlmbr.editor.EditorComponentAPIBus(azlmbr.bus.Broadcast, 'GetComponentOfType', default_level_id, type_id_list[0])
+        grid_component = outcome.GetValue()
+
+        # Update grid size of the Grid component of default_level and take screenshot
+        helper.set_component_property(grid_component, "Controller|Configuration|Grid Size", 64.0)
+        self.take_screenshot_game_mode("Grid_1")
+
+        # Update axis color of the Grid component of default_level and take screenshot
+        color = math.Color(13.0 / 255.0, 255.0 / 255.0, 0.0 / 255.0, 255.0 / 255.0)
+        helper.set_component_property(grid_component, "Controller|Configuration|Axis Color", color)
+        self.take_screenshot_game_mode("Grid_2")
+        
+        # Update Primary Grid Spacing of the Grid component of default_level and take screenshot
+        helper.set_component_property(grid_component, "Controller|Configuration|Primary Grid Spacing", 0.5)
+        self.take_screenshot_game_mode("Grid_3")
+
+        # Update Primary color of the Grid component of default_level and take screenshot
+        color = math.Color(129.0 / 255.0, 96.0 / 255.0, 0.0 / 255.0, 255.0 / 255.0)
+        helper.set_component_property(grid_component, "Controller|Configuration|Primary Color", color)
+        self.take_screenshot_game_mode("Grid_4")
+        
+        # Update Secondary Grid Spacing of the Grid component of default_level and take screenshot
+        helper.set_component_property(grid_component, "Controller|Configuration|Secondary Grid Spacing", 0.75)
+        self.take_screenshot_game_mode("Grid_5")
+
+        # Update Secondary color of the Grid component of default_level and take screenshot
+        color = math.Color(0.0 / 255.0, 35.0 / 255.0, 161.0 / 255.0, 255.0 / 255.0)
+        helper.set_component_property(grid_component, "Controller|Configuration|Secondary Color", color)
+        self.take_screenshot_game_mode("Grid_6")
+
+        # Restore default grid values
+        helper.set_component_property(grid_component, "Controller|Configuration|Grid Size", 32.0)
+        color = math.Color(0.0 / 255.0, 0.0 / 255.0, 255.0 / 255.0, 255.0 / 255.0)
+        helper.set_component_property(grid_component, "Controller|Configuration|Axis Color", color)
+        helper.set_component_property(grid_component, "Controller|Configuration|Primary Grid Spacing", 1.0)
+        color = math.Color(64.0 / 255.0, 64.0 / 255.0, 64.0 / 255.0, 255.0 / 255.0)
+        helper.set_component_property(grid_component, "Controller|Configuration|Primary Color", color)
+        helper.set_component_property(grid_component, "Controller|Configuration|Secondary Grid Spacing", 1.0)
+        color = math.Color(128.0 / 255.0, 128.0 / 255.0, 128.0 / 255.0, 255.0 / 255.0)
+        helper.set_component_property(grid_component, "Controller|Configuration|Secondary Color", color)
 
 
 if __name__ == "__main__":
