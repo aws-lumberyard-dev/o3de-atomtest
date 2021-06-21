@@ -24,13 +24,6 @@
                     "Gems/AtomContent/ReferenceMaterials"
                 ]
             },
-            "LookDevelopmentStudioPixar":
-            {
-                "SourcePaths":
-                [
-                    "Gems/AtomContent/LookDevelopmentStudioPixar"
-                ]
-            },
             "Sponza":
             {
                 "SourcePaths":
