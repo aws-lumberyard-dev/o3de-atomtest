@@ -36,7 +36,7 @@ enum class Mode
     Lit
 };
 
-option Mode o_mode;
+option Mode o_mode = Mode::Raw;
 
 struct PixelOutput
 {
@@ -71,7 +71,7 @@ PixelOutput MainPS(VertexOutput input)
         return output;
     }
 
-    float3 normal = GetWorldSpaceNormal(normalMapSample, input.m_normal, input.m_tangent, input.m_bitangent);
+    float3 normal = GetWorldSpaceNormal(normalMapSample.xy, input.m_normal, input.m_tangent, input.m_bitangent);
 
     if (o_mode == Mode::Normal)
     {
