@@ -1,12 +1,7 @@
 """
-All or portions of this file Copyright (c) Amazon.com, Inc. or its affiliates or
-its licensors.
+Copyright (c) Contributors to the Open 3D Engine Project
 
-For complete copyright and license terms please see the LICENSE at the root of this
-distribution (the "License"). All use of this software is governed by the License,
-or, if provided, by the license below or the license accompanying this file. Do not
-remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+SPDX-License-Identifier: Apache-2.0 OR MIT
 """
 
 
@@ -21,14 +16,13 @@ EDITOR_TIMEOUT = 30
 
 @pytest.mark.parametrize("project", ["AtomTest"])
 class TestLaunchEditorMaterialEditorRHIArgs(object):
-    @pytest.mark.test_case_id("C34117601", "C34117602")
     @pytest.mark.parametrize("launcher_platform", ['windows_editor'])
-    @pytest.mark.parametrize("cfg_args", ["--rhi=dx12", "--rhi=Vulkan"])
+    @pytest.mark.parametrize("cfg_args", ["-rhi=dx12", "-rhi=Vulkan", "-rhi=Null"])
     def test_EditorLaunch(self, request, editor, workspace, project, launcher_platform, cfg_args):
         expected_lines = []
         unexpected_lines = [
-            "Error",
-            "Assert",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 
@@ -40,12 +34,12 @@ class TestLaunchEditorMaterialEditorRHIArgs(object):
             timeout=EDITOR_TIMEOUT,
             expected_lines=expected_lines,
             unexpected_lines=unexpected_lines,
+            halt_on_unexpected=True,
             cfg_args=[cfg_args],
         )
 
-    @pytest.mark.test_case_id("C30973986", "C30973987")
     @pytest.mark.parametrize("launcher_platform", ['windows_generic'])
-    @pytest.mark.parametrize("cfg_args", ["--rhi=dx12", "--rhi=Vulkan"])
+    @pytest.mark.parametrize("cfg_args", ["-rhi=dx12", "-rhi=Vulkan", "-rhi=Null"])
     @pytest.mark.parametrize("exe_file_name", ["MaterialEditor"])
     def test_MaterialEditorLaunch(
         self, request, workspace, project, generic_launcher, exe_file_name, launcher_platform, cfg_args
@@ -53,8 +47,8 @@ class TestLaunchEditorMaterialEditorRHIArgs(object):
 
         expected_lines = []
         unexpected_lines = [
-            "Error",
-            "Assert",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 

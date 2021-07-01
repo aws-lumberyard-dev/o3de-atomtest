@@ -1,6 +1,6 @@
 <download name="ActorTest_SingleActor" type="Map">
  <index src="filelist.xml" dest="filelist.xml"/>
  <files>
-  <file src="level.pak" dest="level.pak" size="1719" md5="ef6eb7dba260e6ce2ba6560bc92c4c35"/>
+  <file src="level.pak" dest="level.pak" size="15FC" md5="036bf191ab1104a82464082fd7cc6489"/>
  </files>
 </download>

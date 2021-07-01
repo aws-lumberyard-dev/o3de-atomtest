@@ -1,12 +1,7 @@
 """
-All or portions of this file Copyright (c) Amazon.com, Inc. or its affiliates or
-its licensors.
+Copyright (c) Contributors to the Open 3D Engine Project
 
-For complete copyright and license terms please see the LICENSE at the root of this
-distribution (the "License"). All use of this software is governed by the License,
-or, if provided, by the license below or the license accompanying this file. Do not
-remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+SPDX-License-Identifier: Apache-2.0 OR MIT
 """
 
 import os
@@ -43,21 +38,7 @@ class TestMaterialEditorBasicTests(object):
             delete_files()
 
         request.addfinalizer(teardown)
-    
 
-    @pytest.mark.test_case_id(
-        "C34448113",
-        "C34448114",
-        "C34448115",
-        "C34448116",
-        "C34448117",
-        "C34448118",
-        "C34448119",
-        "C34448120",
-        "C34448121",
-    )
-
-    
     @pytest.mark.parametrize("exe_file_name", ["MaterialEditor"])
     def test_MaterialEditorBasicTests(
         self, request, workspace, project, launcher_platform, generic_launcher, exe_file_name
@@ -77,6 +58,8 @@ class TestMaterialEditorBasicTests(object):
             "Save All worked as expected: True",
         ]
         unexpected_lines = [
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 

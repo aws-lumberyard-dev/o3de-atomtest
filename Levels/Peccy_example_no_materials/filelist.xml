@@ -1,6 +1,0 @@
-<download name="Peccy_example_no_materials" type="Map">
- <index src="filelist.xml" dest="filelist.xml"/>
- <files>
-  <file src="level.pak" dest="level.pak" size="1CF6" md5="c5105bbc62b4f564b95fc9408f78d710"/>
- </files>
-</download>
