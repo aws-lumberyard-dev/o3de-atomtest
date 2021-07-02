@@ -17,6 +17,7 @@ set(ENABLED_GEMS
     ImGui
     Atom_AtomBridge
     AtomTest
+    AtomTressFX
     GradientSignal
     WhiteBox
     DebugDraw
