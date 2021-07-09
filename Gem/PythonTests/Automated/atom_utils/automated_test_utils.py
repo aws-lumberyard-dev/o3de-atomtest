@@ -7,13 +7,15 @@ import time
 import azlmbr.legacy.general as general
 import azlmbr.atom
 
+
 class FailFast(BaseException):
     """
     Raise to stop proceeding through test steps.
     """
 
     pass
-    
+
+
 class TestHelper:
     @staticmethod
     def init_idle():
