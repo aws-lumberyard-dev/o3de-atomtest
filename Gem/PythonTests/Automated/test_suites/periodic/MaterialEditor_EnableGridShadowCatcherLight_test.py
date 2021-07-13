@@ -1,12 +1,7 @@
 """
-All or portions of this file Copyright (c) Amazon.com, Inc. or its affiliates or
-its licensors.
+Copyright (c) Contributors to the Open 3D Engine Project
 
-For complete copyright and license terms please see the LICENSE at the root of this
-distribution (the "License"). All use of this software is governed by the License,
-or, if provided, by the license below or the license accompanying this file. Do not
-remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+SPDX-License-Identifier: Apache-2.0 OR MIT
 """
 
 import os
@@ -15,7 +10,7 @@ import pytest
 from Automated.atom_utils import hydra_test_utils as hydra
 from Automated.atom_utils.automated_test_base import TestAutomationBase
 
-test_directory = os.path.dirname(__file__)
+TEST_DIRECTORY = os.path.dirname(__file__)
 log_monitor_timeout = 60
 
 
@@ -23,21 +18,18 @@ log_monitor_timeout = 60
 @pytest.mark.parametrize("launcher_platform", ["windows_generic"])
 @pytest.mark.system
 class TestMaterialEditorEnableGridShadowCatcherLight(TestAutomationBase):
-    @pytest.mark.test_case_id(
-        "C34448151", "C34448152", "C34448153", "C34448154",
-    )
+
     @pytest.mark.parametrize("exe_file_name", ["MaterialEditor"])
     def test_MaterialEditorEnableGridShadowCatcherLight(
-        self, request, workspace, project, launcher_platform, generic_launcher, exe_file_name
-    ):
+            self, request, workspace, project, launcher_platform, generic_launcher, exe_file_name, golden_images_directory):
         golden_screenshots = [
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MaterialEditorCube.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MaterialEditorGridDisable.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MaterialEditorGridEnable.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MaterialEditorLight.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MaterialEditorShaderBall.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MaterialEditorShadowDisable.ppm'),
-            os.path.join(os.path.dirname(__file__), 'GoldenImages', 'Windows', 'MaterialEditorShadowEnable.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorCube.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorGridDisable.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorGridEnable.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorLight.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorShaderBall.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorShadowDisable.ppm'),
+            os.path.join(golden_images_directory, 'Windows', 'MaterialEditorShadowEnable.ppm'),
         ]
 
         test_screenshots = [
@@ -58,18 +50,19 @@ class TestMaterialEditorEnableGridShadowCatcherLight(TestAutomationBase):
             "Shadow Catcher is toggled ON in viewport: True",
             "Shadow Catcher is toggled OFF in viewport: True",
         ]
-
         unexpected_lines = [
             "The grid is toggled ON in viewport: False",
             "The grid is toggled OFF in viewport: False",
             "Shadow Catcher is toggled ON in viewport: False",
             "Shadow Catcher is toggled OFF in viewport: False",
+            "Trace::Assert",
+            "Trace::Error",
             "Traceback (most recent call last):",
         ]
 
         hydra.launch_and_validate_results(
             request,
-            test_directory,
+            TEST_DIRECTORY,
             generic_launcher,
             "MaterialEditor_EnableGridShadowCatcherLight_test_case.py",
             timeout=log_monitor_timeout,

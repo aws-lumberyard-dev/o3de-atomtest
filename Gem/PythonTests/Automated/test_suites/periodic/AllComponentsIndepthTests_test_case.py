@@ -1,26 +1,16 @@
 """
-All or portions of this file Copyright (c) Amazon.com, Inc. or its affiliates or
-its licensors.
+Copyright (c) Contributors to the Open 3D Engine Project
 
-For complete copyright and license terms please see the LICENSE at the root of this
-distribution (the "License"). All use of this software is governed by the License,
-or, if provided, by the license below or the license accompanying this file. Do not
-remove or modify any license notices. This file is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+SPDX-License-Identifier: Apache-2.0 OR MIT
+
+WARNING: This script must be run after the "BasicLevelSetup_test_case.py" script in this same directory.
+
+Hydra script that uses the level created by the BasicLevelSetup_test_case.py script to verify rendering.
+After loading the level, it manipulates Area Lights & Spot Lights against a sphere object, and takes screenshots.
+Screenshots are diffed against golden images are used to verify pass/fail results of the test.
+
+See the run() function for more in-depth test info.
 """
-# This module tests 3 different test cases.
-
-# Test case ID #1: C35035568
-# Test Case Title : Level Load & Save
-# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/35035568
-
-# Test case ID #1: C34525095
-# Test Case Title : Area Light
-# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/34525095
-
-# Test case ID #1: C34525110
-# Test Case Title : Spot Light
-# URL of the test case : https://testrail.agscollab.com/index.php?/cases/view/34525110
 
 import os
 import sys
@@ -38,10 +28,133 @@ import Automated.atom_utils.hydra_editor_utils as hydra
 from Automated.atom_utils.automated_test_utils import TestHelper as helper
 from Automated.atom_utils.screenshot_utils import ScreenshotHelper
 
-BASIC_LEVEL_NAME = "all_components_indepth_level"  # Specified in class TestAllComponentsIndepthTests()
+BASIC_LEVEL_NAME = "all_components_indepth_level"  # Created by BasicLevelSetup_test_case.py
 DEGREE_RADIAN_FACTOR = 0.0174533
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
+
+
+def run():
+    """
+    Sets up the tests by making sure the required level is created & setup correctly.
+    It then executes 2 test cases:
+
+    Test Case - Area Light:
+    1. Creates "area_light" entity w/ an Area Light component that has a Capsule Shape w/ the color set to 255, 0, 0
+    2. Enters game mode to take a screenshot for comparison, then exits game mode.
+    3. Sets the Area Light component Intensity Mode to Lumens (default).
+    4. Ensures the Area Light component Mode is Automatic (default).
+    5. Sets the Intensity value of the Area Light component to 0.0
+    6. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
+    7. Updates the Intensity value of the Area Light component to 1000.0
+    8. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
+    9. Deletes the Capsule Shape from "area_light" entity and adds a Disk Shape component to "area_light" entity.
+    10. Updates "area_light" Transform rotate value to x: 90.0, y:0.0, z:0.0
+    11. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
+    12. Enables the "Both Directions" field in the Area Light component.
+    13. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
+    14. Disables the "Both Directions" field in the Area Light component.
+    15. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
+    16. Deletes Disk Shape component from "area_light" entity & adds a Sphere Shape component to "area_light" entity.
+    17. Enters game mode again, takes another  screenshot for comparison, then exits game mode.
+    18. Deletes the Area Light component from the "area_light" entity and verifies its successful.
+
+    Test Case - Spot Light:
+    1. Creates "spot_light" entity w/ a Spot Light component attached to it.
+    2. Selects the "directional_light" entity already present in the level and disables it.
+    3. Selects the "global_skylight" entity already present in the level and disables the HDRi Skybox component,
+        as well as the Global Skylight (IBL) component.
+    4. Enters game mode to take a screenshot for comparison, then exits game mode.
+    5. Selects the "ground_plane" entity and changes updates the material to a new material.
+    6. Enters game mode to take a screenshot for comparison, then exits game mode.
+    7. Selects the "spot_light" entity and increases the Spot Light component Intensity to 800 lm
+    8. Enters game mode to take a screenshot for comparison, then exits game mode.
+    9. Selects the "spot_light" entity and sets the Spot Light component Color to 47, 75, 37
+    10. Enters game mode to take a screenshot for comparison, then exits game mode.
+    11. Selects the "spot_light" entity and modifies the Cone Configuration controls to the following values:
+        - Outer Cone Angle: 130
+        - Inner Cone Angle: 80
+        - Penumbra Bias: 0.9
+    12. Enters game mode to take a screenshot for comparison, then exits game mode.
+    13. Selects the "spot_light" entity and modifies the Attenuation Radius controls to the following values:
+        - Mode: Explicit
+        - Radius: 8
+    14. Enters game mode to take a screenshot for comparison, then exits game mode.
+    15. Selects the "spot_light" entity and modifies the Shadow controls to the following values:
+        - Enable Shadow: On
+        - ShadowmapSize: 256
+    16. Enters game mode to take a screenshot for comparison, then exits game mode.
+    17. Deletes the "spotlight_entity" and selects the "ground_plane" entity, updating the Material component to a new
+        material.
+    18. Selects the "directional_light" entity and enables the Directional Light component.
+    19. Selects the "global_skylight" entity and enables the HDRi Skybox component & Global Skylight (IBL) component.
+    
+    Test Case - Grid:
+    1. Selects the "default_level" entity.
+    2. Select Grid component inside default_entity.
+    3. Change the Grid Size value to 64.
+    4. Enters game mode to take a screenshot for comparison, then exits game mode.
+    5. Change the Axis Color to: 13,255,0
+    6. Enters game mode to take a screenshot for comparison, then exits game mode.
+    7. Change the Primary Grid Spacing value to: 0.5
+    8. Enters game mode to take a screenshot for comparison, then exits game mode.
+    9. Change the Primary Color to: 129,96,0
+    10. Enters game mode to take a screenshot for comparison, then exits game mode.
+    11. Change the Secondary Grid Spacing value to: 0.75
+    12. Enters game mode to take a screenshot for comparison, then exits game mode.
+    13. Change the Secondary Color to: 0,35,161
+    14. Enters game mode to take a screenshot for comparison, then exits game mode.
+    15. Change the values back to original values like below
+        Grid Size value to 32.
+        Axis Color to: 0,0,255.
+        Primary Grid Spacing value to: 1.0.
+        Primary Color to: 64,64,64.
+        Secondary Grid Spacing value to: 1.0.
+        Secondary Color to: 128,128,128.
+
+    Test Case - decal:
+    1. Create child entity "decal_1" at position (3.0, 0.0, 1.0) under "default_level" entity.
+    2. Find the Material property and set it to "airship_symbol_decal.material"
+    3. Enters game mode to take a screenshot for comparison, then exits game mode.
+    4. Change the Scale value in Transform component to 3.
+    5. Enters game mode to take a screenshot for comparison, then exits game mode.
+    6. Set the Attenuation Angle in decal component to: 0.75.
+    7. Enters game mode to take a screenshot for comparison, then exits game mode.
+    8. Set Opacity to: 0.03.
+    9. Enters game mode to take a screenshot for comparison, then exits game mode.
+    10. Set Opacity back to 1.
+    11. Create child entity "decal_2" at position (5.0, 0.0, 0.5) under "default_level" entity.
+    12. Set the material value to "valenaactor_helmetmat.material" and Sort Key value to: 0.
+    13. Enters game mode to take a screenshot for comparison, then exits game mode.
+    14. Set the Sort Key value to: 50.
+    15. Enters game mode to take a screenshot for comparison, then exits game mode.
+
+    Finally prints the string "Component tests completed" after completion
+    
+    Tests will fail immediately if any of these log lines are found:
+    1. Trace::Assert
+    2. Trace::Error
+    3. Traceback (most recent call last):
+
+    :return: None
+    """
+    test_class = TestAllComponentsIndepthTests()
+    test_class.level_load_save(level_name=BASIC_LEVEL_NAME)
+    test_class.initial_viewport_setup(screen_width=SCREEN_WIDTH, screen_height=SCREEN_HEIGHT)
+
+    # Run tests.
+    test_class.area_light_component_test()
+    test_class.spot_light_component_test()
+    test_class.grid_component_test()
+    test_class.decal_component_test()
+    general.log("Component tests completed")
+
+
+class AllComponentsIndepthLevelMissing(Exception):
+    """
+    Raised when the BASIC_LEVEL_NAME level is missing.
+    """
+    pass
 
 
 class TestAllComponentsIndepthTests(object):
@@ -50,83 +163,12 @@ class TestAllComponentsIndepthTests(object):
     """
 
     def atom_component_basic_setup(self):
-        hydra.delete_all_existing_entities()
-
-        # Create default_level entity
-        self.default_level = hydra.Entity("default_level")
-        position = math.Vector3(0.0, 0.0, 0.0)
-        self.default_level.create_entity(position, ["Grid"])
-        self.default_level.get_set_test(0, "Controller|Configuration|Secondary Grid Spacing", 1.0)
-
-        # Create global_skylight entity and set the properties
-        self.global_skylight = hydra.Entity("global_skylight")
-        self.global_skylight.create_entity(
-            components=["HDRi Skybox", "Global Skylight (IBL)"], parent_id=self.default_level.id
-        )
-        asset_value = hydra.get_asset_by_path(
-            os.path.join("LightingPresets", "greenwich_park_02_4k_iblskyboxcm_iblspecular.exr.streamingimage")
-        )
-        self.global_skylight.get_set_test(0, "Controller|Configuration|Cubemap Texture", asset_value)
-        self.global_skylight.get_set_test(1, "Controller|Configuration|Diffuse Image", asset_value)
-        self.global_skylight.get_set_test(1, "Controller|Configuration|Specular Image", asset_value)
-
-        # Create ground_plane entity and set the properties
-        self.ground_plane = hydra.Entity("ground_plane")
-        scale = math.Vector3(32.0, 32.0, 1.0)
-        self.ground_plane.create_entity(components=["Material"], parent_id=self.default_level.id)
-        azlmbr.components.TransformBus(azlmbr.bus.Event, "SetLocalScale", self.ground_plane.id, scale)
-        asset_value = hydra.get_asset_by_path(os.path.join("Materials", "Presets", "PBR", "metal_chrome.azmaterial"))
-        self.ground_plane.get_set_test(0, "Default Material|Material Asset", asset_value)
-        # Work around to add the correct Atom Mesh component
-        mesh_type_id = azlmbr.globals.property.EditorMeshComponentTypeId
-        self.ground_plane.components.append(
-            editor.EditorComponentAPIBus(
-                bus.Broadcast, "AddComponentsOfType", self.ground_plane.id, [mesh_type_id]
-            ).GetValue()[0]
-        )
-        asset_value = hydra.get_asset_by_path(os.path.join("Objects", "plane.azmodel"))
-        self.ground_plane.get_set_test(1, "Controller|Configuration|Mesh asset", asset_value)
-
-        # Create directional_light entity and set the properties
-        self.directional_light = hydra.Entity("directional_light")
-        position = math.Vector3(0.0, 0.0, 10.0)
-        self.directional_light.create_entity(
-            components=["Directional Light"], entity_position=position, parent_id=self.default_level.id
-        )
-        rotation = math.Vector3(DEGREE_RADIAN_FACTOR * -90.0, 0.0, 0.0)
-        azlmbr.components.TransformBus(azlmbr.bus.Event, "SetLocalRotation", self.directional_light.id, rotation)
-
-        # Create sphere entity and set the properties
-        self.sphere = hydra.Entity("sphere")
-        position = math.Vector3(0.0, 0.0, 1.0)
-        self.sphere.create_entity(
-            components=["Material"], entity_position=position, parent_id=self.default_level.id
-        )
-        asset_value = hydra.get_asset_by_path(
-            os.path.join("Materials", "Presets", "PBR", "metal_brass_polished.azmaterial")
-        )
-        self.sphere.get_set_test(0, "Default Material|Material Asset", asset_value)
-        # Work around to add the correct Atom Mesh component
-        self.sphere.components.append(
-            editor.EditorComponentAPIBus(
-                bus.Broadcast, "AddComponentsOfType", self.sphere.id, [mesh_type_id]
-            ).GetValue()[0]
-        )
-        asset_value = hydra.get_asset_by_path(os.path.join("Objects", "sphere.azmodel"))
-        self.sphere.get_set_test(1, "Controller|Configuration|Mesh asset", asset_value)
-
-        # Create camera component and set the properties
-        camera = hydra.Entity("camera")
-        position = math.Vector3(5.5, -12.0, 9.0)
-        camera.create_entity(components=["Camera"], entity_position=position, parent_id=self.default_level.id)
-        rotation = math.Vector3(
-            DEGREE_RADIAN_FACTOR * -27.0, DEGREE_RADIAN_FACTOR * -12.0, DEGREE_RADIAN_FACTOR * 25.0
-        )
-        azlmbr.components.TransformBus(azlmbr.bus.Event, "SetLocalRotation", camera.id, rotation)
-        camera.get_set_test(0, "Controller|Configuration|Field of view", 60.0)
-
-        # Be this camera
-        hydra.be_this_camera(camera.id)
+        if not os.path.exists(
+                os.path.join(azlmbr.paths.devroot, "AtomTest", "Levels", BASIC_LEVEL_NAME)):
+            raise AllComponentsIndepthLevelMissing(
+                f'Missing the level: "{BASIC_LEVEL_NAME}" - '
+                f'Please run the BasicLevelSetup_test_case.py script to create this level as the test requires it.')
+        general.idle_enable(True)
 
     def level_load_save(self, level_name):
         general.open_level_no_prompt(level_name)
@@ -239,6 +281,7 @@ class TestAllComponentsIndepthTests(object):
         general.idle_wait(1.0)
         helper.wait_for_condition(lambda: general.is_in_game_mode())
         ScreenshotHelper(general.idle_wait_frames).capture_screenshot_blocking(f"{screenshot_name}.ppm")
+        general.idle_wait(1.0)
         general.exit_game_mode()
         helper.wait_for_condition(lambda: not general.is_in_game_mode())
 
@@ -257,8 +300,7 @@ class TestAllComponentsIndepthTests(object):
         self.verify_hide_unhide_entity(entity_obj)
         self.verify_deletion_undo_redo(component_name, entity_obj)
 
-        # NOTE: This step is repeated to ensure we have clean setup while running the test for each component
-        # Create initial atom basic setup
+        # NOTE: This step is repeated to ensure we have the expected setup while running the test for each component
         self.atom_component_basic_setup()
 
         # Create entity with Area Light component
@@ -315,8 +357,7 @@ class TestAllComponentsIndepthTests(object):
         self.verify_hide_unhide_entity(entity_obj)
         self.verify_deletion_undo_redo(entity_obj)
 
-        # NOTE: This step is repeated to ensure we have clean setup while running the test for each component
-        # Create initial atom basic setup
+        # NOTE: This step is repeated to ensure we have the expected setup while running the test for each component
         self.atom_component_basic_setup()
 
         # Create entity with Spot Light component
@@ -365,18 +406,108 @@ class TestAllComponentsIndepthTests(object):
         self.spot_light.get_set_test(0, "Controller|Configuration|Shadow|Enable Shadow", True)
         self.take_screenshot_game_mode("SpotLight_7")
 
+    def grid_component_test(self):
+        """
+        Basic test for the Grid component attached to an entity.
+        """
+        # NOTE: This step is repeated to ensure we have the expected setup while running the test for each component
+        self.atom_component_basic_setup()
+        # Get the default_entity and Grid component objects
+        component_name = "Grid"
+        search_filter = azlmbr.entity.SearchFilter()
+        search_filter.names = ['default_level']
+        default_level_id = azlmbr.entity.SearchBus(azlmbr.bus.Broadcast, 'SearchEntities', search_filter)[0]
+        type_id_list = azlmbr.editor.EditorComponentAPIBus(azlmbr.bus.Broadcast, 'FindComponentTypeIdsByEntityType', [component_name], 0)
+        outcome = azlmbr.editor.EditorComponentAPIBus(azlmbr.bus.Broadcast, 'GetComponentOfType', default_level_id, type_id_list[0])
+        grid_component = outcome.GetValue()
 
-def run():
-    # Setup tests.
-    test_class = TestAllComponentsIndepthTests()
-    test_class.level_load_save(level_name=BASIC_LEVEL_NAME)
-    test_class.initial_viewport_setup(screen_width=SCREEN_WIDTH, screen_height=SCREEN_HEIGHT)
+        # Update grid size of the Grid component of default_level and take screenshot
+        helper.set_component_property(grid_component, "Controller|Configuration|Grid Size", 64.0)
+        self.take_screenshot_game_mode("Grid_1")
 
-    # Run tests.
-    # C34525095: Area Light
-    test_class.area_light_component_test()
-    test_class.spot_light_component_test()
-    general.log("Component tests completed")
+        # Update axis color of the Grid component of default_level and take screenshot
+        color = math.Color(13.0 / 255.0, 255.0 / 255.0, 0.0 / 255.0, 255.0 / 255.0)
+        helper.set_component_property(grid_component, "Controller|Configuration|Axis Color", color)
+        self.take_screenshot_game_mode("Grid_2")
+        
+        # Update Primary Grid Spacing of the Grid component of default_level and take screenshot
+        helper.set_component_property(grid_component, "Controller|Configuration|Primary Grid Spacing", 0.5)
+        self.take_screenshot_game_mode("Grid_3")
+
+        # Update Primary color of the Grid component of default_level and take screenshot
+        color = math.Color(129.0 / 255.0, 96.0 / 255.0, 0.0 / 255.0, 255.0 / 255.0)
+        helper.set_component_property(grid_component, "Controller|Configuration|Primary Color", color)
+        self.take_screenshot_game_mode("Grid_4")
+        
+        # Update Secondary Grid Spacing of the Grid component of default_level and take screenshot
+        helper.set_component_property(grid_component, "Controller|Configuration|Secondary Grid Spacing", 0.75)
+        self.take_screenshot_game_mode("Grid_5")
+
+        # Update Secondary color of the Grid component of default_level and take screenshot
+        color = math.Color(0.0 / 255.0, 35.0 / 255.0, 161.0 / 255.0, 255.0 / 255.0)
+        helper.set_component_property(grid_component, "Controller|Configuration|Secondary Color", color)
+        self.take_screenshot_game_mode("Grid_6")
+
+        # Restore default grid values
+        helper.set_component_property(grid_component, "Controller|Configuration|Grid Size", 32.0)
+        color = math.Color(0.0 / 255.0, 0.0 / 255.0, 255.0 / 255.0, 255.0 / 255.0)
+        helper.set_component_property(grid_component, "Controller|Configuration|Axis Color", color)
+        helper.set_component_property(grid_component, "Controller|Configuration|Primary Grid Spacing", 1.0)
+        color = math.Color(64.0 / 255.0, 64.0 / 255.0, 64.0 / 255.0, 255.0 / 255.0)
+        helper.set_component_property(grid_component, "Controller|Configuration|Primary Color", color)
+        helper.set_component_property(grid_component, "Controller|Configuration|Secondary Grid Spacing", 1.0)
+        color = math.Color(128.0 / 255.0, 128.0 / 255.0, 128.0 / 255.0, 255.0 / 255.0)
+        helper.set_component_property(grid_component, "Controller|Configuration|Secondary Color", color)
+
+    def decal_component_test(self):
+        """
+        Basic test for the Decal(Atom) component attached to an entity.
+        """
+        # NOTE: This step is repeated to ensure we have the expected setup while running the test for each component
+        self.atom_component_basic_setup()
+        # Create child entity 'decal_1' under Default entity and add decal component to it
+        component_name = "Decal (Atom)"
+        search_filter = azlmbr.entity.SearchFilter()
+        search_filter.names = ['default_level']
+        default_level_id = azlmbr.entity.SearchBus(azlmbr.bus.Broadcast, 'SearchEntities', search_filter)[0]
+        decal_1 = hydra.Entity("decal_1")
+        decal_1.create_entity(math.Vector3(3.0, 0.0, 1.0), components=[component_name], parent_id= default_level_id)
+        # Set the Material Property in decal component to "airship_symbol_decal.material" and take screenshot
+        asset_value = hydra.get_asset_by_path(
+            os.path.join("Materials", "decal", "airship_symbol_decal.azmaterial")
+        )
+        hydra.get_set_test(decal_1, 0, "Controller|Configuration|Material", asset_value)
+        self.take_screenshot_game_mode("Decal_1")
+
+        # Change the Uniform scale value in Transform component to: 3.0 and take screenshot
+        azlmbr.components.TransformBus(azlmbr.bus.Event, "SetLocalUniformScale", decal_1.id, 3.0)
+        self.take_screenshot_game_mode("Decal_2")
+
+        # Set the Attenuation Angle to: 0.75 in Decal component and take screenshot
+        hydra.get_set_test(decal_1, 0, "Controller|Configuration|Attenuation Angle", 0.75)
+        self.take_screenshot_game_mode("Decal_3")
+
+        # Set the Set Opacity to: 0.03 in Decal component and take screenshot
+        hydra.get_set_test(decal_1, 0, "Controller|Configuration|Opacity", 0.03)
+        self.take_screenshot_game_mode("Decal_4")
+
+        # Set Opacity back to 1.0
+        hydra.get_set_test(decal_1, 0, "Controller|Configuration|Opacity", 1.0)
+
+        # Create another child entity 'decal_2' under Default entity and add decal component to it
+        decal_2 = hydra.Entity("decal_2")
+        decal_2.create_entity(math.Vector3(5.0, 0.0, 0.5), components=[component_name], parent_id= default_level_id)
+
+        # Set the material value to "valenaactor_helmetmat.material", Sort Key value to: 0 and take screenshot
+        asset_value = hydra.get_asset_by_path(
+            os.path.join("Valena", "valenaactor_helmetmat.azmaterial")
+        )
+        hydra.get_set_test(decal_2, 0, "Controller|Configuration|Material", asset_value)
+        hydra.get_set_test(decal_2, 0, "Controller|Configuration|Sort Key", 0.0)
+        self.take_screenshot_game_mode("Decal_5")
+        # Set the Sort Key value of decal_2 to: 50 and take screenshot
+        hydra.get_set_test(decal_2, 0, "Controller|Configuration|Sort Key", 50.0)
+        self.take_screenshot_game_mode("Decal_6")
 
 
 if __name__ == "__main__":
