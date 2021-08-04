@@ -13,7 +13,7 @@ import sys
 import time
 import azlmbr.atom
 import azlmbr.materialeditor as materialeditor
-import azlmbr.materialeditor.general as general
+import azlmbr.atomtools.general as general
 import azlmbr.bus as bus
 import os
 
@@ -239,6 +239,6 @@ class ScreenshotHelper:
 
 
 def capture_screenshot(file_path):
-    return ScreenshotHelper(azlmbr.materialeditor.general.idle_wait_frames).capture_screenshot_blocking(
+    return ScreenshotHelper(azlmbr.atomtools.general.idle_wait_frames).capture_screenshot_blocking(
         os.path.join(file_path)
     )
