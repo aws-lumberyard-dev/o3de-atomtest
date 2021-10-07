@@ -62,7 +62,6 @@ while 0:  # bootstraps the DCCsi
     _LOGGER.debug(f'MODULE Path: {_MODULE_PATH}')
 
     # standard lumberyard paths if you need to check them
-    _LOGGER.debug(f'Dev root:{azlmbr.paths.devroot}')  # same as @devroot@
     _LOGGER.debug(f'Eng root:{azlmbr.paths.engroot}')  # same as @engroot@
 
     # from DCCsi
