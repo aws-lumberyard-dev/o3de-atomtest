@@ -1,0 +1,6 @@
+<download name="StyledHair_New_01" type="Map">
+ <index src="filelist.xml" dest="filelist.xml"/>
+ <files>
+  <file src="level.pak" dest="level.pak" size="548" md5="ff1554ce224d40534f8a34f9a617f5b7"/>
+ </files>
+</download>

@@ -19,7 +19,7 @@ set(ENABLED_GEMS
     Atom_AtomBridge
     AtomTest
 # Uncomment for enabling the Hair Gem - assets_scan_folder.setreg should contain the AtomTressFX Assets directory
-#    AtomTressFX 
+    AtomTressFX 
     GradientSignal
     WhiteBox
     DebugDraw
