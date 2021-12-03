@@ -28,4 +28,5 @@ set(ENABLED_GEMS
     QtForPython
     DccScriptingInterface
     GameStateSamples
+    Sponza
 )
